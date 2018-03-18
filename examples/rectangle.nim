@@ -1,4 +1,4 @@
-import clutter
+import nimclutter
 import oldgtk3/[glib, gobject]
 
 proc main() =
