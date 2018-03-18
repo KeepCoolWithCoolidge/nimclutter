@@ -3,7 +3,7 @@
 version       = "0.1.0"
 author        = "Andrew Burns"
 description   = "Nim bindings for Clutter toolkit."
-license       = "MIT"
+license       = "LGPLv2.1"
 srcDir        = "src"
 
 # Dependencies
