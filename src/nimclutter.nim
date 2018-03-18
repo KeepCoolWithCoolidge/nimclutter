@@ -5099,7 +5099,7 @@ proc newTransitionGroup*(): Transition  {.importc:"clutter_transition_group_new"
 proc removeAll*(group: TransitionGroup)  {.importc:"clutter_transition_group_remove_all", libclutter.}
 proc removeTransition*(group: TransitionGroup; transition: Transition)  {.importc:"clutter_transition_group_remove_transition", libclutter.}
 proc setAnimatable*(transition: Transition; animatable: Animatable)  {.importc:"clutter_transition_set_animatable", libclutter.}
-proc setFrom*(transition: Transition; value_type: GType)  {.varargs, importc:"", libclutter.}  
+proc setFrom*(transition: Transition; value_type: GType)  {.varargs, importc:"clutter_transition_set_from", libclutter.}  
 proc setFromValue*(transition: Transition; value: ptr GValue)  {.importc:"clutter_transition_set_from_value", libclutter.}
 proc setInterval*(transition: Transition; interval: Interval)  {.importc:"clutter_transition_set_interval", libclutter.}
 proc setRemoveOnComplete*(transition: Transition; remove_complete: Gboolean)  {.importc:"clutter_transition_set_remove_on_complete", libclutter.}
