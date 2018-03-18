@@ -1,11 +1,11 @@
 {.deadCodeElim: on.}
 
 when defined(windows):
-  const LIB_CLUTTER = "libclutter-1.0.0.dll"
+  const LIB_CLUTTER = "libclutter.dll"
 elif defined(macosx):
-  const LIB_CLUTTER = "libclutter-1.0.0.dylib"
+  const LIB_CLUTTER = "libclutter.dylib"
 else:
-  const LIB_CLUTTER = "libclutter-1.0.0.so(|.0)"
+  const LIB_CLUTTER = "libclutter.so(|.0)"
 
 {.pragma: libclutter, cdecl, dynlib: LIB_CLUTTER.}
 
