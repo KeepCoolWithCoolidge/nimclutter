@@ -1,3 +1,5 @@
+# Translation into Nim of C example by ebassi clutter/examples/constraints.c
+
 import nimclutter
 import oldgtk3/[glib, gobject]
 

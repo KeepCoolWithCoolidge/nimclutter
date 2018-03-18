@@ -1,3 +1,5 @@
+# Translation into Nim of C example by ebassi clutter/tests/micro-bench/test-text-perf.c
+
 import nimclutter
 import oldgtk3/[glib, gobject]
 import strutils, os
