@@ -1,4 +1,4 @@
-# Translation into Nim of C example by ebassi clutter/examples/constraints.c
+# Translation into Nim of C example by ebassi clutter/examples/rounded-rectangle.c
 
 import nimclutter
 import oldgtk3/[glib, gobject, cairo]
