@@ -67,7 +67,8 @@ proc createLabel(): Actor =
   
   label = newText(fontName, str.str)
   setColor(cast[nimclutter.Text](label), getStatic(CLUTTER_COLOR_WHITE))
-
+  
+  discard free(str, true)
   result = label
 
 proc main() =
