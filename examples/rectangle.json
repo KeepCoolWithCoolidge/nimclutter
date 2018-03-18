@@ -1,0 +1,87 @@
+[
+	{
+		"id"       : "stage",
+		"type"     : "ClutterStage",
+		"width"    : 800,
+		"height"   : 600,
+		"color"    : "black",
+		"children" : [ "rectangle" ],
+		"signals"  :
+		[
+			{
+				"name"    : "destroy",
+				"handler" : "clutter_main_quit"
+			}
+		]
+	},
+	{
+		"id"                        : "rectangle",
+		"type"                      : "ClutterRectangle",
+		"width"                     : 600,
+		"height"                    : 450,
+		"x"                         : 100,
+		"y"                         : 75,
+		"color"                     : "blue",
+		"rotation-center-z-gravity" : "center",
+		"reactive"                  : true,
+		"signals"                   :
+		[
+			{
+				"name"         : "enter-event",
+				"states"       : "rectangle-states",
+				"target-state" : "hover"
+			},
+			{
+				"name"         : "leave-event",
+				"states"       : "rectangle-states",
+				"target-state" : "base"
+			}
+		],
+		"actions" :
+		[
+			{
+				"type"    : "ClutterClickAction",
+				"signals" :
+				[
+					{
+						"name"         : "clicked",
+						"states"       : "rectangle-states",
+						"target-state" : "clicked"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id"          : "rectangle-states",
+		"type"        : "ClutterState",
+		"duration"    : 1000,
+		"transitions" :
+		[
+			{
+				"source" : null,
+				"target" : "hover",
+				"keys"   :
+				[
+					[ "rectangle", "color", "linear", "red" ]
+				]
+			},
+			{
+				"source" : null,
+				"target" : "base",
+				"keys"   :
+				[
+					[ "rectangle", "color", "linear", "blue" ]
+				]
+			},
+			{
+				"source" : null,
+				"target" : "clicked",
+				"keys"   :
+				[
+					[ "rectangle", "rotation-angle-z" "ease-in-out-quad", 360.0 ]
+				]
+			}
+		]
+	}
+]
