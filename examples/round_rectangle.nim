@@ -43,13 +43,13 @@ proc main() =
     transition: Transition
   
   # initialize Clutter
-  if initClutter() != CLUTTER_INIT_SUCCESS: quit()
+  if initClutter() != SUCCESS: quit()
 
   # create a stage
   stage = newStage()
   setTitle(cast[Stage](stage), "Rectangle and rounded corners")
   setUseAlpha(cast[Stage](stage), true)
-  setBackgroundColor(stage, getStatic(CLUTTER_COLOR_BLACK))
+  setBackgroundColor(stage, getStatic(BLACK))
   setSize(stage, 500.0, 500.0)
   setOpacity(stage, 64.cuchar)
   show(stage)
@@ -61,11 +61,11 @@ proc main() =
   # the actor that will display the contents of the canvas
   actor = newActor()
   setContent(actor, canvas)
-  setContentGravity(actor, CLUTTER_CONTENT_GRAVITY_CENTER)
-  setContentScalingFilters(actor, CLUTTER_SCALING_FILTER_TRILINEAR, CLUTTER_SCALING_FILTER_LINEAR)
+  setContentGravity(actor, ContentGravity.CENTER)
+  setContentScalingFilters(actor, TRILINEAR, LINEAR)
   setPivotPoint(actor, 0.5'f32, 0.5'f32)
-  addConstraint(actor, newAlignConstraint(stage, CLUTTER_ALIGN_BOTH, 0.5))
-  setRequestMode(actor, CLUTTER_REQUEST_CONTENT_SIZE)
+  addConstraint(actor, newAlignConstraint(stage, AlignAxis.BOTH, 0.5))
+  setRequestMode(actor, CONTENT_SIZE)
   addChild(stage, actor)
 
   # the actor now owns the canvas

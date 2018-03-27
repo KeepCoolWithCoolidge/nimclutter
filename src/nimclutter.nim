@@ -22,7 +22,7 @@ const
   CLUTTER_BUTTON_MIDDLE* = 2
   CLUTTER_BUTTON_SECONDARY* = 3
 
-#[const
+const
   CLUTTER_KEY_VoidSymbol* = 0x00FFFFFF
   CLUTTER_KEY_BackSpace* = 0x0000FF08
   CLUTTER_KEY_Tab* = 0x0000FF09
@@ -333,12 +333,12 @@ const
   CLUTTER_KEY_Pointer_Accelerate* = 0x0000FEFA
   CLUTTER_KEY_Pointer_DfltBtnNext* = 0x0000FEFB
   CLUTTER_KEY_Pointer_DfltBtnPrev* = 0x0000FEFC
-  CLUTTER_KEY_ch* = 0x0000FEA0
-  CLUTTER_KEY_Ch* = 0x0000FEA1
-  CLUTTER_KEY_CH* = 0x0000FEA2
-  CLUTTER_KEY_c_h* = 0x0000FEA3
-  CLUTTER_KEY_C_h* = 0x0000FEA4
-  CLUTTER_KEY_C_H* = 0x0000FEA5
+  CLUTTER_KEY_jeem_medial* = 0x0000FEA0
+  CLUTTER_KEY_hah_isolated* = 0x0000FEA1
+  CLUTTER_KEY_hah_final* = 0x0000FEA2
+  CLUTTER_KEY_hah_initial* = 0x0000FEA3
+  CLUTTER_KEY_hah_medial* = 0x0000FEA4
+  CLUTTER_KEY_khah_isolated* = 0x0000FEA5
   CLUTTER_KEY_3270_Duplicate* = 0x0000FD01
   CLUTTER_KEY_3270_FieldMark* = 0x0000FD02
   CLUTTER_KEY_3270_Right2* = 0x0000FD03
@@ -498,40 +498,38 @@ const
   CLUTTER_KEY_onehalf* = 0x000000BD
   CLUTTER_KEY_threequarters* = 0x000000BE
   CLUTTER_KEY_questiondown* = 0x000000BF
-  CLUTTER_KEY_Agrave* = 0x000000C0
-  CLUTTER_KEY_Aacute* = 0x000000C1
-  CLUTTER_KEY_Acircumflex* = 0x000000C2
-  CLUTTER_KEY_Atilde* = 0x000000C3
-  CLUTTER_KEY_Adiaeresis* = 0x000000C4
-  CLUTTER_KEY_Aring* = 0x000000C5
-  CLUTTER_KEY_AE* = 0x000000C6
-  CLUTTER_KEY_Ccedilla* = 0x000000C7
-  CLUTTER_KEY_Egrave* = 0x000000C8
-  CLUTTER_KEY_Eacute* = 0x000000C9
-  CLUTTER_KEY_Ecircumflex* = 0x000000CA
-  CLUTTER_KEY_Ediaeresis* = 0x000000CB
-  CLUTTER_KEY_Igrave* = 0x000000CC
-  CLUTTER_KEY_Iacute* = 0x000000CD
-  CLUTTER_KEY_Icircumflex* = 0x000000CE
-  CLUTTER_KEY_Idiaeresis* = 0x000000CF
-  CLUTTER_KEY_ETH* = 0x000000D0
-  CLUTTER_KEY_Eth* = 0x000000D0
-  CLUTTER_KEY_Ntilde* = 0x000000D1
-  CLUTTER_KEY_Ograve* = 0x000000D2
-  CLUTTER_KEY_Oacute* = 0x000000D3
-  CLUTTER_KEY_Ocircumflex* = 0x000000D4
-  CLUTTER_KEY_Otilde* = 0x000000D5
-  CLUTTER_KEY_Odiaeresis* = 0x000000D6
+  CLUTTER_KEY_Agrave_upper* = 0x000000C0
+  CLUTTER_KEY_Aacute_upper* = 0x000000C1
+  CLUTTER_KEY_Acircumflex_upper* = 0x000000C2
+  CLUTTER_KEY_Atilde_upper* = 0x000000C3
+  CLUTTER_KEY_Adiaeresis_upper* = 0x000000C4
+  CLUTTER_KEY_Aring_upper* = 0x000000C5
+  CLUTTER_KEY_AE_upper* = 0x000000C6
+  CLUTTER_KEY_Ccedilla_upper* = 0x000000C7
+  CLUTTER_KEY_Egrave_upper* = 0x000000C8
+  CLUTTER_KEY_Eacute_upper* = 0x000000C9
+  CLUTTER_KEY_Ecircumflex_upper* = 0x000000CA
+  CLUTTER_KEY_Ediaeresis_upper* = 0x000000CB
+  CLUTTER_KEY_Igrave_upper* = 0x000000CC
+  CLUTTER_KEY_Iacute_upper* = 0x000000CD
+  CLUTTER_KEY_Icircumflex_upper* = 0x000000CE
+  CLUTTER_KEY_Idiaeresis_upper* = 0x000000CF
+  CLUTTER_KEY_ETH_upper* = 0x000000D0
+  CLUTTER_KEY_Ntilde_upper* = 0x000000D1
+  CLUTTER_KEY_Ograve_upper* = 0x000000D2
+  CLUTTER_KEY_Oacute_upper* = 0x000000D3
+  CLUTTER_KEY_Ocircumflex_upper* = 0x000000D4
+  CLUTTER_KEY_Otilde_upper* = 0x000000D5
+  CLUTTER_KEY_Odiaeresis_upper* = 0x000000D6
   CLUTTER_KEY_multiply* = 0x000000D7
-  CLUTTER_KEY_Oslash* = 0x000000D8
-  CLUTTER_KEY_Ooblique* = 0x000000D8
-  CLUTTER_KEY_Ugrave* = 0x000000D9
-  CLUTTER_KEY_Uacute* = 0x000000DA
-  CLUTTER_KEY_Ucircumflex* = 0x000000DB
-  CLUTTER_KEY_Udiaeresis* = 0x000000DC
-  CLUTTER_KEY_Yacute* = 0x000000DD
-  CLUTTER_KEY_THORN* = 0x000000DE
-  CLUTTER_KEY_Thorn* = 0x000000DE
+  CLUTTER_KEY_Oslash_upper* = 0x000000D8
+  CLUTTER_KEY_Ooblique_upper* = 0x000000D8
+  CLUTTER_KEY_Ugrave_upper* = 0x000000D9
+  CLUTTER_KEY_Uacute_upper* = 0x000000DA
+  CLUTTER_KEY_Ucircumflex_upper* = 0x000000DB
+  CLUTTER_KEY_Udiaeresis_upper* = 0x000000DC
+  CLUTTER_KEY_Yacute_upper* = 0x000000DD
+  CLUTTER_KEY_THORN_upper* = 0x000000DE
   CLUTTER_KEY_ssharp* = 0x000000DF
   CLUTTER_KEY_agrave* = 0x000000E0
   CLUTTER_KEY_aacute* = 0x000000E1
@@ -566,17 +564,17 @@ const
   CLUTTER_KEY_yacute* = 0x000000FD
   CLUTTER_KEY_thorn* = 0x000000FE
   CLUTTER_KEY_ydiaeresis* = 0x000000FF
-  CLUTTER_KEY_Aogonek* = 0x000001A1
+  CLUTTER_KEY_Aogonek_upper* = 0x000001A1
   CLUTTER_KEY_breve* = 0x000001A2
-  CLUTTER_KEY_Lstroke* = 0x000001A3
-  CLUTTER_KEY_Lcaron* = 0x000001A5
-  CLUTTER_KEY_Sacute* = 0x000001A6
-  CLUTTER_KEY_Scaron* = 0x000001A9
-  CLUTTER_KEY_Scedilla* = 0x000001AA
-  CLUTTER_KEY_Tcaron* = 0x000001AB
-  CLUTTER_KEY_Zacute* = 0x000001AC
-  CLUTTER_KEY_Zcaron* = 0x000001AE
-  CLUTTER_KEY_Zabovedot* = 0x000001AF
+  CLUTTER_KEY_Lstroke_upper* = 0x000001A3
+  CLUTTER_KEY_Lcaron_upper* = 0x000001A5
+  CLUTTER_KEY_Sacute_upper* = 0x000001A6
+  CLUTTER_KEY_Scaron_upper* = 0x000001A9
+  CLUTTER_KEY_Scedilla_upper* = 0x000001AA
+  CLUTTER_KEY_Tcaron_upper* = 0x000001AB
+  CLUTTER_KEY_Zacute_upper* = 0x000001AC
+  CLUTTER_KEY_Zcaron_upper* = 0x000001AE
+  CLUTTER_KEY_Zabovedot_upper* = 0x000001AF
   CLUTTER_KEY_aogonek* = 0x000001B1
   CLUTTER_KEY_ogonek* = 0x000001B2
   CLUTTER_KEY_lstroke* = 0x000001B3
@@ -590,22 +588,22 @@ const
   CLUTTER_KEY_doubleacute* = 0x000001BD
   CLUTTER_KEY_zcaron* = 0x000001BE
   CLUTTER_KEY_zabovedot* = 0x000001BF
-  CLUTTER_KEY_Racute* = 0x000001C0
-  CLUTTER_KEY_Abreve* = 0x000001C3
-  CLUTTER_KEY_Lacute* = 0x000001C5
-  CLUTTER_KEY_Cacute* = 0x000001C6
-  CLUTTER_KEY_Ccaron* = 0x000001C8
-  CLUTTER_KEY_Eogonek* = 0x000001CA
-  CLUTTER_KEY_Ecaron* = 0x000001CC
-  CLUTTER_KEY_Dcaron* = 0x000001CF
-  CLUTTER_KEY_Dstroke* = 0x000001D0
-  CLUTTER_KEY_Nacute* = 0x000001D1
-  CLUTTER_KEY_Ncaron* = 0x000001D2
-  CLUTTER_KEY_Odoubleacute* = 0x000001D5
-  CLUTTER_KEY_Rcaron* = 0x000001D8
-  CLUTTER_KEY_Uring* = 0x000001D9
-  CLUTTER_KEY_Udoubleacute* = 0x000001DB
-  CLUTTER_KEY_Tcedilla* = 0x000001DE
+  CLUTTER_KEY_Racute_upper* = 0x000001C0
+  CLUTTER_KEY_Abreve_upper* = 0x000001C3
+  CLUTTER_KEY_Lacute_upper* = 0x000001C5
+  CLUTTER_KEY_Cacute_upper* = 0x000001C6
+  CLUTTER_KEY_Ccaron_upper* = 0x000001C8
+  CLUTTER_KEY_Eogonek_upper* = 0x000001CA
+  CLUTTER_KEY_Ecaron_upper* = 0x000001CC
+  CLUTTER_KEY_Dcaron_upper* = 0x000001CF
+  CLUTTER_KEY_Dstroke_upper* = 0x000001D0
+  CLUTTER_KEY_Nacute_upper* = 0x000001D1
+  CLUTTER_KEY_Ncaron_upper* = 0x000001D2
+  CLUTTER_KEY_Odoubleacute_upper* = 0x000001D5
+  CLUTTER_KEY_Rcaron_upper* = 0x000001D8
+  CLUTTER_KEY_Uring_upper* = 0x000001D9
+  CLUTTER_KEY_Udoubleacute_upper* = 0x000001DB
+  CLUTTER_KEY_Tcedilla_upper* = 0x000001DE
   CLUTTER_KEY_racute* = 0x000001E0
   CLUTTER_KEY_abreve* = 0x000001E3
   CLUTTER_KEY_lacute* = 0x000001E5
@@ -623,22 +621,22 @@ const
   CLUTTER_KEY_udoubleacute* = 0x000001FB
   CLUTTER_KEY_tcedilla* = 0x000001FE
   CLUTTER_KEY_abovedot* = 0x000001FF
-  CLUTTER_KEY_Hstroke* = 0x000002A1
-  CLUTTER_KEY_Hcircumflex* = 0x000002A6
-  CLUTTER_KEY_Iabovedot* = 0x000002A9
-  CLUTTER_KEY_Gbreve* = 0x000002AB
-  CLUTTER_KEY_Jcircumflex* = 0x000002AC
+  CLUTTER_KEY_Hstroke_upper* = 0x000002A1
+  CLUTTER_KEY_Hcircumflex_upper* = 0x000002A6
+  CLUTTER_KEY_Iabovedot_upper* = 0x000002A9
+  CLUTTER_KEY_Gbreve_upper* = 0x000002AB
+  CLUTTER_KEY_Jcircumflex_upper* = 0x000002AC
   CLUTTER_KEY_hstroke* = 0x000002B1
   CLUTTER_KEY_hcircumflex* = 0x000002B6
   CLUTTER_KEY_idotless* = 0x000002B9
   CLUTTER_KEY_gbreve* = 0x000002BB
   CLUTTER_KEY_jcircumflex* = 0x000002BC
-  CLUTTER_KEY_Cabovedot* = 0x000002C5
-  CLUTTER_KEY_Ccircumflex* = 0x000002C6
-  CLUTTER_KEY_Gabovedot* = 0x000002D5
-  CLUTTER_KEY_Gcircumflex* = 0x000002D8
-  CLUTTER_KEY_Ubreve* = 0x000002DD
-  CLUTTER_KEY_Scircumflex* = 0x000002DE
+  CLUTTER_KEY_Cabovedot_upper* = 0x000002C5
+  CLUTTER_KEY_Ccircumflex_upper* = 0x000002C6
+  CLUTTER_KEY_Gabovedot_upper* = 0x000002D5
+  CLUTTER_KEY_Gcircumflex_upper* = 0x000002D8
+  CLUTTER_KEY_Ubreve_upper* = 0x000002DD
+  CLUTTER_KEY_Scircumflex_upper* = 0x000002DE
   CLUTTER_KEY_cabovedot* = 0x000002E5
   CLUTTER_KEY_ccircumflex* = 0x000002E6
   CLUTTER_KEY_gabovedot* = 0x000002F5
@@ -647,30 +645,30 @@ const
   CLUTTER_KEY_scircumflex* = 0x000002FE
   CLUTTER_KEY_kra* = 0x000003A2
   CLUTTER_KEY_kappa* = 0x000003A2
-  CLUTTER_KEY_Rcedilla* = 0x000003A3
-  CLUTTER_KEY_Itilde* = 0x000003A5
-  CLUTTER_KEY_Lcedilla* = 0x000003A6
-  CLUTTER_KEY_Emacron* = 0x000003AA
-  CLUTTER_KEY_Gcedilla* = 0x000003AB
-  CLUTTER_KEY_Tslash* = 0x000003AC
+  CLUTTER_KEY_Rcedilla_upper* = 0x000003A3
+  CLUTTER_KEY_Itilde_upper* = 0x000003A5
+  CLUTTER_KEY_Lcedilla_upper* = 0x000003A6
+  CLUTTER_KEY_Emacron_upper* = 0x000003AA
+  CLUTTER_KEY_Gcedilla_upper* = 0x000003AB
+  CLUTTER_KEY_Tslash_upper* = 0x000003AC
   CLUTTER_KEY_rcedilla* = 0x000003B3
   CLUTTER_KEY_itilde* = 0x000003B5
   CLUTTER_KEY_lcedilla* = 0x000003B6
   CLUTTER_KEY_emacron* = 0x000003BA
   CLUTTER_KEY_gcedilla* = 0x000003BB
   CLUTTER_KEY_tslash* = 0x000003BC
-  CLUTTER_KEY_ENG* = 0x000003BD
+  CLUTTER_KEY_ENG_upper* = 0x000003BD
   CLUTTER_KEY_eng* = 0x000003BF
-  CLUTTER_KEY_Amacron* = 0x000003C0
-  CLUTTER_KEY_Iogonek* = 0x000003C7
-  CLUTTER_KEY_Eabovedot* = 0x000003CC
-  CLUTTER_KEY_Imacron* = 0x000003CF
-  CLUTTER_KEY_Ncedilla* = 0x000003D1
-  CLUTTER_KEY_Omacron* = 0x000003D2
-  CLUTTER_KEY_Kcedilla* = 0x000003D3
-  CLUTTER_KEY_Uogonek* = 0x000003D9
-  CLUTTER_KEY_Utilde* = 0x000003DD
-  CLUTTER_KEY_Umacron* = 0x000003DE
+  CLUTTER_KEY_Amacron_upper* = 0x000003C0
+  CLUTTER_KEY_Iogonek_upper* = 0x000003C7
+  CLUTTER_KEY_Eabovedot_upper* = 0x000003CC
+  CLUTTER_KEY_Imacron_upper* = 0x000003CF
+  CLUTTER_KEY_Ncedilla_upper* = 0x000003D1
+  CLUTTER_KEY_Omacron_upper* = 0x000003D2
+  CLUTTER_KEY_Kcedilla_upper* = 0x000003D3
+  CLUTTER_KEY_Uogonek_upper* = 0x000003D9
+  CLUTTER_KEY_Utilde_upper* = 0x000003DD
+  CLUTTER_KEY_Umacron_upper* = 0x000003DE
   CLUTTER_KEY_amacron* = 0x000003E0
   CLUTTER_KEY_iogonek* = 0x000003E7
   CLUTTER_KEY_eabovedot* = 0x000003EC
@@ -681,35 +679,35 @@ const
   CLUTTER_KEY_uogonek* = 0x000003F9
   CLUTTER_KEY_utilde* = 0x000003FD
   CLUTTER_KEY_umacron* = 0x000003FE
-  CLUTTER_KEY_Wcircumflex* = 0x01000174
+  CLUTTER_KEY_Wcircumflex_upper* = 0x01000174
   CLUTTER_KEY_wcircumflex* = 0x01000175
-  CLUTTER_KEY_Ycircumflex* = 0x01000176
+  CLUTTER_KEY_Ycircumflex_upper* = 0x01000176
   CLUTTER_KEY_ycircumflex* = 0x01000177
-  CLUTTER_KEY_Babovedot* = 0x01001E02
+  CLUTTER_KEY_Babovedot_upper* = 0x01001E02
   CLUTTER_KEY_babovedot* = 0x01001E03
-  CLUTTER_KEY_Dabovedot* = 0x01001E0A
+  CLUTTER_KEY_Dabovedot_upper* = 0x01001E0A
   CLUTTER_KEY_dabovedot* = 0x01001E0B
-  CLUTTER_KEY_Fabovedot* = 0x01001E1E
+  CLUTTER_KEY_Fabovedot_upper* = 0x01001E1E
   CLUTTER_KEY_fabovedot* = 0x01001E1F
-  CLUTTER_KEY_Mabovedot* = 0x01001E40
+  CLUTTER_KEY_Mabovedot_upper* = 0x01001E40
   CLUTTER_KEY_mabovedot* = 0x01001E41
-  CLUTTER_KEY_Pabovedot* = 0x01001E56
+  CLUTTER_KEY_Pabovedot_upper* = 0x01001E56
   CLUTTER_KEY_pabovedot* = 0x01001E57
-  CLUTTER_KEY_Sabovedot* = 0x01001E60
+  CLUTTER_KEY_Sabovedot_upper* = 0x01001E60
   CLUTTER_KEY_sabovedot* = 0x01001E61
-  CLUTTER_KEY_Tabovedot* = 0x01001E6A
+  CLUTTER_KEY_Tabovedot_upper* = 0x01001E6A
   CLUTTER_KEY_tabovedot* = 0x01001E6B
-  CLUTTER_KEY_Wgrave* = 0x01001E80
+  CLUTTER_KEY_Wgrave_upper* = 0x01001E80
   CLUTTER_KEY_wgrave* = 0x01001E81
-  CLUTTER_KEY_Wacute* = 0x01001E82
+  CLUTTER_KEY_Wacute_upper* = 0x01001E82
   CLUTTER_KEY_wacute* = 0x01001E83
-  CLUTTER_KEY_Wdiaeresis* = 0x01001E84
+  CLUTTER_KEY_Wdiaeresis_upper* = 0x01001E84
   CLUTTER_KEY_wdiaeresis* = 0x01001E85
-  CLUTTER_KEY_Ygrave* = 0x01001EF2
+  CLUTTER_KEY_Ygrave_upper* = 0x01001EF2
   CLUTTER_KEY_ygrave* = 0x01001EF3
-  CLUTTER_KEY_OE* = 0x000013BC
+  CLUTTER_KEY_OE_upper* = 0x000013BC
   CLUTTER_KEY_oe* = 0x000013BD
-  CLUTTER_KEY_Ydiaeresis* = 0x000013BE
+  CLUTTER_KEY_Ydiaeresis_upper* = 0x000013BE
   CLUTTER_KEY_overline* = 0x0000047E
   CLUTTER_KEY_kana_fullstop* = 0x000004A1
   CLUTTER_KEY_kana_openingbracket* = 0x000004A2
@@ -729,11 +727,11 @@ const
   CLUTTER_KEY_kana_tsu* = 0x000004AF
   CLUTTER_KEY_kana_tu* = 0x000004AF
   CLUTTER_KEY_prolongedsound* = 0x000004B0
-  CLUTTER_KEY_kana_A* = 0x000004B1
-  CLUTTER_KEY_kana_I* = 0x000004B2
-  CLUTTER_KEY_kana_U* = 0x000004B3
-  CLUTTER_KEY_kana_E* = 0x000004B4
-  CLUTTER_KEY_kana_O* = 0x000004B5
+  CLUTTER_KEY_kana_A_upper* = 0x000004B1
+  CLUTTER_KEY_kana_I_upper* = 0x000004B2
+  CLUTTER_KEY_kana_U_upper* = 0x000004B3
+  CLUTTER_KEY_kana_E_upper* = 0x000004B4
+  CLUTTER_KEY_kana_O_upper* = 0x000004B5
   CLUTTER_KEY_kana_KA* = 0x000004B6
   CLUTTER_KEY_kana_KI* = 0x000004B7
   CLUTTER_KEY_kana_KU* = 0x000004B8
@@ -747,8 +745,8 @@ const
   CLUTTER_KEY_kana_TA* = 0x000004C0
   CLUTTER_KEY_kana_CHI* = 0x000004C1
   CLUTTER_KEY_kana_TI* = 0x000004C1
-  CLUTTER_KEY_kana_TSU* = 0x000004C2
-  CLUTTER_KEY_kana_TU* = 0x000004C2
+  CLUTTER_KEY_kana_TSU_upper* = 0x000004C2
+  CLUTTER_KEY_kana_TU_upper* = 0x000004C2
   CLUTTER_KEY_kana_TE* = 0x000004C3
   CLUTTER_KEY_kana_TO* = 0x000004C4
   CLUTTER_KEY_kana_NA* = 0x000004C5
@@ -767,9 +765,9 @@ const
   CLUTTER_KEY_kana_MU* = 0x000004D1
   CLUTTER_KEY_kana_ME* = 0x000004D2
   CLUTTER_KEY_kana_MO* = 0x000004D3
-  CLUTTER_KEY_kana_YA* = 0x000004D4
-  CLUTTER_KEY_kana_YU* = 0x000004D5
-  CLUTTER_KEY_kana_YO* = 0x000004D6
+  CLUTTER_KEY_kana_YA_upper* = 0x000004D4
+  CLUTTER_KEY_kana_YU_upper* = 0x000004D5
+  CLUTTER_KEY_kana_YO_upper* = 0x000004D6
   CLUTTER_KEY_kana_RA* = 0x000004D7
   CLUTTER_KEY_kana_RI* = 0x000004D8
   CLUTTER_KEY_kana_RU* = 0x000004D9
@@ -871,35 +869,35 @@ const
   CLUTTER_KEY_Arabic_yeh_baree* = 0x010006D2
   CLUTTER_KEY_Arabic_heh_goal* = 0x010006C1
   CLUTTER_KEY_Arabic_switch* = 0x0000FF7E
-  CLUTTER_KEY_Cyrillic_GHE_bar* = 0x01000492
+  CLUTTER_KEY_Cyrillic_GHE_bar_upper* = 0x01000492
   CLUTTER_KEY_Cyrillic_ghe_bar* = 0x01000493
-  CLUTTER_KEY_Cyrillic_ZHE_descender* = 0x01000496
+  CLUTTER_KEY_Cyrillic_ZHE_descender_upper* = 0x01000496
   CLUTTER_KEY_Cyrillic_zhe_descender* = 0x01000497
-  CLUTTER_KEY_Cyrillic_KA_descender* = 0x0100049A
+  CLUTTER_KEY_Cyrillic_KA_descender_upper* = 0x0100049A
   CLUTTER_KEY_Cyrillic_ka_descender* = 0x0100049B
-  CLUTTER_KEY_Cyrillic_KA_vertstroke* = 0x0100049C
+  CLUTTER_KEY_Cyrillic_KA_vertstroke_upper* = 0x0100049C
   CLUTTER_KEY_Cyrillic_ka_vertstroke* = 0x0100049D
-  CLUTTER_KEY_Cyrillic_EN_descender* = 0x010004A2
+  CLUTTER_KEY_Cyrillic_EN_descender_upper* = 0x010004A2
   CLUTTER_KEY_Cyrillic_en_descender* = 0x010004A3
-  CLUTTER_KEY_Cyrillic_U_straight* = 0x010004AE
+  CLUTTER_KEY_Cyrillic_U_straight_upper* = 0x010004AE
   CLUTTER_KEY_Cyrillic_u_straight* = 0x010004AF
-  CLUTTER_KEY_Cyrillic_U_straight_bar* = 0x010004B0
+  CLUTTER_KEY_Cyrillic_U_straight_bar_upper* = 0x010004B0
   CLUTTER_KEY_Cyrillic_u_straight_bar* = 0x010004B1
-  CLUTTER_KEY_Cyrillic_HA_descender* = 0x010004B2
+  CLUTTER_KEY_Cyrillic_HA_descender_upper* = 0x010004B2
   CLUTTER_KEY_Cyrillic_ha_descender* = 0x010004B3
-  CLUTTER_KEY_Cyrillic_CHE_descender* = 0x010004B6
+  CLUTTER_KEY_Cyrillic_CHE_descender_upper* = 0x010004B6
   CLUTTER_KEY_Cyrillic_che_descender* = 0x010004B7
-  CLUTTER_KEY_Cyrillic_CHE_vertstroke* = 0x010004B8
+  CLUTTER_KEY_Cyrillic_CHE_vertstroke_upper* = 0x010004B8
   CLUTTER_KEY_Cyrillic_che_vertstroke* = 0x010004B9
-  CLUTTER_KEY_Cyrillic_SHHA* = 0x010004BA
+  CLUTTER_KEY_Cyrillic_SHHA_upper* = 0x010004BA
   CLUTTER_KEY_Cyrillic_shha* = 0x010004BB
-  CLUTTER_KEY_Cyrillic_SCHWA* = 0x010004D8
+  CLUTTER_KEY_Cyrillic_SCHWA_upper* = 0x010004D8
   CLUTTER_KEY_Cyrillic_schwa* = 0x010004D9
-  CLUTTER_KEY_Cyrillic_I_macron* = 0x010004E2
+  CLUTTER_KEY_Cyrillic_I_macron_upper* = 0x010004E2
   CLUTTER_KEY_Cyrillic_i_macron* = 0x010004E3
-  CLUTTER_KEY_Cyrillic_O_bar* = 0x010004E8
+  CLUTTER_KEY_Cyrillic_O_bar_upper* = 0x010004E8
   CLUTTER_KEY_Cyrillic_o_bar* = 0x010004E9
-  CLUTTER_KEY_Cyrillic_U_macron* = 0x010004EE
+  CLUTTER_KEY_Cyrillic_U_macron_upper* = 0x010004EE
   CLUTTER_KEY_Cyrillic_u_macron* = 0x010004EF
   CLUTTER_KEY_Serbian_dje* = 0x000006A1
   CLUTTER_KEY_Macedonia_gje* = 0x000006A2
@@ -924,28 +922,28 @@ const
   CLUTTER_KEY_Cyrillic_dzhe* = 0x000006AF
   CLUTTER_KEY_Serbian_dze* = 0x000006AF
   CLUTTER_KEY_numerosign* = 0x000006B0
-  CLUTTER_KEY_Serbian_DJE* = 0x000006B1
-  CLUTTER_KEY_Macedonia_GJE* = 0x000006B2
-  CLUTTER_KEY_Cyrillic_IO* = 0x000006B3
-  CLUTTER_KEY_Ukrainian_IE* = 0x000006B4
-  CLUTTER_KEY_Ukranian_JE* = 0x000006B4
-  CLUTTER_KEY_Macedonia_DSE* = 0x000006B5
-  CLUTTER_KEY_Ukrainian_I* = 0x000006B6
-  CLUTTER_KEY_Ukranian_I* = 0x000006B6
-  CLUTTER_KEY_Ukrainian_YI* = 0x000006B7
-  CLUTTER_KEY_Ukranian_YI* = 0x000006B7
-  CLUTTER_KEY_Cyrillic_JE* = 0x000006B8
-  CLUTTER_KEY_Serbian_JE* = 0x000006B8
-  CLUTTER_KEY_Cyrillic_LJE* = 0x000006B9
-  CLUTTER_KEY_Serbian_LJE* = 0x000006B9
-  CLUTTER_KEY_Cyrillic_NJE* = 0x000006BA
-  CLUTTER_KEY_Serbian_NJE* = 0x000006BA
-  CLUTTER_KEY_Serbian_TSHE* = 0x000006BB
-  CLUTTER_KEY_Macedonia_KJE* = 0x000006BC
-  CLUTTER_KEY_Ukrainian_GHE_WITH_UPTURN* = 0x000006BD
-  CLUTTER_KEY_Byelorussian_SHORTU* = 0x000006BE
-  CLUTTER_KEY_Cyrillic_DZHE* = 0x000006BF
-  CLUTTER_KEY_Serbian_DZE* = 0x000006BF
+  CLUTTER_KEY_Serbian_DJE_upper* = 0x000006B1
+  CLUTTER_KEY_Macedonia_GJE_upper* = 0x000006B2
+  CLUTTER_KEY_Cyrillic_IO_upper* = 0x000006B3
+  CLUTTER_KEY_Ukrainian_IE_upper* = 0x000006B4
+  CLUTTER_KEY_Ukranian_JE_upper* = 0x000006B4
+  CLUTTER_KEY_Macedonia_DSE_upper* = 0x000006B5
+  CLUTTER_KEY_Ukrainian_I_upper* = 0x000006B6
+  CLUTTER_KEY_Ukranian_I_upper* = 0x000006B6
+  CLUTTER_KEY_Ukrainian_YI_upper* = 0x000006B7
+  CLUTTER_KEY_Ukranian_YI_upper* = 0x000006B7
+  CLUTTER_KEY_Cyrillic_JE_upper* = 0x000006B8
+  CLUTTER_KEY_Serbian_JE_upper* = 0x000006B8
+  CLUTTER_KEY_Cyrillic_LJE_upper* = 0x000006B9
+  CLUTTER_KEY_Serbian_LJE_upper* = 0x000006B9
+  CLUTTER_KEY_Cyrillic_NJE_upper* = 0x000006BA
+  CLUTTER_KEY_Serbian_NJE_upper* = 0x000006BA
+  CLUTTER_KEY_Serbian_TSHE_upper* = 0x000006BB
+  CLUTTER_KEY_Macedonia_KJE_upper* = 0x000006BC
+  CLUTTER_KEY_Ukrainian_GHE_WITH_UPTURN_upper* = 0x000006BD
+  CLUTTER_KEY_Byelorussian_SHORTU_upper* = 0x000006BE
+  CLUTTER_KEY_Cyrillic_DZHE_upper* = 0x000006BF
+  CLUTTER_KEY_Serbian_DZE_upper* = 0x000006BF
   CLUTTER_KEY_Cyrillic_yu* = 0x000006C0
   CLUTTER_KEY_Cyrillic_a* = 0x000006C1
   CLUTTER_KEY_Cyrillic_be* = 0x000006C2
@@ -978,48 +976,48 @@ const
   CLUTTER_KEY_Cyrillic_shcha* = 0x000006DD
   CLUTTER_KEY_Cyrillic_che* = 0x000006DE
   CLUTTER_KEY_Cyrillic_hardsign* = 0x000006DF
-  CLUTTER_KEY_Cyrillic_YU* = 0x000006E0
-  CLUTTER_KEY_Cyrillic_A* = 0x000006E1
-  CLUTTER_KEY_Cyrillic_BE* = 0x000006E2
-  CLUTTER_KEY_Cyrillic_TSE* = 0x000006E3
-  CLUTTER_KEY_Cyrillic_DE* = 0x000006E4
-  CLUTTER_KEY_Cyrillic_IE* = 0x000006E5
-  CLUTTER_KEY_Cyrillic_EF* = 0x000006E6
-  CLUTTER_KEY_Cyrillic_GHE* = 0x000006E7
-  CLUTTER_KEY_Cyrillic_HA* = 0x000006E8
-  CLUTTER_KEY_Cyrillic_I* = 0x000006E9
-  CLUTTER_KEY_Cyrillic_SHORTI* = 0x000006EA
-  CLUTTER_KEY_Cyrillic_KA* = 0x000006EB
-  CLUTTER_KEY_Cyrillic_EL* = 0x000006EC
-  CLUTTER_KEY_Cyrillic_EM* = 0x000006ED
-  CLUTTER_KEY_Cyrillic_EN* = 0x000006EE
-  CLUTTER_KEY_Cyrillic_O* = 0x000006EF
-  CLUTTER_KEY_Cyrillic_PE* = 0x000006F0
-  CLUTTER_KEY_Cyrillic_YA* = 0x000006F1
-  CLUTTER_KEY_Cyrillic_ER* = 0x000006F2
-  CLUTTER_KEY_Cyrillic_ES* = 0x000006F3
-  CLUTTER_KEY_Cyrillic_TE* = 0x000006F4
-  CLUTTER_KEY_Cyrillic_U* = 0x000006F5
-  CLUTTER_KEY_Cyrillic_ZHE* = 0x000006F6
-  CLUTTER_KEY_Cyrillic_VE* = 0x000006F7
-  CLUTTER_KEY_Cyrillic_SOFTSIGN* = 0x000006F8
-  CLUTTER_KEY_Cyrillic_YERU* = 0x000006F9
-  CLUTTER_KEY_Cyrillic_ZE* = 0x000006FA
-  CLUTTER_KEY_Cyrillic_SHA* = 0x000006FB
-  CLUTTER_KEY_Cyrillic_E* = 0x000006FC
-  CLUTTER_KEY_Cyrillic_SHCHA* = 0x000006FD
-  CLUTTER_KEY_Cyrillic_CHE* = 0x000006FE
-  CLUTTER_KEY_Cyrillic_HARDSIGN* = 0x000006FF
-  CLUTTER_KEY_Greek_ALPHAaccent* = 0x000007A1
-  CLUTTER_KEY_Greek_EPSILONaccent* = 0x000007A2
-  CLUTTER_KEY_Greek_ETAaccent* = 0x000007A3
-  CLUTTER_KEY_Greek_IOTAaccent* = 0x000007A4
-  CLUTTER_KEY_Greek_IOTAdieresis* = 0x000007A5
-  CLUTTER_KEY_Greek_IOTAdiaeresis* = 0x000007A5
-  CLUTTER_KEY_Greek_OMICRONaccent* = 0x000007A7
-  CLUTTER_KEY_Greek_UPSILONaccent* = 0x000007A8
-  CLUTTER_KEY_Greek_UPSILONdieresis* = 0x000007A9
-  CLUTTER_KEY_Greek_OMEGAaccent* = 0x000007AB
+  CLUTTER_KEY_Cyrillic_YU_upper* = 0x000006E0
+  CLUTTER_KEY_Cyrillic_A_upper* = 0x000006E1
+  CLUTTER_KEY_Cyrillic_BE_upper* = 0x000006E2
+  CLUTTER_KEY_Cyrillic_TSE_upper* = 0x000006E3
+  CLUTTER_KEY_Cyrillic_DE_upper* = 0x000006E4
+  CLUTTER_KEY_Cyrillic_IE_upper* = 0x000006E5
+  CLUTTER_KEY_Cyrillic_EF_upper* = 0x000006E6
+  CLUTTER_KEY_Cyrillic_GHE_upper* = 0x000006E7
+  CLUTTER_KEY_Cyrillic_HA_upper* = 0x000006E8
+  CLUTTER_KEY_Cyrillic_I_upper* = 0x000006E9
+  CLUTTER_KEY_Cyrillic_SHORTI_upper* = 0x000006EA
+  CLUTTER_KEY_Cyrillic_KA_upper* = 0x000006EB
+  CLUTTER_KEY_Cyrillic_EL_upper* = 0x000006EC
+  CLUTTER_KEY_Cyrillic_EM_upper* = 0x000006ED
+  CLUTTER_KEY_Cyrillic_EN_upper* = 0x000006EE
+  CLUTTER_KEY_Cyrillic_O_upper* = 0x000006EF
+  CLUTTER_KEY_Cyrillic_PE_upper* = 0x000006F0
+  CLUTTER_KEY_Cyrillic_YA_upper* = 0x000006F1
+  CLUTTER_KEY_Cyrillic_ER_upper* = 0x000006F2
+  CLUTTER_KEY_Cyrillic_ES_upper* = 0x000006F3
+  CLUTTER_KEY_Cyrillic_TE_upper* = 0x000006F4
+  CLUTTER_KEY_Cyrillic_U_upper* = 0x000006F5
+  CLUTTER_KEY_Cyrillic_ZHE_upper* = 0x000006F6
+  CLUTTER_KEY_Cyrillic_VE_upper* = 0x000006F7
+  CLUTTER_KEY_Cyrillic_SOFTSIGN_upper* = 0x000006F8
+  CLUTTER_KEY_Cyrillic_YERU_upper* = 0x000006F9
+  CLUTTER_KEY_Cyrillic_ZE_upper* = 0x000006FA
+  CLUTTER_KEY_Cyrillic_SHA_upper* = 0x000006FB
+  CLUTTER_KEY_Cyrillic_E_upper* = 0x000006FC
+  CLUTTER_KEY_Cyrillic_SHCHA_upper* = 0x000006FD
+  CLUTTER_KEY_Cyrillic_CHE_upper* = 0x000006FE
+  CLUTTER_KEY_Cyrillic_HARDSIGN_upper* = 0x000006FF
+  CLUTTER_KEY_Greek_ALPHAaccent_upper* = 0x000007A1
+  CLUTTER_KEY_Greek_EPSILONaccent_upper* = 0x000007A2
+  CLUTTER_KEY_Greek_ETAaccent_upper* = 0x000007A3
+  CLUTTER_KEY_Greek_IOTAaccent_upper* = 0x000007A4
+  CLUTTER_KEY_Greek_IOTAdieresis_upper* = 0x000007A5
+  CLUTTER_KEY_Greek_IOTAdiaeresis_upper* = 0x000007A5
+  CLUTTER_KEY_Greek_OMICRONaccent_upper* = 0x000007A7
+  CLUTTER_KEY_Greek_UPSILONaccent_upper* = 0x000007A8
+  CLUTTER_KEY_Greek_UPSILONdieresis_upper* = 0x000007A9
+  CLUTTER_KEY_Greek_OMEGAaccent_upper* = 0x000007AB
   CLUTTER_KEY_Greek_accentdieresis* = 0x000007AE
   CLUTTER_KEY_Greek_horizbar* = 0x000007AF
   CLUTTER_KEY_Greek_alphaaccent* = 0x000007B1
@@ -1033,31 +1031,31 @@ const
   CLUTTER_KEY_Greek_upsilondieresis* = 0x000007B9
   CLUTTER_KEY_Greek_upsilonaccentdieresis* = 0x000007BA
   CLUTTER_KEY_Greek_omegaaccent* = 0x000007BB
-  CLUTTER_KEY_Greek_ALPHA* = 0x000007C1
-  CLUTTER_KEY_Greek_BETA* = 0x000007C2
-  CLUTTER_KEY_Greek_GAMMA* = 0x000007C3
-  CLUTTER_KEY_Greek_DELTA* = 0x000007C4
-  CLUTTER_KEY_Greek_EPSILON* = 0x000007C5
-  CLUTTER_KEY_Greek_ZETA* = 0x000007C6
-  CLUTTER_KEY_Greek_ETA* = 0x000007C7
-  CLUTTER_KEY_Greek_THETA* = 0x000007C8
-  CLUTTER_KEY_Greek_IOTA* = 0x000007C9
-  CLUTTER_KEY_Greek_KAPPA* = 0x000007CA
-  CLUTTER_KEY_Greek_LAMDA* = 0x000007CB
-  CLUTTER_KEY_Greek_LAMBDA* = 0x000007CB
-  CLUTTER_KEY_Greek_MU* = 0x000007CC
-  CLUTTER_KEY_Greek_NU* = 0x000007CD
-  CLUTTER_KEY_Greek_XI* = 0x000007CE
-  CLUTTER_KEY_Greek_OMICRON* = 0x000007CF
-  CLUTTER_KEY_Greek_PI* = 0x000007D0
-  CLUTTER_KEY_Greek_RHO* = 0x000007D1
-  CLUTTER_KEY_Greek_SIGMA* = 0x000007D2
-  CLUTTER_KEY_Greek_TAU* = 0x000007D4
-  CLUTTER_KEY_Greek_UPSILON* = 0x000007D5
-  CLUTTER_KEY_Greek_PHI* = 0x000007D6
-  CLUTTER_KEY_Greek_CHI* = 0x000007D7
-  CLUTTER_KEY_Greek_PSI* = 0x000007D8
-  CLUTTER_KEY_Greek_OMEGA* = 0x000007D9
+  CLUTTER_KEY_Greek_ALPHA_upper* = 0x000007C1
+  CLUTTER_KEY_Greek_BETA_upper* = 0x000007C2
+  CLUTTER_KEY_Greek_GAMMA_upper* = 0x000007C3
+  CLUTTER_KEY_Greek_DELTA_upper* = 0x000007C4
+  CLUTTER_KEY_Greek_EPSILON_upper* = 0x000007C5
+  CLUTTER_KEY_Greek_ZETA_upper* = 0x000007C6
+  CLUTTER_KEY_Greek_ETA_upper* = 0x000007C7
+  CLUTTER_KEY_Greek_THETA_upper* = 0x000007C8
+  CLUTTER_KEY_Greek_IOTA_upper* = 0x000007C9
+  CLUTTER_KEY_Greek_KAPPA_upper* = 0x000007CA
+  CLUTTER_KEY_Greek_LAMDA_upper* = 0x000007CB
+  CLUTTER_KEY_Greek_LAMBDA_upper* = 0x000007CB
+  CLUTTER_KEY_Greek_MU_upper* = 0x000007CC
+  CLUTTER_KEY_Greek_NU_upper* = 0x000007CD
+  CLUTTER_KEY_Greek_XI_upper* = 0x000007CE
+  CLUTTER_KEY_Greek_OMICRON_upper* = 0x000007CF
+  CLUTTER_KEY_Greek_PI_upper* = 0x000007D0
+  CLUTTER_KEY_Greek_RHO_upper* = 0x000007D1
+  CLUTTER_KEY_Greek_SIGMA_upper* = 0x000007D2
+  CLUTTER_KEY_Greek_TAU_upper* = 0x000007D4
+  CLUTTER_KEY_Greek_UPSILON_upper* = 0x000007D5
+  CLUTTER_KEY_Greek_PHI_upper* = 0x000007D6
+  CLUTTER_KEY_Greek_CHI_upper* = 0x000007D7
+  CLUTTER_KEY_Greek_PSI_upper* = 0x000007D8
+  CLUTTER_KEY_Greek_OMEGA_upper* = 0x000007D9
   CLUTTER_KEY_Greek_alpha* = 0x000007E1
   CLUTTER_KEY_Greek_beta* = 0x000007E2
   CLUTTER_KEY_Greek_gamma* = 0x000007E3
@@ -1505,81 +1503,81 @@ const
   CLUTTER_KEY_Armenian_shesht* = 0x0100055B
   CLUTTER_KEY_Armenian_question* = 0x0100055E
   CLUTTER_KEY_Armenian_paruyk* = 0x0100055E
-  CLUTTER_KEY_Armenian_AYB* = 0x01000531
+  CLUTTER_KEY_Armenian_AYB_upper* = 0x01000531
   CLUTTER_KEY_Armenian_ayb* = 0x01000561
-  CLUTTER_KEY_Armenian_BEN* = 0x01000532
+  CLUTTER_KEY_Armenian_BEN_upper* = 0x01000532
   CLUTTER_KEY_Armenian_ben* = 0x01000562
-  CLUTTER_KEY_Armenian_GIM* = 0x01000533
+  CLUTTER_KEY_Armenian_GIM_upper* = 0x01000533
   CLUTTER_KEY_Armenian_gim* = 0x01000563
-  CLUTTER_KEY_Armenian_DA* = 0x01000534
+  CLUTTER_KEY_Armenian_DA_upper* = 0x01000534
   CLUTTER_KEY_Armenian_da* = 0x01000564
-  CLUTTER_KEY_Armenian_YECH* = 0x01000535
+  CLUTTER_KEY_Armenian_YECH_upper* = 0x01000535
   CLUTTER_KEY_Armenian_yech* = 0x01000565
-  CLUTTER_KEY_Armenian_ZA* = 0x01000536
+  CLUTTER_KEY_Armenian_ZA_upper* = 0x01000536
   CLUTTER_KEY_Armenian_za* = 0x01000566
-  CLUTTER_KEY_Armenian_E* = 0x01000537
+  CLUTTER_KEY_Armenian_E_upper* = 0x01000537
   CLUTTER_KEY_Armenian_e* = 0x01000567
-  CLUTTER_KEY_Armenian_AT* = 0x01000538
+  CLUTTER_KEY_Armenian_AT_upper* = 0x01000538
   CLUTTER_KEY_Armenian_at* = 0x01000568
-  CLUTTER_KEY_Armenian_TO* = 0x01000539
+  CLUTTER_KEY_Armenian_TO_upper* = 0x01000539
   CLUTTER_KEY_Armenian_to* = 0x01000569
-  CLUTTER_KEY_Armenian_ZHE* = 0x0100053A
+  CLUTTER_KEY_Armenian_ZHE_upper* = 0x0100053A
   CLUTTER_KEY_Armenian_zhe* = 0x0100056A
-  CLUTTER_KEY_Armenian_INI* = 0x0100053B
+  CLUTTER_KEY_Armenian_INI_upper* = 0x0100053B
   CLUTTER_KEY_Armenian_ini* = 0x0100056B
-  CLUTTER_KEY_Armenian_LYUN* = 0x0100053C
+  CLUTTER_KEY_Armenian_LYUN_upper* = 0x0100053C
   CLUTTER_KEY_Armenian_lyun* = 0x0100056C
-  CLUTTER_KEY_Armenian_KHE* = 0x0100053D
+  CLUTTER_KEY_Armenian_KHE_upper* = 0x0100053D
   CLUTTER_KEY_Armenian_khe* = 0x0100056D
-  CLUTTER_KEY_Armenian_TSA* = 0x0100053E
+  CLUTTER_KEY_Armenian_TSA_upper* = 0x0100053E
   CLUTTER_KEY_Armenian_tsa* = 0x0100056E
-  CLUTTER_KEY_Armenian_KEN* = 0x0100053F
+  CLUTTER_KEY_Armenian_KEN_upper* = 0x0100053F
   CLUTTER_KEY_Armenian_ken* = 0x0100056F
-  CLUTTER_KEY_Armenian_HO* = 0x01000540
+  CLUTTER_KEY_Armenian_HO_upper* = 0x01000540
   CLUTTER_KEY_Armenian_ho* = 0x01000570
-  CLUTTER_KEY_Armenian_DZA* = 0x01000541
+  CLUTTER_KEY_Armenian_DZA_upper* = 0x01000541
   CLUTTER_KEY_Armenian_dza* = 0x01000571
-  CLUTTER_KEY_Armenian_GHAT* = 0x01000542
+  CLUTTER_KEY_Armenian_GHAT_upper* = 0x01000542
   CLUTTER_KEY_Armenian_ghat* = 0x01000572
-  CLUTTER_KEY_Armenian_TCHE* = 0x01000543
+  CLUTTER_KEY_Armenian_TCHE_upper* = 0x01000543
   CLUTTER_KEY_Armenian_tche* = 0x01000573
-  CLUTTER_KEY_Armenian_MEN* = 0x01000544
+  CLUTTER_KEY_Armenian_MEN_upper* = 0x01000544
   CLUTTER_KEY_Armenian_men* = 0x01000574
-  CLUTTER_KEY_Armenian_HI* = 0x01000545
+  CLUTTER_KEY_Armenian_HI_upper* = 0x01000545
   CLUTTER_KEY_Armenian_hi* = 0x01000575
-  CLUTTER_KEY_Armenian_NU* = 0x01000546
+  CLUTTER_KEY_Armenian_NU_upper* = 0x01000546
   CLUTTER_KEY_Armenian_nu* = 0x01000576
-  CLUTTER_KEY_Armenian_SHA* = 0x01000547
+  CLUTTER_KEY_Armenian_SHA_upper* = 0x01000547
   CLUTTER_KEY_Armenian_sha* = 0x01000577
-  CLUTTER_KEY_Armenian_VO* = 0x01000548
+  CLUTTER_KEY_Armenian_VO_upper* = 0x01000548
   CLUTTER_KEY_Armenian_vo* = 0x01000578
-  CLUTTER_KEY_Armenian_CHA* = 0x01000549
+  CLUTTER_KEY_Armenian_CHA_upper* = 0x01000549
   CLUTTER_KEY_Armenian_cha* = 0x01000579
-  CLUTTER_KEY_Armenian_PE* = 0x0100054A
+  CLUTTER_KEY_Armenian_PE_upper* = 0x0100054A
   CLUTTER_KEY_Armenian_pe* = 0x0100057A
-  CLUTTER_KEY_Armenian_JE* = 0x0100054B
+  CLUTTER_KEY_Armenian_JE_upper* = 0x0100054B
   CLUTTER_KEY_Armenian_je* = 0x0100057B
-  CLUTTER_KEY_Armenian_RA* = 0x0100054C
+  CLUTTER_KEY_Armenian_RA_upper* = 0x0100054C
   CLUTTER_KEY_Armenian_ra* = 0x0100057C
-  CLUTTER_KEY_Armenian_SE* = 0x0100054D
+  CLUTTER_KEY_Armenian_SE_upper* = 0x0100054D
   CLUTTER_KEY_Armenian_se* = 0x0100057D
-  CLUTTER_KEY_Armenian_VEV* = 0x0100054E
+  CLUTTER_KEY_Armenian_VEV_upper* = 0x0100054E
   CLUTTER_KEY_Armenian_vev* = 0x0100057E
-  CLUTTER_KEY_Armenian_TYUN* = 0x0100054F
+  CLUTTER_KEY_Armenian_TYUN_upper* = 0x0100054F
   CLUTTER_KEY_Armenian_tyun* = 0x0100057F
-  CLUTTER_KEY_Armenian_RE* = 0x01000550
+  CLUTTER_KEY_Armenian_RE_upper* = 0x01000550
   CLUTTER_KEY_Armenian_re* = 0x01000580
-  CLUTTER_KEY_Armenian_TSO* = 0x01000551
+  CLUTTER_KEY_Armenian_TSO_upper* = 0x01000551
   CLUTTER_KEY_Armenian_tso* = 0x01000581
-  CLUTTER_KEY_Armenian_VYUN* = 0x01000552
+  CLUTTER_KEY_Armenian_VYUN_upper* = 0x01000552
   CLUTTER_KEY_Armenian_vyun* = 0x01000582
-  CLUTTER_KEY_Armenian_PYUR* = 0x01000553
+  CLUTTER_KEY_Armenian_PYUR_upper* = 0x01000553
   CLUTTER_KEY_Armenian_pyur* = 0x01000583
-  CLUTTER_KEY_Armenian_KE* = 0x01000554
+  CLUTTER_KEY_Armenian_KE_upper* = 0x01000554
   CLUTTER_KEY_Armenian_ke* = 0x01000584
-  CLUTTER_KEY_Armenian_O* = 0x01000555
+  CLUTTER_KEY_Armenian_O_upper* = 0x01000555
   CLUTTER_KEY_Armenian_o* = 0x01000585
-  CLUTTER_KEY_Armenian_FE* = 0x01000556
+  CLUTTER_KEY_Armenian_FE_upper* = 0x01000556
   CLUTTER_KEY_Armenian_fe* = 0x01000586
   CLUTTER_KEY_Armenian_apostrophe* = 0x0100055A
   CLUTTER_KEY_Georgian_an* = 0x010010D0
@@ -1621,115 +1619,115 @@ const
   CLUTTER_KEY_Georgian_har* = 0x010010F4
   CLUTTER_KEY_Georgian_hoe* = 0x010010F5
   CLUTTER_KEY_Georgian_fi* = 0x010010F6
-  CLUTTER_KEY_Xabovedot* = 0x01001E8A
-  CLUTTER_KEY_Ibreve* = 0x0100012C
-  CLUTTER_KEY_Zstroke* = 0x010001B5
-  CLUTTER_KEY_Gcaron* = 0x010001E6
-  CLUTTER_KEY_Ocaron* = 0x010001D1
-  CLUTTER_KEY_Obarred* = 0x0100019F
+  CLUTTER_KEY_Xabovedot_upper* = 0x01001E8A
+  CLUTTER_KEY_Ibreve_upper* = 0x0100012C
+  CLUTTER_KEY_Zstroke_upper* = 0x010001B5
+  CLUTTER_KEY_Gcaron_upper* = 0x010001E6
+  CLUTTER_KEY_Ocaron_upper* = 0x010001D1
+  CLUTTER_KEY_Obarred_upper* = 0x0100019F
   CLUTTER_KEY_xabovedot* = 0x01001E8B
   CLUTTER_KEY_ibreve* = 0x0100012D
   CLUTTER_KEY_zstroke* = 0x010001B6
   CLUTTER_KEY_gcaron* = 0x010001E7
   CLUTTER_KEY_ocaron* = 0x010001D2
   CLUTTER_KEY_obarred* = 0x01000275
-  CLUTTER_KEY_SCHWA* = 0x0100018F
+  CLUTTER_KEY_SCHWA_upper* = 0x0100018F
   CLUTTER_KEY_schwa* = 0x01000259
-  CLUTTER_KEY_EZH* = 0x010001B7
+  CLUTTER_KEY_EZH_upper* = 0x010001B7
   CLUTTER_KEY_ezh* = 0x01000292
-  CLUTTER_KEY_Lbelowdot* = 0x01001E36
+  CLUTTER_KEY_Lbelowdot_upper* = 0x01001E36
   CLUTTER_KEY_lbelowdot* = 0x01001E37
-  CLUTTER_KEY_Abelowdot* = 0x01001EA0
+  CLUTTER_KEY_Abelowdot_upper* = 0x01001EA0
   CLUTTER_KEY_abelowdot* = 0x01001EA1
-  CLUTTER_KEY_Ahook* = 0x01001EA2
+  CLUTTER_KEY_Ahook_upper* = 0x01001EA2
   CLUTTER_KEY_ahook* = 0x01001EA3
-  CLUTTER_KEY_Acircumflexacute* = 0x01001EA4
+  CLUTTER_KEY_Acircumflexacute_upper* = 0x01001EA4
   CLUTTER_KEY_acircumflexacute* = 0x01001EA5
-  CLUTTER_KEY_Acircumflexgrave* = 0x01001EA6
+  CLUTTER_KEY_Acircumflexgrave_upper* = 0x01001EA6
   CLUTTER_KEY_acircumflexgrave* = 0x01001EA7
-  CLUTTER_KEY_Acircumflexhook* = 0x01001EA8
+  CLUTTER_KEY_Acircumflexhook_upper* = 0x01001EA8
   CLUTTER_KEY_acircumflexhook* = 0x01001EA9
-  CLUTTER_KEY_Acircumflextilde* = 0x01001EAA
+  CLUTTER_KEY_Acircumflextilde_upper* = 0x01001EAA
   CLUTTER_KEY_acircumflextilde* = 0x01001EAB
-  CLUTTER_KEY_Acircumflexbelowdot* = 0x01001EAC
+  CLUTTER_KEY_Acircumflexbelowdot_upper* = 0x01001EAC
   CLUTTER_KEY_acircumflexbelowdot* = 0x01001EAD
-  CLUTTER_KEY_Abreveacute* = 0x01001EAE
+  CLUTTER_KEY_Abreveacute_upper* = 0x01001EAE
   CLUTTER_KEY_abreveacute* = 0x01001EAF
-  CLUTTER_KEY_Abrevegrave* = 0x01001EB0
+  CLUTTER_KEY_Abrevegrave_upper* = 0x01001EB0
   CLUTTER_KEY_abrevegrave* = 0x01001EB1
-  CLUTTER_KEY_Abrevehook* = 0x01001EB2
+  CLUTTER_KEY_Abrevehook_upper* = 0x01001EB2
   CLUTTER_KEY_abrevehook* = 0x01001EB3
-  CLUTTER_KEY_Abrevetilde* = 0x01001EB4
+  CLUTTER_KEY_Abrevetilde_upper* = 0x01001EB4
   CLUTTER_KEY_abrevetilde* = 0x01001EB5
-  CLUTTER_KEY_Abrevebelowdot* = 0x01001EB6
+  CLUTTER_KEY_Abrevebelowdot_upper* = 0x01001EB6
   CLUTTER_KEY_abrevebelowdot* = 0x01001EB7
-  CLUTTER_KEY_Ebelowdot* = 0x01001EB8
+  CLUTTER_KEY_Ebelowdot_upper* = 0x01001EB8
   CLUTTER_KEY_ebelowdot* = 0x01001EB9
-  CLUTTER_KEY_Ehook* = 0x01001EBA
+  CLUTTER_KEY_Ehook_upper* = 0x01001EBA
   CLUTTER_KEY_ehook* = 0x01001EBB
-  CLUTTER_KEY_Etilde* = 0x01001EBC
+  CLUTTER_KEY_Etilde_upper* = 0x01001EBC
   CLUTTER_KEY_etilde* = 0x01001EBD
-  CLUTTER_KEY_Ecircumflexacute* = 0x01001EBE
+  CLUTTER_KEY_Ecircumflexacute_upper* = 0x01001EBE
   CLUTTER_KEY_ecircumflexacute* = 0x01001EBF
-  CLUTTER_KEY_Ecircumflexgrave* = 0x01001EC0
+  CLUTTER_KEY_Ecircumflexgrave_upper* = 0x01001EC0
   CLUTTER_KEY_ecircumflexgrave* = 0x01001EC1
-  CLUTTER_KEY_Ecircumflexhook* = 0x01001EC2
+  CLUTTER_KEY_Ecircumflexhook_upper* = 0x01001EC2
   CLUTTER_KEY_ecircumflexhook* = 0x01001EC3
-  CLUTTER_KEY_Ecircumflextilde* = 0x01001EC4
+  CLUTTER_KEY_Ecircumflextilde_upper* = 0x01001EC4
   CLUTTER_KEY_ecircumflextilde* = 0x01001EC5
-  CLUTTER_KEY_Ecircumflexbelowdot* = 0x01001EC6
+  CLUTTER_KEY_Ecircumflexbelowdot_upper* = 0x01001EC6
   CLUTTER_KEY_ecircumflexbelowdot* = 0x01001EC7
-  CLUTTER_KEY_Ihook* = 0x01001EC8
+  CLUTTER_KEY_Ihook_upper* = 0x01001EC8
   CLUTTER_KEY_ihook* = 0x01001EC9
-  CLUTTER_KEY_Ibelowdot* = 0x01001ECA
+  CLUTTER_KEY_Ibelowdot_upper* = 0x01001ECA
   CLUTTER_KEY_ibelowdot* = 0x01001ECB
-  CLUTTER_KEY_Obelowdot* = 0x01001ECC
+  CLUTTER_KEY_Obelowdot_upper* = 0x01001ECC
   CLUTTER_KEY_obelowdot* = 0x01001ECD
-  CLUTTER_KEY_Ohook* = 0x01001ECE
+  CLUTTER_KEY_Ohook_upper* = 0x01001ECE
   CLUTTER_KEY_ohook* = 0x01001ECF
-  CLUTTER_KEY_Ocircumflexacute* = 0x01001ED0
+  CLUTTER_KEY_Ocircumflexacute_upper* = 0x01001ED0
   CLUTTER_KEY_ocircumflexacute* = 0x01001ED1
-  CLUTTER_KEY_Ocircumflexgrave* = 0x01001ED2
+  CLUTTER_KEY_Ocircumflexgrave_upper* = 0x01001ED2
   CLUTTER_KEY_ocircumflexgrave* = 0x01001ED3
-  CLUTTER_KEY_Ocircumflexhook* = 0x01001ED4
+  CLUTTER_KEY_Ocircumflexhook_upper* = 0x01001ED4
   CLUTTER_KEY_ocircumflexhook* = 0x01001ED5
-  CLUTTER_KEY_Ocircumflextilde* = 0x01001ED6
+  CLUTTER_KEY_Ocircumflextilde_upper* = 0x01001ED6
   CLUTTER_KEY_ocircumflextilde* = 0x01001ED7
-  CLUTTER_KEY_Ocircumflexbelowdot* = 0x01001ED8
+  CLUTTER_KEY_Ocircumflexbelowdot_upper* = 0x01001ED8
   CLUTTER_KEY_ocircumflexbelowdot* = 0x01001ED9
-  CLUTTER_KEY_Ohornacute* = 0x01001EDA
+  CLUTTER_KEY_Ohornacute_upper* = 0x01001EDA
   CLUTTER_KEY_ohornacute* = 0x01001EDB
-  CLUTTER_KEY_Ohorngrave* = 0x01001EDC
+  CLUTTER_KEY_Ohorngrave_upper* = 0x01001EDC
   CLUTTER_KEY_ohorngrave* = 0x01001EDD
-  CLUTTER_KEY_Ohornhook* = 0x01001EDE
+  CLUTTER_KEY_Ohornhook_upper* = 0x01001EDE
   CLUTTER_KEY_ohornhook* = 0x01001EDF
-  CLUTTER_KEY_Ohorntilde* = 0x01001EE0
+  CLUTTER_KEY_Ohorntilde_upper* = 0x01001EE0
   CLUTTER_KEY_ohorntilde* = 0x01001EE1
-  CLUTTER_KEY_Ohornbelowdot* = 0x01001EE2
+  CLUTTER_KEY_Ohornbelowdot_upper* = 0x01001EE2
   CLUTTER_KEY_ohornbelowdot* = 0x01001EE3
-  CLUTTER_KEY_Ubelowdot* = 0x01001EE4
+  CLUTTER_KEY_Ubelowdot_upper* = 0x01001EE4
   CLUTTER_KEY_ubelowdot* = 0x01001EE5
-  CLUTTER_KEY_Uhook* = 0x01001EE6
+  CLUTTER_KEY_Uhook_upper* = 0x01001EE6
   CLUTTER_KEY_uhook* = 0x01001EE7
-  CLUTTER_KEY_Uhornacute* = 0x01001EE8
+  CLUTTER_KEY_Uhornacute_upper* = 0x01001EE8
   CLUTTER_KEY_uhornacute* = 0x01001EE9
-  CLUTTER_KEY_Uhorngrave* = 0x01001EEA
+  CLUTTER_KEY_Uhorngrave_upper* = 0x01001EEA
   CLUTTER_KEY_uhorngrave* = 0x01001EEB
-  CLUTTER_KEY_Uhornhook* = 0x01001EEC
+  CLUTTER_KEY_Uhornhook_upper* = 0x01001EEC
   CLUTTER_KEY_uhornhook* = 0x01001EED
-  CLUTTER_KEY_Uhorntilde* = 0x01001EEE
+  CLUTTER_KEY_Uhorntilde_upper* = 0x01001EEE
   CLUTTER_KEY_uhorntilde* = 0x01001EEF
-  CLUTTER_KEY_Uhornbelowdot* = 0x01001EF0
+  CLUTTER_KEY_Uhornbelowdot_upper* = 0x01001EF0
   CLUTTER_KEY_uhornbelowdot* = 0x01001EF1
-  CLUTTER_KEY_Ybelowdot* = 0x01001EF4
+  CLUTTER_KEY_Ybelowdot_upper* = 0x01001EF4
   CLUTTER_KEY_ybelowdot* = 0x01001EF5
-  CLUTTER_KEY_Yhook* = 0x01001EF6
+  CLUTTER_KEY_Yhook_upper* = 0x01001EF6
   CLUTTER_KEY_yhook* = 0x01001EF7
-  CLUTTER_KEY_Ytilde* = 0x01001EF8
+  CLUTTER_KEY_Ytilde_upper* = 0x01001EF8
   CLUTTER_KEY_ytilde* = 0x01001EF9
-  CLUTTER_KEY_Ohorn* = 0x010001A0
+  CLUTTER_KEY_Ohorn_upper* = 0x010001A0
   CLUTTER_KEY_ohorn* = 0x010001A1
-  CLUTTER_KEY_Uhorn* = 0x010001AF
+  CLUTTER_KEY_Uhorn_upper* = 0x010001AF
   CLUTTER_KEY_uhorn* = 0x010001B0
   CLUTTER_KEY_EcuSign* = 0x010020A0
   CLUTTER_KEY_ColonSign* = 0x010020A1
@@ -2296,270 +2294,259 @@ const
   CLUTTER_KEY_Next_VMode* = 0x1008FE22
   CLUTTER_KEY_Prev_VMode* = 0x1008FE23
   CLUTTER_KEY_LogWindowTree* = 0x1008FE24
-  CLUTTER_KEY_LogGrabInfo* = 0x1008FE25]#
+  CLUTTER_KEY_LogGrabInfo* = 0x1008FE25
 
 type
   RedrawFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_REDRAW_CLIPPED_TO_ALLOCATION = 1 shl 0
+    CLIPPED_TO_ALLOCATION = 1 shl 0
   ActorTraverseFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ACTOR_TRAVERSE_DEPTH_FIRST = 1 shl 0,
-    CLUTTER_ACTOR_TRAVERSE_BREADTH_FIRST = 1 shl 1
+    DEPTH_FIRST = 1 shl 0,
+    BREADTH_FIRST = 1 shl 1
   ActorTraverseVisitFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ACTOR_TRAVERSE_VISIT_CONTINUE = 1 shl 0,
-    CLUTTER_ACTOR_TRAVERSE_VISIT_SKIP_CHILDREN = 1 shl 1,
-    CLUTTER_ACTOR_TRAVERSE_VISIT_BREAK = 1 shl 2
+    CONTINUE = 1 shl 0,
+    SKIP_CHILDREN = 1 shl 1,
+    BREAK = 1 shl 2
   DebugFlag* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_DEBUG_MISC = 1 shl 0, CLUTTER_DEBUG_ACTOR = 1 shl 1,
-    CLUTTER_DEBUG_TEXTURE = 1 shl 2, CLUTTER_DEBUG_EVENT = 1 shl 3,
-    CLUTTER_DEBUG_PAINT = 1 shl 4, CLUTTER_DEBUG_PANGO = 1 shl 5,
-    CLUTTER_DEBUG_BACKEND = 1 shl 6, CLUTTER_DEBUG_SCHEDULER = 1 shl 7,
-    CLUTTER_DEBUG_SCRIPT = 1 shl 8, CLUTTER_DEBUG_SHADER = 1 shl 9,
-    CLUTTER_DEBUG_MULTISTAGE = 1 shl 10, CLUTTER_DEBUG_ANIMATION = 1 shl 11,
-    CLUTTER_DEBUG_LAYOUT = 1 shl 12, CLUTTER_DEBUG_PICK = 1 shl 13,
-    CLUTTER_DEBUG_EVENTLOOP = 1 shl 14, CLUTTER_DEBUG_CLIPPING = 1 shl 15,
-    CLUTTER_DEBUG_OOB_TRANSFORMS = 1 shl 16
+    MISC = 1 shl 0, ACTOR = 1 shl 1,
+    TEXTURE = 1 shl 2, EVENT = 1 shl 3,
+    PAINT = 1 shl 4, PANGO = 1 shl 5,
+    BACKEND = 1 shl 6, SCHEDULER = 1 shl 7,
+    SCRIPT = 1 shl 8, SHADER = 1 shl 9,
+    MULTISTAGE = 1 shl 10, ANIMATION = 1 shl 11,
+    LAYOUT = 1 shl 12, PICK = 1 shl 13,
+    EVENTLOOP = 1 shl 14, CLIPPING = 1 shl 15,
+    OOB_TRANSFORMS = 1 shl 16
   PickDebugFlag* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_DEBUG_NOP_PICKING = 1 shl 0, CLUTTER_DEBUG_DUMP_PICK_BUFFERS = 1 shl 1
+    NOP_PICKING = 1 shl 0, DUMP_PICK_BUFFERS = 1 shl 1
   DrawDebugFlag* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_DEBUG_DISABLE_SWAP_EVENTS = 1 shl 0,
-    CLUTTER_DEBUG_DISABLE_CLIPPED_REDRAWS = 1 shl 1, CLUTTER_DEBUG_REDRAWS = 1 shl 2,
-    CLUTTER_DEBUG_PAINT_VOLUMES = 1 shl 3, CLUTTER_DEBUG_DISABLE_CULLING = 1 shl 4,
-    CLUTTER_DEBUG_DISABLE_OFFSCREEN_REDIRECT = 1 shl 5,
-    CLUTTER_DEBUG_CONTINUOUS_REDRAW = 1 shl 6,
-    CLUTTER_DEBUG_PAINT_DEFORM_TILES = 1 shl 7
+    DISABLE_SWAP_EVENTS = 1 shl 0,
+    DISABLE_CLIPPED_REDRAWS = 1 shl 1, REDRAWS = 1 shl 2,
+    PAINT_VOLUMES = 1 shl 3, DISABLE_CULLING = 1 shl 4,
+    DISABLE_OFFSCREEN_REDIRECT = 1 shl 5,
+    CONTINUOUS_REDRAW = 1 shl 6,
+    PAINT_DEFORM_TILES = 1 shl 7
   Gravity* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_GRAVITY_NONE = 0, CLUTTER_GRAVITY_NORTH, CLUTTER_GRAVITY_NORTH_EAST,
-    CLUTTER_GRAVITY_EAST, CLUTTER_GRAVITY_SOUTH_EAST, CLUTTER_GRAVITY_SOUTH,
-    CLUTTER_GRAVITY_SOUTH_WEST, CLUTTER_GRAVITY_WEST, CLUTTER_GRAVITY_NORTH_WEST,
-    CLUTTER_GRAVITY_CENTER
+    NONE = 0, NORTH, NORTH_EAST,
+    EAST, SOUTH_EAST, SOUTH,
+    SOUTH_WEST, WEST, NORTH_WEST,
+    CENTER
   RotateAxis* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_X_AXIS, CLUTTER_Y_AXIS, CLUTTER_Z_AXIS
+    X_AXIS, Y_AXIS, Z_AXIS
   RotateDirection* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ROTATE_CW, CLUTTER_ROTATE_CCW
+    CW, CCW
   RequestMode* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_REQUEST_HEIGHT_FOR_WIDTH, CLUTTER_REQUEST_WIDTH_FOR_HEIGHT,
-    CLUTTER_REQUEST_CONTENT_SIZE
+    HEIGHT_FOR_WIDTH, WIDTH_FOR_HEIGHT,
+    CONTENT_SIZE
   AnimationMode* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_CUSTOM_MODE = 0, CLUTTER_LINEAR, CLUTTER_EASE_IN_QUAD,
-    CLUTTER_EASE_OUT_QUAD, CLUTTER_EASE_IN_OUT_QUAD, CLUTTER_EASE_IN_CUBIC,
-    CLUTTER_EASE_OUT_CUBIC, CLUTTER_EASE_IN_OUT_CUBIC, CLUTTER_EASE_IN_QUART,
-    CLUTTER_EASE_OUT_QUART, CLUTTER_EASE_IN_OUT_QUART, CLUTTER_EASE_IN_QUINT,
-    CLUTTER_EASE_OUT_QUINT, CLUTTER_EASE_IN_OUT_QUINT, CLUTTER_EASE_IN_SINE,
-    CLUTTER_EASE_OUT_SINE, CLUTTER_EASE_IN_OUT_SINE, CLUTTER_EASE_IN_EXPO,
-    CLUTTER_EASE_OUT_EXPO, CLUTTER_EASE_IN_OUT_EXPO, CLUTTER_EASE_IN_CIRC,
-    CLUTTER_EASE_OUT_CIRC, CLUTTER_EASE_IN_OUT_CIRC, CLUTTER_EASE_IN_ELASTIC,
-    CLUTTER_EASE_OUT_ELASTIC, CLUTTER_EASE_IN_OUT_ELASTIC, CLUTTER_EASE_IN_BACK,
-    CLUTTER_EASE_OUT_BACK, CLUTTER_EASE_IN_OUT_BACK, CLUTTER_EASE_IN_BOUNCE,
-    CLUTTER_EASE_OUT_BOUNCE, CLUTTER_EASE_IN_OUT_BOUNCE, CLUTTER_STEPS,
-    CLUTTER_STEP_START, CLUTTER_STEP_END, CLUTTER_CUBIC_BEZIER, CLUTTER_EASE,
-    CLUTTER_EASE_IN, CLUTTER_EASE_OUT, CLUTTER_EASE_IN_OUT, CLUTTER_ANIMATION_LAST
+    CUSTOM_MODE = 0, LINEAR, EASE_IN_QUAD,
+    EASE_OUT_QUAD, EASE_IN_OUT_QUAD, EASE_IN_CUBIC,
+    EASE_OUT_CUBIC, EASE_IN_OUT_CUBIC, EASE_IN_QUART,
+    EASE_OUT_QUART, EASE_IN_OUT_QUART, EASE_IN_QUINT,
+    EASE_OUT_QUINT, EASE_IN_OUT_QUINT, EASE_IN_SINE,
+    EASE_OUT_SINE, EASE_IN_OUT_SINE, EASE_IN_EXPO,
+    EASE_OUT_EXPO, EASE_IN_OUT_EXPO, EASE_IN_CIRC,
+    EASE_OUT_CIRC, EASE_IN_OUT_CIRC, EASE_IN_ELASTIC,
+    EASE_OUT_ELASTIC, EASE_IN_OUT_ELASTIC, EASE_IN_BACK,
+    EASE_OUT_BACK, EASE_IN_OUT_BACK, EASE_IN_BOUNCE,
+    EASE_OUT_BOUNCE, EASE_IN_OUT_BOUNCE, STEPS,
+    STEP_START, STEP_END, CUBIC_BEZIER, EASE,
+    EASE_IN, EASE_OUT, EASE_IN_OUT, ANIMATION_LAST
   FontFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_FONT_MIPMAPPING = (1 shl 0), CLUTTER_FONT_HINTING = (1 shl 1)
+    MIPMAPPING = (1 shl 0), HINTING = (1 shl 1)
   TextDirection* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_TEXT_DIRECTION_DEFAULT, CLUTTER_TEXT_DIRECTION_LTR,
-    CLUTTER_TEXT_DIRECTION_RTL
+    DEFAULT, LTR, RTL
   ShaderType* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_VERTEX_SHADER, CLUTTER_FRAGMENT_SHADER
+    VERTEX_SHADER, FRAGMENT_SHADER
   ScrollDirection* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_SCROLL_UP, CLUTTER_SCROLL_DOWN, CLUTTER_SCROLL_LEFT, CLUTTER_SCROLL_RIGHT, CLUTTER_SCROLL_SMOOTH
+    UP, DOWN, LEFT, RIGHT, SMOOTH
   ModifierType* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_SHIFT_MASK = 1 shl 0, CLUTTER_LOCK_MASK = 1 shl 1,
-    CLUTTER_CONTROL_MASK = 1 shl 2, CLUTTER_MOD1_MASK = 1 shl 3,
-    CLUTTER_MOD2_MASK = 1 shl 4, CLUTTER_MOD3_MASK = 1 shl 5, CLUTTER_MOD4_MASK = 1 shl 6,
-    CLUTTER_MOD5_MASK = 1 shl 7, CLUTTER_BUTTON1_MASK = 1 shl 8,
-    CLUTTER_BUTTON2_MASK = 1 shl 9, CLUTTER_BUTTON3_MASK = 1 shl 10,
-    CLUTTER_BUTTON4_MASK = 1 shl 11, CLUTTER_BUTTON5_MASK = 1 shl 12,
-    CLUTTER_SUPER_MASK = 1 shl 26, CLUTTER_HYPER_MASK = 1 shl 27,
-    CLUTTER_META_MASK = 1 shl 28, CLUTTER_RELEASE_MASK = 1 shl 30,
-    CLUTTER_MODIFIER_MASK = 0x5C001FFF
+    SHIFT_MASK = 1 shl 0, LOCK_MASK = 1 shl 1,
+    CONTROL_MASK = 1 shl 2, MOD1_MASK = 1 shl 3,
+    MOD2_MASK = 1 shl 4, MOD3_MASK = 1 shl 5, MOD4_MASK = 1 shl 6,
+    MOD5_MASK = 1 shl 7, BUTTON1_MASK = 1 shl 8,
+    BUTTON2_MASK = 1 shl 9, BUTTON3_MASK = 1 shl 10,
+    BUTTON4_MASK = 1 shl 11, BUTTON5_MASK = 1 shl 12,
+    SUPER_MASK = 1 shl 26, HYPER_MASK = 1 shl 27,
+    META_MASK = 1 shl 28, RELEASE_MASK = 1 shl 30,
+    MODIFIER_MASK = 0x5C001FFF
   ActorFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ACTOR_MAPPED = 1 shl 1, CLUTTER_ACTOR_REALIZED = 1 shl 2,
-    CLUTTER_ACTOR_REACTIVE = 1 shl 3, CLUTTER_ACTOR_VISIBLE = 1 shl 4,
-    CLUTTER_ACTOR_NO_LAYOUT = 1 shl 5
+    MAPPED = 1 shl 1, REALIZED = 1 shl 2,
+    REACTIVE = 1 shl 3, VISIBLE = 1 shl 4,
+    NO_LAYOUT = 1 shl 5
   OffscreenRedirect* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_OFFSCREEN_REDIRECT_AUTOMATIC_FOR_OPACITY = 1 shl 0,
-    CLUTTER_OFFSCREEN_REDIRECT_ALWAYS = 1 shl 1
+    AUTOMATIC_FOR_OPACITY = 1 shl 0,
+    ALWAYS = 1 shl 1
   AllocationFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ALLOCATION_NONE = 0, CLUTTER_ABSOLUTE_ORIGIN_CHANGED = 1 shl 1,
-    CLUTTER_DELEGATE_LAYOUT = 1 shl 2
+    NONE = 0, ABSOLUTE_ORIGIN_CHANGED = 1 shl 1,
+    DELEGATE_LAYOUT = 1 shl 2
   AlignAxis* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ALIGN_X_AXIS, CLUTTER_ALIGN_Y_AXIS, CLUTTER_ALIGN_BOTH
+    X_AXIS, Y_AXIS, BOTH
   Interpolation* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_INTERPOLATION_LINEAR, CLUTTER_INTERPOLATION_CUBIC
+    LINEAR, CUBIC
   BinAlignment* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_BIN_ALIGNMENT_FIXED, CLUTTER_BIN_ALIGNMENT_FILL,
-    CLUTTER_BIN_ALIGNMENT_START, CLUTTER_BIN_ALIGNMENT_END,
-    CLUTTER_BIN_ALIGNMENT_CENTER
+    FIXED, FILL,
+    START, END,
+    CENTER
   BindCoordinate* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_BIND_X, CLUTTER_BIND_Y, CLUTTER_BIND_WIDTH, CLUTTER_BIND_HEIGHT,
-    CLUTTER_BIND_POSITION, CLUTTER_BIND_SIZE, CLUTTER_BIND_ALL
+    X, Y, WIDTH, HEIGHT,
+    POSITION, SIZE, ALL
   EffectPaintFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_EFFECT_PAINT_ACTOR_DIRTY = (1 shl 0)
+    ACTOR_DIRTY = (1 shl 0)
   BoxAlignment* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_END,
-    CLUTTER_BOX_ALIGNMENT_CENTER
+    START, END,
+    CENTER
   LongPressState* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_LONG_PRESS_QUERY, CLUTTER_LONG_PRESS_ACTIVATE,
-    CLUTTER_LONG_PRESS_CANCEL
+    QUERY, ACTIVATE, CANCEL
   StaticColor* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_COLOR_WHITE = 0, CLUTTER_COLOR_BLACK, CLUTTER_COLOR_RED,
-    CLUTTER_COLOR_DARK_RED, CLUTTER_COLOR_GREEN, CLUTTER_COLOR_DARK_GREEN,
-    CLUTTER_COLOR_BLUE, CLUTTER_COLOR_DARK_BLUE, CLUTTER_COLOR_CYAN,
-    CLUTTER_COLOR_DARK_CYAN, CLUTTER_COLOR_MAGENTA, CLUTTER_COLOR_DARK_MAGENTA,
-    CLUTTER_COLOR_YELLOW, CLUTTER_COLOR_DARK_YELLOW, CLUTTER_COLOR_GRAY,
-    CLUTTER_COLOR_DARK_GRAY, CLUTTER_COLOR_LIGHT_GRAY, CLUTTER_COLOR_BUTTER,
-    CLUTTER_COLOR_BUTTER_LIGHT, CLUTTER_COLOR_BUTTER_DARK, CLUTTER_COLOR_ORANGE,
-    CLUTTER_COLOR_ORANGE_LIGHT, CLUTTER_COLOR_ORANGE_DARK,
-    CLUTTER_COLOR_CHOCOLATE, CLUTTER_COLOR_CHOCOLATE_LIGHT,
-    CLUTTER_COLOR_CHOCOLATE_DARK, CLUTTER_COLOR_CHAMELEON,
-    CLUTTER_COLOR_CHAMELEON_LIGHT, CLUTTER_COLOR_CHAMELEON_DARK,
-    CLUTTER_COLOR_SKY_BLUE, CLUTTER_COLOR_SKY_BLUE_LIGHT,
-    CLUTTER_COLOR_SKY_BLUE_DARK, CLUTTER_COLOR_PLUM, CLUTTER_COLOR_PLUM_LIGHT,
-    CLUTTER_COLOR_PLUM_DARK, CLUTTER_COLOR_SCARLET_RED,
-    CLUTTER_COLOR_SCARLET_RED_LIGHT, CLUTTER_COLOR_SCARLET_RED_DARK,
-    CLUTTER_COLOR_ALUMINIUM_1, CLUTTER_COLOR_ALUMINIUM_2,
-    CLUTTER_COLOR_ALUMINIUM_3, CLUTTER_COLOR_ALUMINIUM_4,
-    CLUTTER_COLOR_ALUMINIUM_5, CLUTTER_COLOR_ALUMINIUM_6,
-    CLUTTER_COLOR_TRANSPARENT
+    WHITE = 0, BLACK, RED,
+    DARK_RED, GREEN, DARK_GREEN,
+    BLUE, DARK_BLUE, CYAN,
+    DARK_CYAN, MAGENTA, DARK_MAGENTA,
+    YELLOW, DARK_YELLOW, GRAY,
+    DARK_GRAY, LIGHT_GRAY, BUTTER,
+    BUTTER_LIGHT, BUTTER_DARK, ORANGE,
+    ORANGE_LIGHT, ORANGE_DARK,
+    CHOCOLATE, CHOCOLATE_LIGHT,
+    CHOCOLATE_DARK, CHAMELEON,
+    CHAMELEON_LIGHT, CHAMELEON_DARK,
+    SKY_BLUE, SKY_BLUE_LIGHT,
+    SKY_BLUE_DARK, PLUM, PLUM_LIGHT,
+    PLUM_DARK, SCARLET_RED,
+    SCARLET_RED_LIGHT, SCARLET_RED_DARK,
+    ALUMINIUM_1, ALUMINIUM_2,
+    ALUMINIUM_3, ALUMINIUM_4,
+    ALUMINIUM_5, ALUMINIUM_6,
+    TRANSPARENT
   DragAxis* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_DRAG_AXIS_NONE = 0, CLUTTER_DRAG_X_AXIS, CLUTTER_DRAG_Y_AXIS
+    NONE = 0, X_AXIS, Y_AXIS
   EventFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_EVENT_NONE = 0, CLUTTER_EVENT_FLAG_SYNTHETIC = 1 shl 0
+    NONE = 0, FLAG_SYNTHETIC = 1 shl 0
   EventType* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_NOTHING = 0, CLUTTER_KEY_PRESS, CLUTTER_KEY_RELEASE, CLUTTER_MOTION,
-    CLUTTER_ENTER, CLUTTER_LEAVE, CLUTTER_BUTTON_PRESS, CLUTTER_BUTTON_RELEASE,
-    CLUTTER_SCROLL, CLUTTER_STAGE_STATE, CLUTTER_DESTROY_NOTIFY,
-    CLUTTER_CLIENT_MESSAGE, CLUTTER_DELETE, CLUTTER_TOUCH_BEGIN,
-    CLUTTER_TOUCH_UPDATE, CLUTTER_TOUCH_END, CLUTTER_TOUCH_CANCEL,
-    CLUTTER_EVENT_LAST
+    NOTHING = 0, KEY_PRESS, KEY_RELEASE, MOTION,
+    ENTER, LEAVE, BUTTON_PRESS, BUTTON_RELEASE,
+    SCROLL, STAGE_STATE, DESTROY_NOTIFY,
+    CLIENT_MESSAGE, DELETE, TOUCH_BEGIN,
+    TOUCH_UPDATE, TOUCH_END, TOUCH_CANCEL,
+    EVENT_LAST
   StageState* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_STAGE_STATE_FULLSCREEN = (1 shl 1),
-    CLUTTER_STAGE_STATE_OFFSCREEN = (1 shl 2),
-    CLUTTER_STAGE_STATE_ACTIVATED = (1 shl 3)
+    FULLSCREEN = (1 shl 1),
+    OFFSCREEN = (1 shl 2),
+    ACTIVATED = (1 shl 3)
   FeatureFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_FEATURE_TEXTURE_NPOT = (1 shl 2),
-    CLUTTER_FEATURE_SYNC_TO_VBLANK = (1 shl 3),
-    CLUTTER_FEATURE_TEXTURE_YUV = (1 shl 4),
-    CLUTTER_FEATURE_TEXTURE_READ_PIXELS = (1 shl 5),
-    CLUTTER_FEATURE_STAGE_STATIC = (1 shl 6),
-    CLUTTER_FEATURE_STAGE_USER_RESIZE = (1 shl 7),
-    CLUTTER_FEATURE_STAGE_CURSOR = (1 shl 8),
-    CLUTTER_FEATURE_SHADERS_GLSL = (1 shl 9), CLUTTER_FEATURE_OFFSCREEN = (1 shl 10),
-    CLUTTER_FEATURE_STAGE_MULTIPLE = (1 shl 11),
-    CLUTTER_FEATURE_SWAP_EVENTS = (1 shl 12)
+    TEXTURE_NPOT = (1 shl 2),
+    SYNC_TO_VBLANK = (1 shl 3),
+    TEXTURE_YUV = (1 shl 4),
+    TEXTURE_READ_PIXELS = (1 shl 5),
+    STAGE_STATIC = (1 shl 6),
+    STAGE_USER_RESIZE = (1 shl 7),
+    STAGE_CURSOR = (1 shl 8),
+    SHADERS_GLSL = (1 shl 9), OFFSCREEN = (1 shl 10),
+    STAGE_MULTIPLE = (1 shl 11),
+    SWAP_EVENTS = (1 shl 12)
   FlowOrientation* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_FLOW_HORIZONTAL, CLUTTER_FLOW_VERTICAL
+    HORIZONTAL, VERTICAL
   InputDeviceType* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_POINTER_DEVICE, CLUTTER_KEYBOARD_DEVICE, CLUTTER_EXTENSION_DEVICE,
-    CLUTTER_JOYSTICK_DEVICE, CLUTTER_TABLET_DEVICE, CLUTTER_TOUCHPAD_DEVICE,
-    CLUTTER_TOUCHSCREEN_DEVICE, CLUTTER_PEN_DEVICE, CLUTTER_ERASER_DEVICE,
-    CLUTTER_CURSOR_DEVICE, CLUTTER_N_DEVICE_TYPES
+    POINTER_DEVICE, KEYBOARD_DEVICE, EXTENSION_DEVICE,
+    JOYSTICK_DEVICE, TABLET_DEVICE, TOUCHPAD_DEVICE,
+    TOUCHSCREEN_DEVICE, PEN_DEVICE, ERASER_DEVICE,
+    CURSOR_DEVICE, N_DEVICE_TYPES
   InputMode* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_INPUT_MODE_MASTER, CLUTTER_INPUT_MODE_SLAVE,
-    CLUTTER_INPUT_MODE_FLOATING
+    MASTER, SLAVE, FLOATING
   InputAxis* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_INPUT_AXIS_IGNORE, CLUTTER_INPUT_AXIS_X, CLUTTER_INPUT_AXIS_Y,
-    CLUTTER_INPUT_AXIS_PRESSURE, CLUTTER_INPUT_AXIS_XTILT,
-    CLUTTER_INPUT_AXIS_YTILT, CLUTTER_INPUT_AXIS_WHEEL,
-    CLUTTER_INPUT_AXIS_DISTANCE, CLUTTER_INPUT_AXIS_LAST
+    IGNORE, X, Y,
+    PRESSURE, XTILT,
+    YTILT, WHEEL,
+    DISTANCE, LAST
   SnapEdge* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_SNAP_EDGE_TOP, CLUTTER_SNAP_EDGE_RIGHT, CLUTTER_SNAP_EDGE_BOTTOM,
-    CLUTTER_SNAP_EDGE_LEFT
+    EDGE_TOP, EDGE_RIGHT, EDGE_BOTTOM, EDGE_LEFT
   PickMode* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_PICK_NONE = 0, CLUTTER_PICK_REACTIVE, CLUTTER_PICK_ALL
+    NONE = 0, REACTIVE, ALL
   SwipeDirection* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_SWIPE_DIRECTION_UP = 1 shl 0, CLUTTER_SWIPE_DIRECTION_DOWN = 1 shl 1,
-    CLUTTER_SWIPE_DIRECTION_LEFT = 1 shl 2, CLUTTER_SWIPE_DIRECTION_RIGHT = 1 shl 3
+    UP = 1 shl 0, DOWN = 1 shl 1,
+    LEFT = 1 shl 2, RIGHT = 1 shl 3
   PanAxis* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_PAN_AXIS_NONE = 0, CLUTTER_PAN_X_AXIS, CLUTTER_PAN_Y_AXIS
+    NONE = 0, X_AXIS, Y_AXIS
   TableAlignment* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_TABLE_ALIGNMENT_START, CLUTTER_TABLE_ALIGNMENT_CENTER,
-    CLUTTER_TABLE_ALIGNMENT_END
+    START, CENTER, END
   TextureFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_TEXTURE_NONE = 0, CLUTTER_TEXTURE_RGB_FLAG_BGR = 1 shl 1,
-    CLUTTER_TEXTURE_RGB_FLAG_PREMULT = 1 shl 2,
-    CLUTTER_TEXTURE_YUV_FLAG_YUV2 = 1 shl 3
+    NONE = 0, RGB_FLAG_BGR = 1 shl 1,
+    RGB_FLAG_PREMULT = 1 shl 2,
+    YUV_FLAG_YUV2 = 1 shl 3
   TextureQuality* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_TEXTURE_QUALITY_LOW, CLUTTER_TEXTURE_QUALITY_MEDIUM,
-    CLUTTER_TEXTURE_QUALITY_HIGH
+    LOW, MEDIUM,
+    HIGH
   TimelineDirection* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_TIMELINE_FORWARD, CLUTTER_TIMELINE_BACKWARD
+    FORWARD, BACKWARD
   UnitType* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_UNIT_PIXEL, CLUTTER_UNIT_EM, CLUTTER_UNIT_MM, CLUTTER_UNIT_POINT,
-    CLUTTER_UNIT_CM
+    PIXEL, EM, MM, POINT, CM
   PathNodeType* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_PATH_MOVE_TO = 0, CLUTTER_PATH_LINE_TO = 1, CLUTTER_PATH_CURVE_TO = 2,
-    CLUTTER_PATH_CLOSE = 3
+    MOVE_TO = 0, LINE_TO = 1, CURVE_TO = 2,
+    CLOSE = 3, REL_MOVE_TO = 32, REL_LINE_TO = 33
   ActorAlign* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ACTOR_ALIGN_FILL, CLUTTER_ACTOR_ALIGN_START,
-    CLUTTER_ACTOR_ALIGN_CENTER, CLUTTER_ACTOR_ALIGN_END
+    FILL, START, CENTER, END
   RepaintFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_REPAINT_FLAGS_PRE_PAINT = 1 shl 0,
-    CLUTTER_REPAINT_FLAGS_POST_PAINT = 1 shl 1,
-    CLUTTER_REPAINT_FLAGS_QUEUE_REDRAW_ON_ADD = 1 shl 2
+    PRE_PAINT = 1 shl 0,
+    POST_PAINT = 1 shl 1,
+    QUEUE_REDRAW_ON_ADD = 1 shl 2
   ContentGravity* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_CONTENT_GRAVITY_TOP_LEFT, CLUTTER_CONTENT_GRAVITY_TOP,
-    CLUTTER_CONTENT_GRAVITY_TOP_RIGHT, CLUTTER_CONTENT_GRAVITY_LEFT,
-    CLUTTER_CONTENT_GRAVITY_CENTER, CLUTTER_CONTENT_GRAVITY_RIGHT,
-    CLUTTER_CONTENT_GRAVITY_BOTTOM_LEFT, CLUTTER_CONTENT_GRAVITY_BOTTOM,
-    CLUTTER_CONTENT_GRAVITY_BOTTOM_RIGHT, CLUTTER_CONTENT_GRAVITY_RESIZE_FILL,
-    CLUTTER_CONTENT_GRAVITY_RESIZE_ASPECT
+    TOP_LEFT, TOP,
+    TOP_RIGHT, LEFT,
+    CENTER, RIGHT,
+    BOTTOM_LEFT, BOTTOM,
+    BOTTOM_RIGHT, RESIZE_FILL,
+    RESIZE_ASPECT
   ScalingFilter* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_SCALING_FILTER_LINEAR, CLUTTER_SCALING_FILTER_NEAREST,
-    CLUTTER_SCALING_FILTER_TRILINEAR
+    LINEAR, NEAREST, TRILINEAR
   Orientation* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ORIENTATION_HORIZONTAL, CLUTTER_ORIENTATION_VERTICAL
+    HORIZONTAL, VERTICAL
   ScrollMode* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_SCROLL_NONE = 0, CLUTTER_SCROLL_HORIZONTALLY = 1 shl 0,
-    CLUTTER_SCROLL_VERTICALLY = 1 shl 1
+    NONE = 0, HORIZONTALLY, VERTICALLY, BOTH
   GridPosition* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_GRID_POSITION_LEFT, CLUTTER_GRID_POSITION_RIGHT,
-    CLUTTER_GRID_POSITION_TOP, CLUTTER_GRID_POSITION_BOTTOM
+    LEFT, RIGHT, TOP, BOTTOM
   ContentRepeat* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_REPEAT_NONE = 0, CLUTTER_REPEAT_X_AXIS = 1 shl 0,
-    CLUTTER_REPEAT_Y_AXIS = 1 shl 1
+    NONE = 0, X_AXIS, Y_AXIS, BOTH
   StepMode* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_STEP_MODE_START, CLUTTER_STEP_MODE_END
+    START, END
   ZoomAxis* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ZOOM_X_AXIS, CLUTTER_ZOOM_Y_AXIS, CLUTTER_ZOOM_BOTH
+    X_AXIS, Y_AXIS, BOTH
   GestureTriggerEdge* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_GESTURE_TRIGGER_EDGE_NONE = 0, CLUTTER_GESTURE_TRIGGER_EDGE_AFTER,
-    CLUTTER_GESTURE_TRIGGER_EDGE_BEFORE
+    NONE = 0, AFTER, BEFORE
   TranslateReturn* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_TRANSLATE_CONTINUE, CLUTTER_TRANSLATE_REMOVE, CLUTTER_TRANSLATE_QUEUE
+    CONTINUE, REMOVE, QUEUE
   ImageError* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_IMAGE_ERROR_INVALID_DATA
+    INVALID_DATA
   InitError* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_INIT_ERROR_INTERNAL = -3, CLUTTER_INIT_ERROR_BACKEND = -2,
-    CLUTTER_INIT_ERROR_THREADS = -1, CLUTTER_INIT_ERROR_UNKNOWN = 0,
-    CLUTTER_INIT_SUCCESS = 1
+    INTERNAL = -3, BACKEND = -2,
+    THREADS = -1, UNKNOWN = 0,
+    SUCCESS = 1
   PaintOpCode* {.size: sizeof(cint), pure.} = enum
-    PAINT_OP_INVALID = 0, PAINT_OP_TEX_RECT, PAINT_OP_PATH, PAINT_OP_PRIMITIVE
+    PAINT_OP_INVALID = 0, PAINT_OP_TEX_RECT, 
+    PAINT_OP_PATH, PAINT_OP_PRIMITIVE
   PrivateFlags* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_ACTOR_UNUSED_FLAG = 0, CLUTTER_IN_DESTRUCTION = 1 shl 0,
-    CLUTTER_IS_TOPLEVEL = 1 shl 1, CLUTTER_IN_REPARENT = 1 shl 2,
-    CLUTTER_IN_PAINT = 1 shl 3, CLUTTER_IN_RELAYOUT = 1 shl 4,
-    CLUTTER_INTERNAL_CHILD = 1 shl 5
+    ACTOR_UNUSED_FLAG = 0, IN_DESTRUCTION = 1 shl 0,
+    IS_TOPLEVEL = 1 shl 1, IN_REPARENT = 1 shl 2,
+    IN_PAINT = 1 shl 3, IN_RELAYOUT = 1 shl 4,
+    INTERNAL_CHILD = 1 shl 5
   CullResult* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_CULL_RESULT_UNKNOWN, CLUTTER_CULL_RESULT_IN, CLUTTER_CULL_RESULT_OUT,
-    CLUTTER_CULL_RESULT_PARTIAL
+    UNKNOWN, IN, OUT,
+    PARTIAL
   ProfileFlag* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_PROFILE_PICKING_ONLY = 1 shl 0, CLUTTER_PROFILE_DISABLE_REPORT = 1 shl 1
+    PICKING_ONLY = 1 shl 0, DISABLE_REPORT = 1 shl 1
   ScriptError* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_SCRIPT_ERROR_INVALID_TYPE_FUNCTION,
-    CLUTTER_SCRIPT_ERROR_INVALID_PROPERTY, CLUTTER_SCRIPT_ERROR_INVALID_VALUE
+    INVALID_TYPE_FUNCTION,
+    INVALID_PROPERTY, INVALID_VALUE
   TextureError* {.size: sizeof(cint), pure.} = enum
-    CLUTTER_TEXTURE_ERROR_OUT_OF_MEMORY, CLUTTER_TEXTURE_ERROR_NO_YUV,
-    CLUTTER_TEXTURE_ERROR_BAD_FORMAT
+    OUT_OF_MEMORY, NO_YUV,
+    BAD_FORMAT
 
+# The C code says that CLUTTER_PATH_REL_CURVE_TO = 
+# CLUTTER_PATH_CURVE_TO | CLUTTER_PATH_RELATIVE,
+# where CLUTTER_PATH_CURVE_TO is 2 and 
+# CLUTTER_PATH_RELATIVE is 32. This would equal
+# 32, the same value as CLUTTER_PATH_REL_MOVE_TO 
+# (32 | 2 = 32 and 32 | 0 = 32).
 const
-  CLUTTER_PATH_REL_MOVE_TO* = PathNodeType.CLUTTER_PATH_MOVE_TO.cint or CLUTTER_PATH_RELATIVE
-  CLUTTER_PATH_REL_LINE_TO* = PathNodeType.CLUTTER_PATH_LINE_TO.cint or CLUTTER_PATH_RELATIVE
-  CLUTTER_PATH_REL_CURVE_TO* = PathNodeType.CLUTTER_PATH_CURVE_TO.cint or CLUTTER_PATH_RELATIVE
-  CLUTTER_SCROLL_BOTH* = ScrollMode.CLUTTER_SCROLL_HORIZONTALLY.cint or 
-                         ScrollMode.CLUTTER_SCROLL_VERTICALLY.cint
-  CLUTTER_REPEAT_BOTH* = ContentRepeat.CLUTTER_REPEAT_X_AXIS.cint or 
-                         ContentRepeat.CLUTTER_REPEAT_Y_AXIS.cint
+  REL_CURVE_TO* = PathNodeType.REL_MOVE_TO
 
 type
   CoglMatrix* = ptr object
@@ -3885,45 +3872,6 @@ proc getName*(meta: ActorMeta): cstring {.importc:"clutter_actor_meta_get_name",
 proc setEnabled*(meta: ActorMeta; is_enabled: Gboolean) {.importc:"clutter_actor_meta_set_enabled", libclutter.}
 proc getEnabled*(meta: ActorMeta): Gboolean {.importc:"clutter_actor_meta_get_enabled", libclutter.}
 proc getActor*(meta: ActorMeta): Actor {.importc:"clutter_actor_meta_get_actor", libclutter.}
-proc getLayoutInfoOrDefaults*(self: Actor): LayoutInfo {.importc:"_clutter_actor_get_layout_info_or_defaults", libclutter.}
-proc getLayoutInfo*(self: Actor): LayoutInfo {.importc:"_clutter_actor_get_layout_info", libclutter.}
-proc peekLayoutInfo*(self: Actor): LayoutInfo {.importc:"_clutter_actor_peek_layout_info", libclutter.}
-proc getAnimationInfoOrDefaults*(self: Actor): AnimationInfo {.importc:"_clutter_actor_get_animation_info_or_defaults", libclutter.}
-proc getAnimationInfo*(self: Actor): AnimationInfo {.importc:"_clutter_actor_get_animation_info", libclutter.}
-proc createTransition*(self: Actor; pspec: ptr GParamSpec): Transition {.varargs, importc:"_clutter_actor_create_transition", libclutter.}
-proc getTransition*(self: Actor; pspec: ptr GParamSpec): Transition {.importc:"_clutter_actor_get_transition", libclutter.}
-proc foreachChild*(self: Actor; callback: ForeachCallback; user_data: Gpointer): Gboolean {.importc:"_clutter_actor_foreach_child", libclutter.}
-proc traverse*(actor: Actor; flags: ActorTraverseFlags; before_children_callback: TraverseCallback; after_children_callback: TraverseCallback; user_data: Gpointer) {.importc:"_clutter_actor_traverse", libclutter.}
-proc getStageInternal*(actor: Actor): Actor {.importc:"_clutter_actor_get_stage_internal", libclutter.}
-proc applyModelviewTransform*(self: Actor; matrix: CoglMatrix) {.importc:"_clutter_actor_apply_modelview_transform", libclutter.}
-proc applyRelativeTransformationMatrix*(self: Actor; ancestor: Actor; matrix: CoglMatrix) {.importc:"_clutter_actor_apply_relative_transformation_matrix", libclutter.}
-proc rerealize*(self: Actor; callback: Callback; data: Gpointer) {.importc:"_clutter_actor_rerealize", libclutter.}
-proc setOpacityOverride*(self: Actor; opacity: cint) {.importc:"_clutter_actor_set_opacity_override", libclutter.}
-proc getOpacityOverride*(self: Actor): cint {.importc:"_clutter_actor_get_opacity_override", libclutter.}
-proc setInClonePaint*(self: Actor; is_in_clone_paint: Gboolean) {.importc:"_clutter_actor_set_in_clone_paint", libclutter.}
-proc setEnableModelViewTransform*(self: Actor; enable: Gboolean) {.importc:"_clutter_actor_set_enable_model_view_transform", libclutter.}
-proc setEnablePaintUnmapped*(self: Actor; enable: Gboolean) {.importc:"_clutter_actor_set_enable_paint_unmapped", libclutter.} 
-proc setHasPointer*(self: Actor; has_pointer: Gboolean) {.importc:"_clutter_actor_set_has_pointer", libclutter.}
-proc queueRedraw*(self: Actor; flags: RedrawFlags; clip_volume: PaintVolume) {.importc:"_clutter_actor_queue_redraw_with_clip", libclutter.}
-proc queueRedraw*(self: Actor; flags: RedrawFlags; volume: PaintVolume; effect: Effect) {.importc:"", libclutter.}
-proc getQueueRedrawClip*(self: Actor): PaintVolume {.importc:"_clutter_actor_queue_redraw_full", libclutter.}
-proc setQueueRedrawClip*(self: Actor; clip_volume: PaintVolume) {.importc:"_clutter_actor_set_queue_redraw_clip", libclutter.}
-proc finishQueueRedraw*(self: Actor; clip: PaintVolume) {.importc:"_clutter_actor_finish_queue_redraw", libclutter.}
-proc setDefaultPaintVolume*(self: Actor; check_gtype: GType; volume: PaintVolume): Gboolean {.importc:"_clutter_actor_set_default_paint_volume", libclutter.}
-proc getDebugName*(self: Actor): cstring {.importc:"_clutter_actor_get_debug_name", libclutter.}
-proc pushActorClonePaint*() {.importc:"_clutter_actor_push_clone_paint", libclutter.}
-proc popActorClonePaint*() {.importc:"_clutter_actor_pop_clone_paint", libclutter.}
-proc getPickId*(self: Actor): cuint {.importc:"_clutter_actor_get_pick_id", libclutter.}
-proc shaderPrePaint*(actor: Actor; repeat: Gboolean) {.importc:"_clutter_actor_shader_pre_paint", libclutter.}
-proc shaderPostPaint*(actor: Actor) {.importc:"_clutter_actor_shader_post_paint", libclutter.}
-proc getEffectiveXAlign*(self: Actor): ActorAlign {.importc:"_clutter_actor_get_effective_x_align", libclutter.}
-proc handleEvent*(actor: Actor; event: Event) {.importc:"_clutter_actor_handle_event", libclutter.}
-proc attachClone*(actor: Actor; clone: Actor) {.importc:"_clutter_actor_attach_clone", libclutter.}
-proc detachClone*(actor: Actor; clone: Actor) {.importc:"_clutter_actor_detach_clone", libclutter.}
-proc queueRedrawOnClones*(actor: Actor) {.importc:"_clutter_actor_queue_redraw_on_clones", libclutter.}
-proc queueRelayoutOnClones*(actor: Actor) {.importc:"_clutter_actor_queue_relayout_on_clones", libclutter.}
-proc queueOnlyRelayout*(actor: Actor) {.importc:"_clutter_actor_queue_only_relayout", libclutter.}
-proc getActiveFramebuffer*(actor: Actor): CoglFramebuffer {.importc:"_clutter_actor_get_active_framebuffer", libclutter.}
 proc getActorType*(): GType {.importc:"clutter_actor_get_type", libclutter.}
 proc newActor*(): Actor {.importc:"clutter_actor_new", libclutter.}
 proc setFlags*(self: Actor; flags: ActorFlags) {.importc:"clutter_actor_set_flags", libclutter.}
@@ -4307,7 +4255,7 @@ proc setFactor*(effect: DesaturateEffect; factor: cdouble)  {.importc:"clutter_d
 proc addDevice*(device_manager: DeviceManager; device: InputDevice)  {.importc:"clutter_device_manager_add_device", libclutter.}
 proc getBackend*(device_manager: DeviceManager): Backend  {.importc:"clutter_device_manager_get_backend", libclutter.}
 proc getCoreDevice*(device_manager: DeviceManager; device_type: InputDeviceType): InputDevice  {.importc:"clutter_device_manager_get_core_device", libclutter.}
-proc getDefault*(): DeviceManager  {.importc:"clutter_device_manager_get_default", libclutter.}
+proc getDefaultDeviceManager*(): DeviceManager  {.importc:"clutter_device_manager_get_default", libclutter.}
 proc getDevice*(device_manager: DeviceManager; device_id: cint): InputDevice  {.importc:"clutter_device_manager_get_device", libclutter.}
 proc getDeviceManagerType*(): GType  {.importc:"clutter_device_manager_get_type", libclutter.}
 proc listDevices*(device_manager: DeviceManager): ptr GSList  {.importc:"clutter_device_manager_list_devices", libclutter.}
@@ -4843,7 +4791,7 @@ proc scrollToRect*(actor: ptr ScrollActor; rect: Rect)  {.importc:"clutter_scrol
 proc setScrollMode*(actor: ptr ScrollActor; mode: ScrollMode)  {.importc:"clutter_scroll_actor_set_scroll_mode", libclutter.}
 proc setSyncToVblank*(sync_to_vblank: Gboolean)  {.importc:"clutter_set_sync_to_vblank", libclutter.}
 proc setWindowingBackend*(backend_type: cstring)  {.importc:"clutter_set_windowing_backend", libclutter.}
-proc getDefault*(): Settings  {.importc:"clutter_settings_get_default", libclutter.}
+proc getDefaultSettings*(): Settings  {.importc:"clutter_settings_get_default", libclutter.}
 proc getSettingsType*(): GType  {.importc:"clutter_settings_get_type", libclutter.}
 proc setPropertyInternal*(settings: Settings; property: cstring; value: ptr GValue)  {.importc:"clutter_settings_set_property_internal", libclutter.}
 proc getProgram*(effect: ShaderEffect): CoglHandle  {.importc:"clutter_shader_effect_get_program", libclutter.}
@@ -4889,8 +4837,8 @@ proc getStageType*(): GType  {.importc:"clutter_stage_get_type", libclutter.}
 proc getUseAlpha*(stage: Stage): Gboolean  {.importc:"clutter_stage_get_use_alpha", libclutter.}
 proc getUserResizable*(stage: Stage): Gboolean  {.importc:"clutter_stage_get_user_resizable", libclutter.}
 proc hideCursor*(stage: Stage)  {.importc:"clutter_stage_hide_cursor", libclutter.}
-proc getDefault*(): StageManager  {.importc:"clutter_stage_manager_get_default", libclutter.}
-proc getDefault_stage*(stage_manager: StageManager): Stage  {.importc:"clutter_stage_manager_get_default_stage", libclutter.}
+proc getDefaultStageManager*(): StageManager  {.importc:"clutter_stage_manager_get_default", libclutter.}
+proc getDefaultStage*(stage_manager: StageManager): Stage  {.importc:"clutter_stage_manager_get_default_stage", libclutter.}
 proc getStageManagerType*(): GType  {.importc:"clutter_stage_manager_get_type", libclutter.}
 proc listStages*(stage_manager: StageManager): ptr GSList  {.importc:"clutter_stage_manager_list_stages", libclutter.}
 proc peekStages*(stage_manager: StageManager): ptr GSList  {.importc:"clutter_stage_manager_peek_stages", libclutter.}

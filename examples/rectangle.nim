@@ -5,7 +5,7 @@ proc main() =
   var stage: ptr GObject
   var error: ptr ptr GError = nil
 
-  if initClutter() != CLUTTER_INIT_SUCCESS: quit()
+  if initClutter() != SUCCESS: quit()
 
   var script = newScript()
   discard script.loadFromFile("rectangle.json", error)
