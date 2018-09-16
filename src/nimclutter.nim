@@ -2663,7 +2663,7 @@ type
     fraction*: INNER_C_STRUCT
     units*: VertexObj
   AnchorCoord* = object
-    is_fractional*: Gboolean
+    is_fractional*: bool
     v*: INNER_C_UNION
   SizeRequest* = object
     age*: cuint
@@ -2730,24 +2730,24 @@ type
     get_preferred_height*: proc (self: Actor; for_width: cfloat; min_height_p: ptr cfloat; natural_height_p: ptr cfloat)
     allocate*: proc (self: Actor; box: ActorBox; flags: AllocationFlags)
     apply_transform*: proc (actor: Actor; matrix: ptr Matrix)
-    event*: proc (actor: Actor; event: Event): Gboolean
-    button_press_event*: proc (actor: Actor; event: ButtonEvent): Gboolean
-    button_release_event*: proc (actor: Actor; event: ButtonEvent): Gboolean
-    scroll_event*: proc (actor: Actor; event: ScrollEvent): Gboolean
-    key_press_event*: proc (actor: Actor; event: KeyEvent): Gboolean
-    key_release_event*: proc (actor: Actor; event: KeyEvent): Gboolean
-    motion_event*: proc (actor: Actor; event: MotionEvent): Gboolean
-    enter_event*: proc (actor: Actor; event: CrossingEvent): Gboolean
-    leave_event*: proc (actor: Actor; event: CrossingEvent): Gboolean
-    captured_event*: proc (actor: Actor; event: Event): Gboolean
+    event*: proc (actor: Actor; event: Event): bool
+    button_press_event*: proc (actor: Actor; event: ButtonEvent): bool
+    button_release_event*: proc (actor: Actor; event: ButtonEvent): bool
+    scroll_event*: proc (actor: Actor; event: ScrollEvent): bool
+    key_press_event*: proc (actor: Actor; event: KeyEvent): bool
+    key_release_event*: proc (actor: Actor; event: KeyEvent): bool
+    motion_event*: proc (actor: Actor; event: MotionEvent): bool
+    enter_event*: proc (actor: Actor; event: CrossingEvent): bool
+    leave_event*: proc (actor: Actor; event: CrossingEvent): bool
+    captured_event*: proc (actor: Actor; event: Event): bool
     key_focus_in*: proc (actor: Actor)
     key_focus_out*: proc (actor: Actor)
     queue_relayout*: proc (self: Actor)
     get_accessible*: proc (self: Actor): atk.Object
-    get_paint_volume*: proc (actor: Actor; volume: PaintVolume): Gboolean
-    has_overlaps*: proc (self: Actor): Gboolean
+    get_paint_volume*: proc (actor: Actor; volume: PaintVolume): bool
+    has_overlaps*: proc (self: Actor): bool
     paint_node*: proc (self: Actor; root: PaintNode)
-    touch_event*: proc (self: Actor; event: TouchEvent): Gboolean
+    touch_event*: proc (self: Actor; event: TouchEvent): bool
     padding_dummy*: array[26, Gpointer]
   ActorIter* = ptr ActorIterObj
   ActorIterObj* = object
@@ -2764,11 +2764,11 @@ type
   Animatable* = ptr object
   AnimatableIface* = object
     parent_iface*: GTypeInterface
-    animate_property*: proc (animatable: Animatable; animation: Animation; property_name: cstring; initial_value: ptr GValue; final_value: ptr GValue; progress: cdouble; value: ptr GValue): Gboolean
+    animate_property*: proc (animatable: Animatable; animation: Animation; property_name: cstring; initial_value: ptr GValue; final_value: ptr GValue; progress: cdouble; value: ptr GValue): bool
     find_property*: proc (animatable: Animatable; property_name: cstring): ptr GParamSpec
     get_initial_state*: proc (animatable: Animatable; property_name: cstring; value: ptr GValue)
     set_final_state*: proc (animatable: Animatable; property_name: cstring; value: ptr GValue)
-    interpolate_value*: proc (animatable: Animatable; property_name: cstring; interval: Interval; progress: cdouble; value: ptr GValue): Gboolean
+    interpolate_value*: proc (animatable: Animatable; property_name: cstring; interval: Interval; progress: cdouble; value: ptr GValue): bool
   BackendPrivate* = ptr object
   Backend* = ptr BackendObj
   BackendObj* = object
@@ -2783,8 +2783,8 @@ type
   BackendClass* = object
     parent_class*: GObjectClass
     stage_window_type*: GType
-    pre_parse*: proc (backend: Backend; error: ptr ptr GError): Gboolean
-    post_parse*: proc (backend: Backend; error: ptr ptr GError): Gboolean
+    pre_parse*: proc (backend: Backend; error: ptr ptr GError): bool
+    post_parse*: proc (backend: Backend; error: ptr ptr GError): bool
     create_stage*: proc (backend: Backend; wrapper: Stage; error: ptr ptr GError): StageWindow
     init_events*: proc (backend: Backend)
     init_features*: proc (backend: Backend)
@@ -2792,12 +2792,12 @@ type
     get_features*: proc (backend: Backend): FeatureFlags
     get_renderer*: proc (backend: Backend; error: ptr ptr GError): CoglRenderer
     get_display*: proc (backend: Backend; renderer: CoglRenderer; swap_chain: CoglSwapChain; error: ptr ptr GError): CoglDisplay
-    create_context*: proc (backend: Backend; error: ptr ptr GError): Gboolean
+    create_context*: proc (backend: Backend; error: ptr ptr GError): bool
     ensure_context*: proc (backend: Backend; stage: Stage)
     get_device_manager*: proc (backend: Backend): DeviceManager
     copy_event_data*: proc (backend: Backend; src: Event; dest: Event)
     free_event_data*: proc (backend: Backend; event: Event)
-    translate_event*: proc (backend: Backend; native: Gpointer; event: Event): Gboolean
+    translate_event*: proc (backend: Backend; native: Gpointer; event: Event): bool
     get_keymap_direction*: proc (backend: Backend): Direction
     resolution_changed*: proc (backend: Backend)
     font_changed*: proc (backend: Backend)
@@ -2809,7 +2809,7 @@ type
     priv*: BinLayoutPrivate
   BinLayoutClass* = object
     parent_class*: LayoutManagerClass
-  BindingActionFunc* = proc (gobject: ptr GObject; action_name: cstring; key_val: cuint; modifiers: ModifierType; user_data: Gpointer): Gboolean
+  BindingActionFunc* = proc (gobject: ptr GObject; action_name: cstring; key_val: cuint; modifiers: ModifierType; user_data: Gpointer): bool
   BindingPool* = ptr object
   BoxLayoutPrivate* = ptr object
   BoxLayout* = ptr BoxLayoutObj
@@ -2825,7 +2825,7 @@ type
     priv*: CanvasPrivate
   CanvasClass* = object
     parent_class*: GObjectClass
-    draw*: proc (canvas: Canvas; cr: cairo.Context; width: cint; height: cint): Gboolean
+    draw*: proc (canvas: Canvas; cr: cairo.Context; width: cint; height: cint): bool
     padding*: array[16, Gpointer]
   ChildMeta* = ptr ChildMetaObj
   ChildMetaObj* = object
@@ -2842,7 +2842,7 @@ type
   ClickActionClass* = object
     parent_class*: ActionClass
     clicked*: proc (action: ClickAction; actor: Actor)
-    long_press*: proc (action: ClickAction; actor: Actor; state: LongPressState): Gboolean
+    long_press*: proc (action: ClickAction; actor: Actor; state: LongPressState): bool
     clutter_click_action1*: proc ()
     clutter_click_action2*: proc ()
     clutter_click_action3*: proc ()
@@ -2906,7 +2906,7 @@ type
   Content* = ptr object
   ContentIface* = object
     g_iface*: GTypeInterface
-    get_preferred_size*: proc (content: Content; width: ptr cfloat; height: ptr cfloat): Gboolean
+    get_preferred_size*: proc (content: Content; width: ptr cfloat; height: ptr cfloat): bool
     paint_content*: proc (content: Content; actor: Actor; node: PaintNode)
     attached*: proc (content: Content; actor: Actor)
     detached*: proc (content: Content; actor: Actor)
@@ -2991,7 +2991,7 @@ type
     is_enabled* {.bitsize: 1.}: cuint
   InputDeviceClass* = object
     parent_class*: GObjectClass
-    keycode_to_evdev*: proc (device: InputDevice; hardware_keycode: cuint; evdev_keycode: ptr cuint): Gboolean
+    keycode_to_evdev*: proc (device: InputDevice; hardware_keycode: cuint; evdev_keycode: ptr cuint): bool
   DeviceManagerPrivate* = ptr object
   DeviceManager* = ptr DeviceManagerObj
   DeviceManagerObj* = object
@@ -3016,7 +3016,7 @@ type
     drag_begin*: proc (action: DragAction; actor: Actor; event_x: cfloat; event_y: cfloat; modifiers: ModifierType)
     drag_motion*: proc (action: DragAction; actor: Actor; delta_x: cfloat; delta_y: cfloat)
     drag_end*: proc (action: DragAction; actor: Actor; event_x: cfloat; event_y: cfloat; modifiers: ModifierType)
-    drag_progress*: proc (action: DragAction; actor: Actor; delta_x: cfloat; delta_y: cfloat): Gboolean
+    drag_progress*: proc (action: DragAction; actor: Actor; delta_x: cfloat; delta_y: cfloat): bool
     clutter_drag_action1*: proc ()
     clutter_drag_action2*: proc ()
     clutter_drag_action3*: proc ()
@@ -3028,7 +3028,7 @@ type
     priv*: DropActionPrivate
   DropActionClass* = object
     parentclass*: ActionClass
-    can_drop*: proc (action: DropAction; actor: Actor; event_x: cfloat; event_y: cfloat): Gboolean
+    can_drop*: proc (action: DropAction; actor: Actor; event_x: cfloat; event_y: cfloat): bool
     over_in*: proc (action: DropAction; actor: Actor)
     over_out*: proc (action: DropAction; actor: Actor)
     drop*: proc (action: DropAction; actor: Actor; event_x: cfloat; event_y: cfloat)
@@ -3046,9 +3046,9 @@ type
     parent_instance*: ActorMetaObj
   EffectClass* = object
     parent_class*: ActorMetaClass
-    pre_paint*: proc (effect: Effect): Gboolean
+    pre_paint*: proc (effect: Effect): bool
     post_paint*: proc (effect: Effect)
-    get_paint_volume*: proc (effect: Effect; volume: PaintVolume): Gboolean
+    get_paint_volume*: proc (effect: Effect; volume: PaintVolume): bool
     paint*: proc (effect: Effect; flags: EffectPaintFlags)
     pick*: proc (effect: Effect; flags: EffectPaintFlags)
     clutter_effect4*: proc ()
@@ -3160,7 +3160,7 @@ type
     stage_state*: StageStateEventObj
     crossing*: CrossingEventObj
     touch*: TouchEventObj
-  EventFilterFunc* = proc (event: Event; user_data: Gpointer): Gboolean
+  EventFilterFunc* = proc (event: Event; user_data: Gpointer): bool
   FixedLayout* = ptr FixedLayoutObj
   FixedLayoutObj* = object
     parent_instance*: LayoutManagerObj
@@ -3185,11 +3185,11 @@ type
     priv*: GestureActionPrivate
   GestureActionClass* = object
     parent_class*: ActionClass
-    gesture_begin*: proc (action: GestureAction; actor: Actor): Gboolean
-    gesture_progress*: proc (action: GestureAction; actor: Actor): Gboolean
+    gesture_begin*: proc (action: GestureAction; actor: Actor): bool
+    gesture_progress*: proc (action: GestureAction; actor: Actor): bool
     gesture_end*: proc (action: GestureAction; actor: Actor)
     gesture_cancel*: proc (action: GestureAction; actor: Actor)
-    gesture_prepare*: proc (action: GestureAction; actor: Actor): Gboolean
+    gesture_prepare*: proc (action: GestureAction; actor: Actor): bool
     clutter_gesture_action1*: proc ()
     clutter_gesture_action2*: proc ()
     clutter_gesture_action3*: proc ()
@@ -3235,8 +3235,8 @@ type
     priv*: IntervalPrivate
   IntervalClass* = object
     parent_class*: GInitiallyUnownedClass
-    validate*: proc (interval: Interval; pspec: ptr GParamSpec): Gboolean
-    compute_value*: proc (interval: Interval; factor: cdouble; value: ptr GValue): Gboolean
+    validate*: proc (interval: Interval; pspec: ptr GParamSpec): bool
+    compute_value*: proc (interval: Interval; factor: cdouble; value: ptr GValue): bool
     clutter_reserved1*: proc ()
     clutter_reserved2*: proc ()
     clutter_reserved3*: proc ()
@@ -3294,9 +3294,9 @@ type
     priv*: ListModelPrivate
   ListModelClass* = object
     parent_class*: ModelClass
-  ModelFilterFunc* = proc (model: Model; iter: ModelIter; user_data: Gpointer): Gboolean
+  ModelFilterFunc* = proc (model: Model; iter: ModelIter; user_data: Gpointer): bool
   ModelSortFunc* = proc (model: Model; a: ptr GValue; b: ptr GValue; user_data: Gpointer): cint
-  ModelForeachFunc* = proc (model: Model; iter: ModelIter; user_data: Gpointer): Gboolean
+  ModelForeachFunc* = proc (model: Model; iter: ModelIter; user_data: Gpointer): bool
   ModelPrivate* = ptr object
   Model* = ptr ModelObj
   ModelObj* = object
@@ -3334,8 +3334,8 @@ type
     parent_class*: GObjectClass
     get_value*: proc (iter: ModelIter; column: cuint; value: ptr GValue)
     set_value*: proc (iter: ModelIter; column: cuint; value: ptr GValue)
-    is_first*: proc (iter: ModelIter): Gboolean
-    is_last*: proc (iter: ModelIter): Gboolean
+    is_first*: proc (iter: ModelIter): bool
+    is_last*: proc (iter: ModelIter): bool
     next*: proc (iter: ModelIter): ModelIter
     prev*: proc (iter: ModelIter): ModelIter
     get_model*: proc (iter: ModelIter): Model
@@ -3388,7 +3388,7 @@ type
   PaintNodeClass* = object
     base_class*: GTypeClass
     finalize*: proc (node: PaintNode)
-    pre_draw*: proc (node: PaintNode): Gboolean
+    pre_draw*: proc (node: PaintNode): bool
     draw*: proc (node: PaintNode)
     post_draw*: proc (node: PaintNode)
     serialize*: proc (node: PaintNode): JsonNode
@@ -3417,7 +3417,7 @@ type
     priv*: PanActionPrivate
   PanActionClass* = object
     parent_class*: GestureActionClass
-    pan*: proc (action: PanAction; actor: Actor; is_interpolated: Gboolean): Gboolean
+    pan*: proc (action: PanAction; actor: Actor; is_interpolated: bool): bool
     pan_stopped*: proc (action: PanAction; actor: Actor)
     clutter_pan_action1*: proc ()
     clutter_pan_action2*: proc ()
@@ -3499,7 +3499,7 @@ type
     priv*: ptr RotateActionPrivate
   RotateActionClass* = object
     parent_class*: GestureActionClass
-    rotate*: proc (action: ptr RotateAction; actor: Actor; angle: cdouble): Gboolean
+    rotate*: proc (action: ptr RotateAction; actor: Actor; angle: cdouble): bool
     clutter_rotate_action1*: proc ()
     clutter_rotate_action2*: proc ()
     clutter_rotate_action3*: proc ()
@@ -3573,7 +3573,7 @@ type
     g_iface*: GTypeInterface
     set_id*: proc (scriptable: Scriptable; id: cstring)
     get_id*: proc (scriptable: Scriptable): cstring
-    parse_custom_node*: proc (scriptable: Scriptable; script: Script; value: ptr GValue; name: cstring; node: JsonNode): Gboolean
+    parse_custom_node*: proc (scriptable: Scriptable; script: Script; value: ptr GValue; name: cstring; node: JsonNode): bool
     set_custom_property*: proc (scriptable: Scriptable; script: Script; name: cstring; value: ptr GValue)
   ScrollActorPrivate* = ptr object
   ScrollActor* = object
@@ -3606,18 +3606,18 @@ type
   StageQueueRedrawEntry* = ptr StageQueueRedrawEntryObj
   StageQueueRedrawEntryObj* = object
     actor*: Actor
-    has_clip*: Gboolean
+    has_clip*: bool
     clip*: PaintVolumeObj
   StageWindowIface* = object
     parent_iface*: GTypeInterface
     get_wrapper*: proc (stage_window: StageWindow): Actor
     set_title*: proc (stage_window: StageWindow; title: cstring)
-    set_fullscreen*: proc (stage_window: StageWindow; is_fullscreen: Gboolean)
-    set_cursor_visible*: proc (stage_window: StageWindow; cursor_visible: Gboolean)
-    set_user_resizable*: proc (stage_window: StageWindow; is_resizable: Gboolean)
-    realize*: proc (stage_window: StageWindow): Gboolean
+    set_fullscreen*: proc (stage_window: StageWindow; is_fullscreen: bool)
+    set_cursor_visible*: proc (stage_window: StageWindow; cursor_visible: bool)
+    set_user_resizable*: proc (stage_window: StageWindow; is_resizable: bool)
+    realize*: proc (stage_window: StageWindow): bool
     unrealize*: proc (stage_window: StageWindow)
-    show*: proc (stage_window: StageWindow; do_raise: Gboolean)
+    show*: proc (stage_window: StageWindow; do_raise: bool)
     hide*: proc (stage_window: StageWindow)
     resize*: proc (stage_window: StageWindow; width: cint; height: cint)
     get_geometry*: proc (stage_window: StageWindow; geometry: RectangleInt)
@@ -3625,15 +3625,15 @@ type
     get_update_time*: proc (stage_window: StageWindow): int64
     clear_update_time*: proc (stage_window: StageWindow)
     add_redraw_clip*: proc (stage_window: StageWindow; stage_rectangle: RectangleInt)
-    has_redraw_clips*: proc (stage_window: StageWindow): Gboolean
-    ignoring_redraw_clips*: proc (stage_window: StageWindow): Gboolean
-    get_redraw_clip_bounds*: proc (stage_window: StageWindow; clip: RectangleInt): Gboolean
-    set_accept_focus*: proc (stage_window: StageWindow; accept_focus: Gboolean)
+    has_redraw_clips*: proc (stage_window: StageWindow): bool
+    ignoring_redraw_clips*: proc (stage_window: StageWindow): bool
+    get_redraw_clip_bounds*: proc (stage_window: StageWindow; clip: RectangleInt): bool
+    set_accept_focus*: proc (stage_window: StageWindow; accept_focus: bool)
     redraw*: proc (stage_window: StageWindow)
     dirty_back_buffer*: proc (stage_window: StageWindow)
     get_dirty_pixel*: proc (stage_window: StageWindow; x: ptr cint; y: ptr cint)
     get_active_framebuffer*: proc (stage_window: StageWindow): CoglFramebuffer
-    can_clip_redraws*: proc (stage_window: StageWindow): Gboolean
+    can_clip_redraws*: proc (stage_window: StageWindow): bool
     set_scale_factor*: proc (stage_window: StageWindow; factor: cint)
     get_scale_factor*: proc (stage_window: StageWindow): cint
   StagePrivate* = ptr object
@@ -3647,7 +3647,7 @@ type
     unfullscreen*: proc (stage: Stage)
     activate*: proc (stage: Stage)
     deactivate*: proc (stage: Stage)
-    delete_event*: proc (stage: Stage; event: Event): Gboolean
+    delete_event*: proc (stage: Stage; event: Event): bool
     padding_dummy*: array[31, Gpointer]
   Perspective* = ptr PerspectiveObj
   PerspectiveObj* = object
@@ -3667,7 +3667,7 @@ type
   SwipeActionClass* = object
     parent_class*: GestureActionClass
     swept*: proc (action: SwipeAction; actor: Actor; direction: SwipeDirection)
-    swipe*: proc (action: SwipeAction; actor: Actor; direction: SwipeDirection): Gboolean
+    swipe*: proc (action: SwipeAction; actor: Actor; direction: SwipeDirection): bool
     clutter_swipe_action1*: proc ()
     clutter_swipe_action2*: proc ()
     clutter_swipe_action3*: proc ()
@@ -3679,7 +3679,7 @@ type
     parent_instance*: GestureActionObj
   TapActionClass* = object
     parent_class*: GestureActionClass
-    tap*: proc (action: TapAction; actor: Actor): Gboolean
+    tap*: proc (action: TapAction; actor: Actor): bool
     clutter_tap_action1*: proc ()
     clutter_tap_action2*: proc ()
     clutter_tap_action3*: proc ()
@@ -3753,7 +3753,7 @@ type
     paused*: proc (timeline: Timeline)
     new_frame*: proc (timeline: Timeline; msecs: cint)
     marker_reached*: proc (timeline: Timeline; marker_name: cstring; msecs: cint)
-    stopped*: proc (timeline: Timeline; is_finished: Gboolean)
+    stopped*: proc (timeline: Timeline; is_finished: bool)
     clutter_timeline_1*: proc ()
     clutter_timeline_2*: proc ()
     clutter_timeline_3*: proc ()
@@ -3824,7 +3824,7 @@ type
     right*: cfloat
     top*: cfloat
     bottom*: cfloat
-  ProgressFunc* = proc (a: ptr GValue; b: ptr GValue; progress: cdouble; retval: ptr GValue): Gboolean
+  ProgressFunc* = proc (a: ptr GValue; b: ptr GValue; progress: cdouble; retval: ptr GValue): bool
   Units* = ptr UnitsObj
   UnitsObj* = object
     unit_type*: UnitType
@@ -3848,14 +3848,14 @@ type
     priv*: ZoomActionPrivate
   ZoomActionClass* = object
     parent_class*: GestureActionClass
-    zoom*: proc (action: ZoomAction; actor: Actor; focal_point: Point; factor: cdouble): Gboolean
+    zoom*: proc (action: ZoomAction; actor: Actor; focal_point: Point; factor: cdouble): bool
     clutter_zoom_action1*: proc ()
     clutter_zoom_action2*: proc ()
     clutter_zoom_action3*: proc ()
     clutter_zoom_action4*: proc ()
     clutter_zoom_action5*: proc ()
   TraverseCallback* = proc (actor: Actor; depth: cint; user_data: Gpointer): ActorTraverseVisitFlags
-  ForeachCallback* = proc (actor: Actor; user_data: Gpointer): Gboolean
+  ForeachCallback* = proc (actor: Actor; user_data: Gpointer): bool
 
 proc getActionType*(): GType {.importc:"clutter_action_get_type", libclutter.}
 proc addAction*(self: Actor; action: Action) {.importc:"clutter_actor_add_action", libclutter.}
@@ -3865,12 +3865,12 @@ proc removeAction*(self: Actor; name: cstring) {.importc:"clutter_actor_remove_a
 proc getAction*(self: Actor; name: cstring): Action {.importc:"clutter_actor_get_action", libclutter.}
 proc getActions*(self: Actor): ptr GList {.importc:"clutter_actor_get_actions", libclutter.}
 proc clearActions*(self: Actor) {.importc:"clutter_actor_clear_actions", libclutter.}
-proc hasActions*(self: Actor): Gboolean {.importc:"clutter_actor_has_actions", libclutter.}
+proc hasActions*(self: Actor): bool {.importc:"clutter_actor_has_actions", libclutter.}
 proc getActorMetaType*(): GType {.importc:"clutter_actor_meta_get_type", libclutter.}
 proc setName*(meta: ActorMeta; name: cstring) {.importc:"clutter_actor_meta_set_name", libclutter.}
 proc getName*(meta: ActorMeta): cstring {.importc:"clutter_actor_meta_get_name", libclutter.} 
-proc setEnabled*(meta: ActorMeta; is_enabled: Gboolean) {.importc:"clutter_actor_meta_set_enabled", libclutter.}
-proc getEnabled*(meta: ActorMeta): Gboolean {.importc:"clutter_actor_meta_get_enabled", libclutter.}
+proc setEnabled*(meta: ActorMeta; is_enabled: bool) {.importc:"clutter_actor_meta_set_enabled", libclutter.}
+proc getEnabled*(meta: ActorMeta): bool {.importc:"clutter_actor_meta_get_enabled", libclutter.}
 proc getActor*(meta: ActorMeta): Actor {.importc:"clutter_actor_meta_get_actor", libclutter.}
 proc getActorType*(): GType {.importc:"clutter_actor_get_type", libclutter.}
 proc newActor*(): Actor {.importc:"clutter_actor_new", libclutter.}
@@ -3899,16 +3899,16 @@ proc addEffect*(self: Actor; effect: Effect)  {.importc:"clutter_actor_add_effec
 proc addEffect*(self: Actor; name: cstring; effect: Effect)  {.importc:"clutter_actor_add_effect_with_name", libclutter.}
 proc addTransition*(self: Actor; name: cstring; transition: Transition)  {.importc:"clutter_actor_add_transition", libclutter.}
 proc allocate*(self: Actor; box: ActorBox; flags: AllocationFlags)  {.importc:"clutter_actor_allocate", libclutter.}
-proc allocateAlignFill*(self: Actor; box: ActorBox; x_align: cdouble; y_align: cdouble; x_fill: Gboolean; y_fill: Gboolean; flags: AllocationFlags)  {.importc:"clutter_actor_allocate_align_fill", libclutter.}
+proc allocateAlignFill*(self: Actor; box: ActorBox; x_align: cdouble; y_align: cdouble; x_fill: bool; y_fill: bool; flags: AllocationFlags)  {.importc:"clutter_actor_allocate_align_fill", libclutter.}
 proc allocateAvailableSize*(self: Actor; x: cfloat; y: cfloat; available_width: cfloat; available_height: cfloat; flags: AllocationFlags)  {.importc:"clutter_actor_allocate_available_size", libclutter.}
 proc allocatePreferredSize*(self: Actor; flags: AllocationFlags)  {.importc:"clutter_actor_allocate_preferred_size", libclutter.}
 proc applyRelativeTransformToPoint*(self: Actor; ancestor: Actor; point: Vertex; vertex: Vertex)  {.importc:"clutter_actor_apply_relative_transform_to_point", libclutter.}
 proc applyTransformToPoint*(self: Actor; point: Vertex; vertex: Vertex)  {.importc:"clutter_actor_apply_transform_to_point", libclutter.}
 proc newActorBox*(): ActorBox  {.importc:"clutter_actor_box_alloc", libclutter.}
 proc clampToPixel*(box: ActorBox)  {.importc:"clutter_actor_box_clamp_to_pixel", libclutter.}
-proc contains*(box: ActorBox; x: cfloat; y: cfloat): Gboolean  {.importc:"clutter_actor_box_contains", libclutter.}
+proc contains*(box: ActorBox; x: cfloat; y: cfloat): bool  {.importc:"clutter_actor_box_contains", libclutter.}
 proc copy*(box: ActorBox): ActorBox  {.importc:"clutter_actor_box_copy", libclutter.}
-proc equal*(box_a: ActorBox; box_b: ActorBox): Gboolean  {.importc:"clutter_actor_box_equal", libclutter.}
+proc equal*(box_a: ActorBox; box_b: ActorBox): bool  {.importc:"clutter_actor_box_equal", libclutter.}
 proc free*(box: ActorBox)  {.importc:"clutter_actor_box_free", libclutter.}
 proc fromVertices*(box: ActorBox; verts: Vertex)  {.importc:"clutter_actor_box_from_vertices", libclutter.}
 proc getArea*(box: ActorBox): cfloat  {.importc:"clutter_actor_box_get_area", libclutter.}
@@ -3928,11 +3928,11 @@ proc setSize*(box: ActorBox; width: cfloat; height: cfloat)  {.importc:"clutter_
 proc union*(a: ActorBox; b: ActorBox; result: ActorBox)  {.importc:"clutter_actor_box_union", libclutter.}
 proc clearConstraints*(self: Actor)  {.importc:"clutter_actor_clear_constraints", libclutter.}
 proc clearEffects*(self: Actor)  {.importc:"clutter_actor_clear_effects", libclutter.}
-proc contains*(self: Actor; descendant: Actor): Gboolean  {.importc:"clutter_actor_contains", libclutter.}
+proc contains*(self: Actor; descendant: Actor): bool  {.importc:"clutter_actor_contains", libclutter.}
 proc createPangoContext*(self: Actor): pango.Context  {.importc:"clutter_actor_create_pango_context", libclutter.}
 proc createPangoLayout*(self: Actor; text: cstring): pango.Layout {.importc:"clutter_actor_create_pango_layout", libclutter.}
 proc destroyAllChildren*(self: Actor)  {.importc:"clutter_actor_destroy_all_children", libclutter.}
-proc event*(actor: Actor; event: Event; capture: Gboolean): Gboolean  {.importc:"clutter_actor_event", libclutter.}
+proc event*(actor: Actor; event: Event; capture: bool): bool  {.importc:"clutter_actor_event", libclutter.}
 proc getAbsAllocationVertices*(self: Actor; verts: Vertex)  {.importc:"clutter_actor_get_abs_allocation_vertices", libclutter.}
 proc getAllocationBox*(self: Actor; box: ActorBox)  {.importc:"clutter_actor_get_allocation_box", libclutter.}
 proc getAllocationVertices*(self: Actor; ancestor: Actor; verts: Vertex)  {.importc:"clutter_actor_get_allocation_vertices", libclutter.}
@@ -3941,7 +3941,7 @@ proc getChildAtIndex*(self: Actor; index: cint): Actor  {.importc:"clutter_actor
 proc getChildTransform*(self: Actor; transform: ptr Matrix)  {.importc:"clutter_actor_get_child_transform", libclutter.}
 proc getChildren*(self: Actor): ptr GList  {.importc:"clutter_actor_get_children", libclutter.}
 proc getClip*(self: Actor; xoff: ptr cfloat; yoff: ptr cfloat; width: ptr cfloat; height: ptr cfloat)  {.importc:"clutter_actor_get_clip", libclutter.}
-proc getClipTo_allocation*(self: Actor): Gboolean  {.importc:"clutter_actor_get_clip_to_allocation", libclutter.}
+proc getClipTo_allocation*(self: Actor): bool  {.importc:"clutter_actor_get_clip_to_allocation", libclutter.}
 proc getConstraint*(self: Actor; name: cstring): Constraint  {.importc:"clutter_actor_get_constraint", libclutter.}
 proc getConstraints*(self: Actor): ptr GList  {.importc:"clutter_actor_get_constraints", libclutter.}
 proc getContent*(self: Actor): Content  {.importc:"clutter_actor_get_content", libclutter.}
@@ -3956,7 +3956,7 @@ proc getEasingMode*(self: Actor): AnimationMode  {.importc:"clutter_actor_get_ea
 proc getEffect*(self: Actor; name: cstring): Effect  {.importc:"clutter_actor_get_effect", libclutter.}
 proc getEffects*(self: Actor): ptr GList  {.importc:"clutter_actor_get_effects", libclutter.}
 proc getFirstChild*(self: Actor): Actor  {.importc:"clutter_actor_get_first_child", libclutter.}
-proc getFixedPositionSet*(self: Actor): Gboolean  {.importc:"clutter_actor_get_fixed_position_set", libclutter.}
+proc getFixedPositionSet*(self: Actor): bool  {.importc:"clutter_actor_get_fixed_position_set", libclutter.}
 proc getHeight*(self: Actor): cfloat  {.importc:"clutter_actor_get_height", libclutter.}
 proc getLastChild*(self: Actor): Actor  {.importc:"clutter_actor_get_last_child", libclutter.}
 proc getLayoutManager*(self: Actor): LayoutManager  {.importc:"clutter_actor_get_layout_manager", libclutter.}
@@ -3969,9 +3969,9 @@ proc getNChildren*(self: Actor): cint  {.importc:"clutter_actor_get_n_children",
 proc getNextSibling*(self: Actor): Actor  {.importc:"clutter_actor_get_next_sibling", libclutter.}
 proc getOffscreenRedirect*(self: Actor): OffscreenRedirect  {.importc:"clutter_actor_get_offscreen_redirect", libclutter.}
 proc getOpacity*(self: Actor): cuchar  {.importc:"clutter_actor_get_opacity", libclutter.}
-proc getPaintBox*(self: Actor; box: ActorBox): Gboolean  {.importc:"clutter_actor_get_paint_box", libclutter.}
+proc getPaintBox*(self: Actor; box: ActorBox): bool  {.importc:"clutter_actor_get_paint_box", libclutter.}
 proc getPaintOpacity*(self: Actor): cuchar  {.importc:"clutter_actor_get_paint_opacity", libclutter.}
-proc getPaintVisibility*(self: Actor): Gboolean  {.importc:"clutter_actor_get_paint_visibility", libclutter.}
+proc getPaintVisibility*(self: Actor): bool  {.importc:"clutter_actor_get_paint_visibility", libclutter.}
 proc getPaintVolume*(self: Actor): PaintVolume  {.importc:"clutter_actor_get_paint_volume", libclutter.}
 proc getPangoContext*(self: Actor): pango.Context  {.importc:"clutter_actor_get_pango_context", libclutter.}
 proc getParent*(self: Actor): Actor  {.importc:"clutter_actor_get_parent", libclutter.}
@@ -3982,7 +3982,7 @@ proc getPreferredHeight*(self: Actor; for_width: cfloat; min_height_p: ptr cfloa
 proc getPreferredSize*(self: Actor; min_width_p: ptr cfloat; min_height_p: ptr cfloat; natural_width_p: ptr cfloat; natural_height_p: ptr cfloat)  {.importc:"clutter_actor_get_preferred_size", libclutter.}
 proc getPreferredWidth*(self: Actor; for_height: cfloat; min_width_p: ptr cfloat; natural_width_p: ptr cfloat)  {.importc:"clutter_actor_get_preferred_width", libclutter.}
 proc getPreviousSibling*(self: Actor): Actor  {.importc:"clutter_actor_get_previous_sibling", libclutter.}
-proc getReactive*(actor: Actor): Gboolean  {.importc:"clutter_actor_get_reactive", libclutter.}
+proc getReactive*(actor: Actor): bool  {.importc:"clutter_actor_get_reactive", libclutter.}
 proc getRequestMode*(self: Actor): RequestMode  {.importc:"clutter_actor_get_request_mode", libclutter.}
 proc getRotationAngle*(self: Actor; axis: RotateAxis): cdouble  {.importc:"clutter_actor_get_rotation_angle", libclutter.}
 proc getScale*(self: Actor; scale_x: ptr cdouble; scale_y: ptr cdouble)  {.importc:"clutter_actor_get_scale", libclutter.}
@@ -3999,33 +3999,33 @@ proc getTranslation*(self: Actor; translate_x: ptr cfloat; translate_y: ptr cflo
 proc getWidth*(self: Actor): cfloat  {.importc:"clutter_actor_get_width", libclutter.}
 proc getX*(self: Actor): cfloat  {.importc:"clutter_actor_get_x", libclutter.}
 proc getXAlign*(self: Actor): ActorAlign  {.importc:"clutter_actor_get_x_align", libclutter.}
-proc getXExpand*(self: Actor): Gboolean  {.importc:"clutter_actor_get_x_expand", libclutter.}
+proc getXExpand*(self: Actor): bool  {.importc:"clutter_actor_get_x_expand", libclutter.}
 proc getY*(self: Actor): cfloat   {.importc:"clutter_actor_get_y", libclutter.}
 proc getYAlign*(self: Actor): ActorAlign  {.importc:"clutter_actor_get_y_align", libclutter.}
-proc getYExpand*(self: Actor): Gboolean  {.importc:"clutter_actor_get_y_expand", libclutter.}
+proc getYExpand*(self: Actor): bool  {.importc:"clutter_actor_get_y_expand", libclutter.}
 proc getZPosition*(self: Actor): cfloat  {.importc:"clutter_actor_get_z_position", libclutter.}
 proc grabKeyFocus*(self: Actor)  {.importc:"clutter_actor_grab_key_focus", libclutter.}
-proc hasAllocation*(self: Actor): Gboolean  {.importc:"clutter_actor_has_allocation", libclutter.}
-proc hasClip*(self: Actor): Gboolean  {.importc:"clutter_actor_has_clip", libclutter.}
-proc hasConstraints*(self: Actor): Gboolean  {.importc:"clutter_actor_has_constraints", libclutter.}
-proc hasEffects*(self: Actor): Gboolean  {.importc:"clutter_actor_has_effects", libclutter.}
-proc hasKeyFocus*(self: Actor): Gboolean  {.importc:"clutter_actor_has_key_focus", libclutter.}
-proc hasOverlaps*(self: Actor): Gboolean  {.importc:"clutter_actor_has_overlaps", libclutter.}
-proc hasPointer*(self: Actor): Gboolean  {.importc:"clutter_actor_has_pointer", libclutter.}
+proc hasAllocation*(self: Actor): bool  {.importc:"clutter_actor_has_allocation", libclutter.}
+proc hasClip*(self: Actor): bool  {.importc:"clutter_actor_has_clip", libclutter.}
+proc hasConstraints*(self: Actor): bool  {.importc:"clutter_actor_has_constraints", libclutter.}
+proc hasEffects*(self: Actor): bool  {.importc:"clutter_actor_has_effects", libclutter.}
+proc hasKeyFocus*(self: Actor): bool  {.importc:"clutter_actor_has_key_focus", libclutter.}
+proc hasOverlaps*(self: Actor): bool  {.importc:"clutter_actor_has_overlaps", libclutter.}
+proc hasPointer*(self: Actor): bool  {.importc:"clutter_actor_has_pointer", libclutter.}
 proc insertChildAbove*(self: Actor; child: Actor; sibling: Actor)  {.importc:"clutter_actor_insert_child_above", libclutter.}
 proc insertChildAtIndex*(self: Actor; child: Actor; index: cint)  {.importc:"clutter_actor_insert_child_at_index", libclutter.}
 proc insertChildBelow*(self: Actor; child: Actor; sibling: Actor)  {.importc:"clutter_actor_insert_child_below", libclutter.}
-proc isInClonePaint*(self: Actor): Gboolean  {.importc:"clutter_actor_is_in_clone_paint", libclutter.}
-proc isRotated*(self: Actor): Gboolean  {.importc:"clutter_actor_is_rotated", libclutter.}
-proc isScaled*(self: Actor): Gboolean  {.importc:"clutter_actor_is_scaled", libclutter.}
+proc isInClonePaint*(self: Actor): bool  {.importc:"clutter_actor_is_in_clone_paint", libclutter.}
+proc isRotated*(self: Actor): bool  {.importc:"clutter_actor_is_rotated", libclutter.}
+proc isScaled*(self: Actor): bool  {.importc:"clutter_actor_is_scaled", libclutter.}
 proc destroy*(iter: ActorIter)  {.importc:"clutter_actor_iter_destroy", libclutter.}
 proc init*(iter: ActorIter; root: Actor)  {.importc:"clutter_actor_iter_init", libclutter.}
-proc isValid*(iter: ActorIter): Gboolean  {.importc:"clutter_actor_iter_is_valid", libclutter.}
-proc next*(iter: ActorIter; child: ptr Actor): Gboolean  {.importc:"clutter_actor_iter_next", libclutter.}
-proc prev*(iter: ActorIter; child: ptr Actor): Gboolean  {.importc:"clutter_actor_iter_prev", libclutter.}
+proc isValid*(iter: ActorIter): bool  {.importc:"clutter_actor_iter_is_valid", libclutter.}
+proc next*(iter: ActorIter; child: ptr Actor): bool  {.importc:"clutter_actor_iter_next", libclutter.}
+proc prev*(iter: ActorIter; child: ptr Actor): bool  {.importc:"clutter_actor_iter_prev", libclutter.}
 proc remove*(iter: ActorIter)  {.importc:"clutter_actor_iter_remove", libclutter.}
 proc moveBy*(self: Actor; dx: cfloat; dy: cfloat)  {.importc:"clutter_actor_move_by", libclutter.}
-proc needsExpand*(self: Actor; orientation: Orientation): Gboolean  {.importc:"clutter_actor_needs_expand", libclutter.}
+proc needsExpand*(self: Actor; orientation: Orientation): bool  {.importc:"clutter_actor_needs_expand", libclutter.}
 proc removeAllChildren*(self: Actor)  {.importc:"clutter_actor_remove_all_children", libclutter.}
 proc removeAllTransitions*(self: Actor)  {.importc:"clutter_actor_remove_all_transitions", libclutter.}
 proc removeChild*(self: Actor; child: Actor)  {.importc:"clutter_actor_remove_child", libclutter.}
@@ -4045,7 +4045,7 @@ proc setChildAtIndex*(self: Actor; child: Actor; index: cint)  {.importc:"clutte
 proc setChildBelowSibling*(self: Actor; child: Actor; sibling: Actor)  {.importc:"clutter_actor_set_child_below_sibling", libclutter.}
 proc setChildTransform*(self: Actor; transform: ptr Matrix)  {.importc:"clutter_actor_set_child_transform", libclutter.}
 proc setClip*(self: Actor; xoff: cfloat; yoff: cfloat; width: cfloat; height: cfloat)  {.importc:"clutter_actor_set_clip", libclutter.}
-proc setClipToAllocation*(self: Actor; clip_set: Gboolean)  {.importc:"clutter_actor_set_clip_to_allocation", libclutter.}
+proc setClipToAllocation*(self: Actor; clip_set: bool)  {.importc:"clutter_actor_set_clip_to_allocation", libclutter.}
 proc setContent*(self: Actor; content: Content)  {.importc:"clutter_actor_set_content", libclutter.}
 proc setContentGravity*(self: Actor; gravity: ContentGravity)  {.importc:"clutter_actor_set_content_gravity", libclutter.}
 proc setContentRepeat*(self: Actor; repeat: ContentRepeat)  {.importc:"clutter_actor_set_content_repeat", libclutter.}
@@ -4053,7 +4053,7 @@ proc setContentScalingFilters*(self: Actor; min_filter: ScalingFilter; mag_filte
 proc setEasingDelay*(self: Actor; msecs: cuint)  {.importc:"clutter_actor_set_easing_delay", libclutter.}
 proc setEasingDuration*(self: Actor; msecs: cuint)  {.importc:"clutter_actor_set_easing_duration", libclutter.}
 proc setEasingMode*(self: Actor; mode: AnimationMode)  {.importc:"clutter_actor_set_easing_mode", libclutter.}
-proc setFixedPositionSet*(self: Actor; is_set: Gboolean)  {.importc:"clutter_actor_set_fixed_position_set", libclutter.}
+proc setFixedPositionSet*(self: Actor; is_set: bool)  {.importc:"clutter_actor_set_fixed_position_set", libclutter.}
 proc setHeight*(self: Actor; height: cfloat)  {.importc:"clutter_actor_set_height", libclutter.}
 proc setLayoutManager*(self: Actor; manager: LayoutManager)  {.importc:"clutter_actor_set_layout_manager", libclutter.}
 proc setMargin*(self: Actor; margin: Margin)  {.importc:"clutter_actor_set_margin", libclutter.}
@@ -4066,7 +4066,7 @@ proc setOpacity*(self: Actor; opacity: cuchar)  {.importc:"clutter_actor_set_opa
 proc setPivotPoint*(self: Actor; pivot_x: cfloat; pivot_y: cfloat)  {.importc:"clutter_actor_set_pivot_point", libclutter.}
 proc setPivotPointZ*(self: Actor; pivot_z: cfloat)  {.importc:"clutter_actor_set_pivot_point_z", libclutter.}
 proc setPosition*(self: Actor; x: cfloat; y: cfloat)  {.importc:"clutter_actor_set_position", libclutter.}
-proc setReactive*(actor: Actor; reactive: Gboolean)  {.importc:"clutter_actor_set_reactive", libclutter.}
+proc setReactive*(actor: Actor; reactive: bool)  {.importc:"clutter_actor_set_reactive", libclutter.}
 proc setRequestMode*(self: Actor; mode: RequestMode)  {.importc:"clutter_actor_set_request_mode", libclutter.}
 proc setRotationAngle*(self: Actor; axis: RotateAxis; angle: cdouble)  {.importc:"clutter_actor_set_rotation_angle", libclutter.}
 proc setScale*(self: Actor; scale_x: cdouble; scale_y: cdouble)  {.importc:"clutter_actor_set_scale", libclutter.}
@@ -4078,13 +4078,13 @@ proc setTranslation*(self: Actor; translate_x: cfloat; translate_y: cfloat; tran
 proc setWidth*(self: Actor; width: cfloat)  {.importc:"clutter_actor_set_width", libclutter.}
 proc setX*(self: Actor; x: cfloat)  {.importc:"clutter_actor_set_x", libclutter.}
 proc setXAlign*(self: Actor; x_align: ActorAlign)  {.importc:"clutter_actor_set_x_align", libclutter.}
-proc setXExpand*(self: Actor; expand: Gboolean)  {.importc:"clutter_actor_set_x_expand", libclutter.}
+proc setXExpand*(self: Actor; expand: bool)  {.importc:"clutter_actor_set_x_expand", libclutter.}
 proc setY*(self: Actor; y: cfloat)  {.importc:"clutter_actor_set_y", libclutter.}
 proc setYAlign*(self: Actor; y_align: ActorAlign)  {.importc:"clutter_actor_set_y_align", libclutter.}
-proc setYExpand*(self: Actor; expand: Gboolean)  {.importc:"clutter_actor_set_y_expand", libclutter.}
+proc setYExpand*(self: Actor; expand: bool)  {.importc:"clutter_actor_set_y_expand", libclutter.}
 proc setZPosition*(self: Actor; z_position: cfloat)  {.importc:"clutter_actor_set_z_position", libclutter.}
-proc shouldPickPaint*(self: Actor): Gboolean  {.importc:"clutter_actor_should_pick_paint", libclutter.}
-proc transformStagePoint*(self: Actor; x: cfloat; y: cfloat; x_out: ptr cfloat; y_out: ptr cfloat): Gboolean  {.importc:"clutter_actor_transform_stage_point", libclutter.}
+proc shouldPickPaint*(self: Actor): bool  {.importc:"clutter_actor_should_pick_paint", libclutter.}
+proc transformStagePoint*(self: Actor; x: cfloat; y: cfloat; x_out: ptr cfloat; y_out: ptr cfloat): bool  {.importc:"clutter_actor_transform_stage_point", libclutter.}
 proc getAlignAxis*(align: AlignConstraint): AlignAxis  {.importc:"clutter_align_constraint_get_align_axis", libclutter.}
 proc getFactor*(align: AlignConstraint): cfloat  {.importc:"clutter_align_constraint_get_factor", libclutter.}
 proc getSource*(align: AlignConstraint): Actor  {.importc:"clutter_align_constraint_get_source", libclutter.}
@@ -4096,7 +4096,7 @@ proc setSource*(align: AlignConstraint; source: Actor)  {.importc:"clutter_align
 proc findProperty*(animatable: Animatable; property_name: cstring): ptr GParamSpec  {.importc:"clutter_animatable_find_property", libclutter.}
 proc getInitialState*(animatable: Animatable; property_name: cstring; value: ptr GValue)  {.importc:"clutter_animatable_get_initial_state", libclutter.}
 proc getAnimatableType*(): GType  {.importc:"clutter_animatable_get_type", libclutter.}
-proc interpolateValue*(animatable: Animatable; property_name: cstring; interval: Interval; progress: cdouble; value: ptr GValue): Gboolean  {.importc:"clutter_animatable_interpolate_value", libclutter.}
+proc interpolateValue*(animatable: Animatable; property_name: cstring; interval: Interval; progress: cdouble; value: ptr GValue): bool  {.importc:"clutter_animatable_interpolate_value", libclutter.}
 proc setFinalState*(animatable: Animatable; property_name: cstring; value: ptr GValue)  {.importc:"clutter_animatable_set_final_state", libclutter.}
 proc getFontOptions*(backend: Backend): FontOptions  {.importc:"clutter_backend_get_font_options", libclutter.}
 proc getResolution*(backend: Backend): cdouble  {.importc:"clutter_backend_get_resolution", libclutter.}
@@ -4113,7 +4113,7 @@ proc newBindConstraint*(source: Actor; coordinate: BindCoordinate; offset: cfloa
 proc setCoordinate*(constraint: BindConstraint; coordinate: BindCoordinate)  {.importc:"clutter_bind_constraint_set_coordinate", libclutter.}
 proc setOffset*(constraint: BindConstraint; offset: cfloat)  {.importc:"clutter_bind_constraint_set_offset", libclutter.}
 proc setSource*(constraint: BindConstraint; source: Actor)  {.importc:"clutter_bind_constraint_set_source", libclutter.}
-proc activate*(pool: BindingPool; key_val: cuint; modifiers: ModifierType; gobject: ptr GObject): Gboolean  {.importc:"clutter_binding_pool_activate", libclutter.}
+proc activate*(pool: BindingPool; key_val: cuint; modifiers: ModifierType; gobject: ptr GObject): bool  {.importc:"clutter_binding_pool_activate", libclutter.}
 proc blockAction*(pool: BindingPool; action_name: cstring)  {.importc:"clutter_binding_pool_block_action", libclutter.}
 proc find*(name: cstring): BindingPool  {.importc:"clutter_binding_pool_find", libclutter.}
 proc findAction*(pool: BindingPool; key_val: cuint; modifiers: ModifierType): cstring  {.importc:"clutter_binding_pool_find_action", libclutter.}
@@ -4128,33 +4128,33 @@ proc removeAction*(pool: BindingPool; key_val: cuint; modifiers: ModifierType)  
 proc unblockAction*(pool: BindingPool; action_name: cstring)  {.importc:"clutter_binding_pool_unblock_action", libclutter.}
 proc getBlurEffectType*(): GType  {.importc:"clutter_blur_effect_get_type", libclutter.}
 proc newBlurEffect*(): Effect  {.importc:"clutter_blur_effect_new", libclutter.}
-proc continueAccumulator*(ihint: ptr GSignalInvocationHint; return_accu: ptr GValue; handler_return: ptr GValue; dummy: Gpointer): Gboolean  {.importc:"clutter_boolean_continue_accumulator", libclutter.}
-proc handledAccumulator*(ihint: ptr GSignalInvocationHint; return_accu: ptr GValue; handler_return: ptr GValue; dummy: Gpointer): Gboolean  {.importc:"clutter_boolean_handled_accumulator", libclutter.}
+proc continueAccumulator*(ihint: ptr GSignalInvocationHint; return_accu: ptr GValue; handler_return: ptr GValue; dummy: Gpointer): bool  {.importc:"clutter_boolean_continue_accumulator", libclutter.}
+proc handledAccumulator*(ihint: ptr GSignalInvocationHint; return_accu: ptr GValue; handler_return: ptr GValue; dummy: Gpointer): bool  {.importc:"clutter_boolean_handled_accumulator", libclutter.}
 proc getAlignment*(layout: BoxLayout; actor: Actor; x_align: ptr BoxAlignment; y_align: ptr BoxAlignment)  {.importc:"clutter_box_layout_get_alignment", libclutter.}
 proc getEasingDuration*(layout: BoxLayout): cuint  {.importc:"clutter_box_layout_get_easing_duration", libclutter.}
 proc getEasingMode*(layout: BoxLayout): Gulong  {.importc:"clutter_box_layout_get_easing_mode", libclutter.}
-proc getExpand*(layout: BoxLayout; actor: Actor): Gboolean  {.importc:"clutter_box_layout_get_expand", libclutter.}
-proc getFill*(layout: BoxLayout; actor: Actor; x_fill: ptr Gboolean; y_fill: ptr Gboolean)  {.importc:"clutter_box_layout_get_fill", libclutter.}
-proc getHomogeneous*(layout: BoxLayout): Gboolean  {.importc:"clutter_box_layout_get_homogeneous", libclutter.}
+proc getExpand*(layout: BoxLayout; actor: Actor): bool  {.importc:"clutter_box_layout_get_expand", libclutter.}
+proc getFill*(layout: BoxLayout; actor: Actor; x_fill: ptr bool; y_fill: ptr bool)  {.importc:"clutter_box_layout_get_fill", libclutter.}
+proc getHomogeneous*(layout: BoxLayout): bool  {.importc:"clutter_box_layout_get_homogeneous", libclutter.}
 proc getOrientation*(layout: BoxLayout): Orientation  {.importc:"clutter_box_layout_get_orientation", libclutter.}
-proc getPackStart*(layout: BoxLayout): Gboolean  {.importc:"clutter_box_layout_get_pack_start", libclutter.}
+proc getPackStart*(layout: BoxLayout): bool  {.importc:"clutter_box_layout_get_pack_start", libclutter.}
 proc getSpacing*(layout: BoxLayout): cuint  {.importc:"clutter_box_layout_get_spacing", libclutter.}
 proc getBoxLayoutType*(): GType  {.importc:"clutter_box_layout_get_type", libclutter.}
-proc getUseAnimations*(layout: BoxLayout): Gboolean  {.importc:"clutter_box_layout_get_use_animations", libclutter.}
-proc getVertical*(layout: BoxLayout): Gboolean  {.importc:"clutter_box_layout_get_vertical", libclutter.}
+proc getUseAnimations*(layout: BoxLayout): bool  {.importc:"clutter_box_layout_get_use_animations", libclutter.}
+proc getVertical*(layout: BoxLayout): bool  {.importc:"clutter_box_layout_get_vertical", libclutter.}
 proc newBoxLayout*(): LayoutManager  {.importc:"clutter_box_layout_new", libclutter.}
-proc pack*(layout: BoxLayout; actor: Actor; expand: Gboolean; x_fill: Gboolean; y_fill: Gboolean; x_align: BoxAlignment; y_align: BoxAlignment)  {.importc:"clutter_box_layout_pack", libclutter.}
+proc pack*(layout: BoxLayout; actor: Actor; expand: bool; x_fill: bool; y_fill: bool; x_align: BoxAlignment; y_align: BoxAlignment)  {.importc:"clutter_box_layout_pack", libclutter.}
 proc setAlignment*(layout: BoxLayout; actor: Actor; x_align: BoxAlignment; y_align: BoxAlignment)  {.importc:"clutter_box_layout_set_alignment", libclutter.}
 proc setEasingDuration*(layout: BoxLayout; msecs: cuint)  {.importc:"clutter_box_layout_set_easing_duration", libclutter.}
 proc setEasingMode*(layout: BoxLayout; mode: Gulong)  {.importc:"clutter_box_layout_set_easing_mode", libclutter.}
-proc setExpand*(layout: BoxLayout; actor: Actor; expand: Gboolean)  {.importc:"clutter_box_layout_set_expand", libclutter.}
-proc setFill*(layout: BoxLayout; actor: Actor; x_fill: Gboolean; y_fill: Gboolean)  {.importc:"clutter_box_layout_set_fill", libclutter.}
-proc setHomogeneous*(layout: BoxLayout; homogeneous: Gboolean)  {.importc:"clutter_box_layout_set_homogeneous", libclutter.}
+proc setExpand*(layout: BoxLayout; actor: Actor; expand: bool)  {.importc:"clutter_box_layout_set_expand", libclutter.}
+proc setFill*(layout: BoxLayout; actor: Actor; x_fill: bool; y_fill: bool)  {.importc:"clutter_box_layout_set_fill", libclutter.}
+proc setHomogeneous*(layout: BoxLayout; homogeneous: bool)  {.importc:"clutter_box_layout_set_homogeneous", libclutter.}
 proc setOrientation*(layout: BoxLayout; orientation: Orientation)  {.importc:"clutter_box_layout_set_orientation", libclutter.}
-proc setPackStart*(layout: BoxLayout; pack_start: Gboolean)  {.importc:"clutter_box_layout_set_pack_start", libclutter.}
+proc setPackStart*(layout: BoxLayout; pack_start: bool)  {.importc:"clutter_box_layout_set_pack_start", libclutter.}
 proc setSpacing*(layout: BoxLayout; spacing: cuint)  {.importc:"clutter_box_layout_set_spacing", libclutter.}
-proc setUseAnimations*(layout: BoxLayout; animate: Gboolean)  {.importc:"clutter_box_layout_set_use_animations", libclutter.}
-proc setVertical*(layout: BoxLayout; vertical: Gboolean)  {.importc:"clutter_box_layout_set_vertical", libclutter.}
+proc setUseAnimations*(layout: BoxLayout; animate: bool)  {.importc:"clutter_box_layout_set_use_animations", libclutter.}
+proc setVertical*(layout: BoxLayout; vertical: bool)  {.importc:"clutter_box_layout_set_vertical", libclutter.}
 proc getBrightness*(effect: BrightnessContrastEffect; red: ptr cfloat; green: ptr cfloat; blue: ptr cfloat)  {.importc:"clutter_brightness_contrast_effect_get_brightness", libclutter.}
 proc getContrast*(effect: BrightnessContrastEffect; red: ptr cfloat; green: ptr cfloat; blue: ptr cfloat)  {.importc:"clutter_brightness_contrast_effect_get_contrast", libclutter.}
 proc getBrightnessContrastEffectType*(): GType  {.importc:"clutter_brightness_contrast_effect_get_type", libclutter.}
@@ -4169,9 +4169,9 @@ proc getScaleFactor*(canvas: Canvas): cint  {.importc:"clutter_canvas_get_scale_
 proc getCanvasType*(): GType  {.importc:"clutter_canvas_get_type", libclutter.}
 proc newCanvas*(): Content  {.importc:"clutter_canvas_new", libclutter.}
 proc setScaleFactor*(canvas: Canvas; scale: cint)  {.importc:"clutter_canvas_set_scale_factor", libclutter.}
-proc setSize*(canvas: Canvas; width: cint; height: cint): Gboolean  {.importc:"clutter_canvas_set_size", libclutter.}
-proc checkVersion*(major: cuint; minor: cuint; micro: cuint): Gboolean  {.importc:"clutter_check_version", libclutter.}
-proc checkWindowingBackend*(backend_type: cstring): Gboolean  {.importc:"clutter_check_windowing_backend", libclutter.}
+proc setSize*(canvas: Canvas; width: cint; height: cint): bool  {.importc:"clutter_canvas_set_size", libclutter.}
+proc checkVersion*(major: cuint; minor: cuint; micro: cuint): bool  {.importc:"clutter_check_version", libclutter.}
+proc checkWindowingBackend*(backend_type: cstring): bool  {.importc:"clutter_check_windowing_backend", libclutter.}
 proc getActor*(data: ChildMeta): Actor  {.importc:"clutter_child_meta_get_actor", libclutter.}
 proc getContainer*(data: ChildMeta): Container  {.importc:"clutter_child_meta_get_container", libclutter.}
 proc getChildMetaType*(): GType  {.importc:"clutter_child_meta_get_type", libclutter.}
@@ -4191,11 +4191,11 @@ proc add*(a: Color; b: Color; result: Color)  {.importc:"clutter_color_add", lib
 proc alloc*(): Color  {.importc:"clutter_color_alloc", libclutter.}
 proc copy*(color: Color): Color  {.importc:"clutter_color_copy", libclutter.}
 proc darken*(color: Color; result: Color)  {.importc:"clutter_color_darken", libclutter.}
-proc equal*(v1: Gconstpointer; v2: Gconstpointer): Gboolean  {.importc:"clutter_color_equal", libclutter.}
+proc equal*(v1: Gconstpointer; v2: Gconstpointer): bool  {.importc:"clutter_color_equal", libclutter.}
 proc free*(color: Color)  {.importc:"clutter_color_free", libclutter.}
 proc fromHls*(color: Color; hue: cfloat; luminance: cfloat; saturation: cfloat)  {.importc:"clutter_color_from_hls", libclutter.}
 proc fromPixel*(color: Color; pixel: cuint)  {.importc:"clutter_color_from_pixel", libclutter.}
-proc fromString*(color: Color; str: cstring): Gboolean  {.importc:"clutter_color_from_string", libclutter.}
+proc fromString*(color: Color; str: cstring): bool  {.importc:"clutter_color_from_string", libclutter.}
 proc getStatic*(color: StaticColor): Color  {.importc:"clutter_color_get_static", libclutter.}
 proc getColorType*(): GType  {.importc:"clutter_color_get_type", libclutter.}
 proc hash*(v: Gconstpointer): cuint  {.importc:"clutter_color_hash", libclutter.}
@@ -4215,7 +4215,7 @@ proc getColorizeEffectType*(): GType  {.importc:"clutter_colorize_effect_get_typ
 proc newColorizeEffect*(tint: Color): Effect  {.importc:"clutter_colorize_effect_new", libclutter.}
 proc setTint*(effect: ColorizeEffect; tint: Color)  {.importc:"clutter_colorize_effect_set_tint", libclutter.}
 proc getConstraintType*(): GType  {.importc:"clutter_constraint_get_type", libclutter.}
-proc updateAllocation*(constraint: Constraint; actor: Actor; allocation: ActorBox): Gboolean  {.importc:"clutter_constraint_update_allocation", libclutter.}
+proc updateAllocation*(constraint: Constraint; actor: Actor; allocation: ActorBox): bool  {.importc:"clutter_constraint_update_allocation", libclutter.}
 proc updatePreferredSize*(constraint: Constraint; actor: Actor; direction: Orientation; for_size: cfloat; minimum_size: ptr cfloat; natural_size: ptr cfloat)  {.importc:"clutter_constraint_update_preferred_size", libclutter.}
 proc childGet*(container: Container; actor: Actor; first_prop: cstring)  {.varargs, importc:"clutter_container_child_get", libclutter.}
 proc childGetProperty*(container: Container; child: Actor; property: cstring; value: ptr GValue)  {.importc:"clutter_container_child_get_property", libclutter.}
@@ -4229,14 +4229,14 @@ proc destroyChildMeta*(container: Container; actor: Actor)  {.importc:"clutter_c
 proc findChildByName*(container: Container; child_name: cstring): Actor  {.importc:"clutter_container_find_child_by_name", libclutter.}
 proc getChildMeta*(container: Container; actor: Actor): ChildMeta  {.importc:"clutter_container_get_child_meta", libclutter.}
 proc getContainerType*(): GType  {.importc:"clutter_container_get_type", libclutter.}
-proc getPreferredSize*(content: Content; width: ptr cfloat; height: ptr cfloat): Gboolean  {.importc:"clutter_content_get_preferred_size", libclutter.}
+proc getPreferredSize*(content: Content; width: ptr cfloat; height: ptr cfloat): bool  {.importc:"clutter_content_get_preferred_size", libclutter.}
 proc getContentType*(): GType  {.importc:"clutter_content_get_type", libclutter.}
 proc invalidate*(content: Content)  {.importc:"clutter_content_invalidate", libclutter.}
 proc getDefaultContext*(): MainContext  {.importc:"clutter_context_get_default", libclutter.}
-proc getMotionEventsEnabled*(): Gboolean  {.importc:"clutter_context_get_motion_events_enabled", libclutter.}
+proc getMotionEventsEnabled*(): bool  {.importc:"clutter_context_get_motion_events_enabled", libclutter.}
 proc getContextPickMode*(): PickMode  {.importc:"clutter_context_get_pick_mode", libclutter.}
-proc getContextShowFps*(): Gboolean  {.importc:"clutter_context_get_show_fps", libclutter.}
-proc isContextInitialized*(): Gboolean  {.importc:"clutter_context_is_initialized", libclutter.}
+proc getContextShowFps*(): bool  {.importc:"clutter_context_get_show_fps", libclutter.}
+proc isContextInitialized*(): bool  {.importc:"clutter_context_is_initialized", libclutter.}
 proc lockContext*()  {.importc:"clutter_context_lock", libclutter.}
 proc peekContextShaderStack*(): Actor  {.importc:"clutter_context_peek_shader_stack", libclutter.}
 proc popContextShaderStack*(actor: Actor): Actor  {.importc:"clutter_context_pop_shader_stack", libclutter.}
@@ -4263,11 +4263,11 @@ proc peekDevices*(device_manager: DeviceManager): ptr GSList  {.importc:"clutter
 proc removeDevice*(device_manager: DeviceManager; device: InputDevice)  {.importc:"clutter_device_manager_remove_device", libclutter.}
 proc selectStageEvents*(device_manager: DeviceManager; stage: Stage)  {.importc:"clutter_device_manager_select_stage_events", libclutter.}
 proc updateDevices*(device_manager: DeviceManager)  {.importc:"clutter_device_manager_update_devices", libclutter.}
-proc diagnosticEnabled*(): Gboolean  {.importc:"clutter_diagnostic_enabled", libclutter.}
+proc diagnosticEnabled*(): bool  {.importc:"clutter_diagnostic_enabled", libclutter.}
 proc diagnosticMessage*(fmt: cstring)  {.varargs, importc:"clutter_diagnostic_message", libclutter.} 
 proc disableAccessibility*()  {.importc:"clutter_disable_accessibility", libclutter.}
 proc doEvent*(event: Event)  {.importc:"clutter_do_event", libclutter.}
-proc getDragArea*(action: DragAction; drag_area: Rect): Gboolean  {.importc:"clutter_drag_action_get_drag_area", libclutter.}
+proc getDragArea*(action: DragAction; drag_area: Rect): bool  {.importc:"clutter_drag_action_get_drag_area", libclutter.}
 proc getDragAxis*(action: DragAction): DragAxis  {.importc:"clutter_drag_action_get_drag_axis", libclutter.}
 proc getDragHandle*(action: DragAction): Actor  {.importc:"clutter_drag_action_get_drag_handle", libclutter.}
 proc getDragThreshold*(action: DragAction; x_threshold: ptr cuint; y_threshold: ptr cuint)  {.importc:"clutter_drag_action_get_drag_threshold", libclutter.}
@@ -4346,9 +4346,9 @@ proc getState*(event: Event): ModifierType  {.importc:"clutter_event_get_state",
 proc getstate*(event: Event; button_state: ptr ModifierType; base_state: ptr ModifierType; latched_state: ptr ModifierType; locked_state: ptr ModifierType; effective_state: ptr ModifierType)  {.importc:"clutter_event_get_state_full", libclutter.}
 proc getTime*(event: Event): cuint  {.importc:"clutter_event_get_time", libclutter.}
 proc getEventType*(): GType  {.importc:"clutter_event_get_type", libclutter.}
-proc hasControlModifier*(event: Event): Gboolean  {.importc:"clutter_event_has_control_modifier", libclutter.}
-proc hasShiftModifier*(event: Event): Gboolean  {.importc:"clutter_event_has_shift_modifier", libclutter.}
-proc isPointerEmulated*(event: Event): Gboolean  {.importc:"clutter_event_is_pointer_emulated", libclutter.}
+proc hasControlModifier*(event: Event): bool  {.importc:"clutter_event_has_control_modifier", libclutter.}
+proc hasShiftModifier*(event: Event): bool  {.importc:"clutter_event_has_shift_modifier", libclutter.}
+proc isPointerEmulated*(event: Event): bool  {.importc:"clutter_event_is_pointer_emulated", libclutter.}
 proc newEvent*(`type`: EventType): Event  {.importc:"clutter_event_new", libclutter.}
 proc peek*(): Event  {.importc:"clutter_event_peek", libclutter.}
 proc put*(event: Event)  {.importc:"clutter_event_put", libclutter.}
@@ -4371,34 +4371,34 @@ proc setState*(event: Event; state: ModifierType)  {.importc:"clutter_event_set_
 proc setTime*(event: Event; time: cuint)  {.importc:"clutter_event_set_time", libclutter.}
 proc getEventTranslatorType*(): GType  {.importc:"clutter_event_translator_get_type", libclutter.}
 proc translateEvent*(translator: EventTranslator; native: Gpointer; translated: Event): TranslateReturn  {.importc:"clutter_event_translator_translate_event", libclutter.}
-proc type*(event: Event): EventType  {.importc:"clutter_event_type", libclutter.}
-proc eventsPending*(): Gboolean  {.importc:"clutter_events_pending", libclutter.}
-proc featureAvailable*(feature: FeatureFlags): Gboolean  {.importc:"clutter_feature_available", libclutter.}
+proc getEventType*(event: Event): EventType  {.importc:"clutter_event_type", libclutter.}
+proc eventsPending*(): bool  {.importc:"clutter_events_pending", libclutter.}
+proc featureAvailable*(feature: FeatureFlags): bool  {.importc:"clutter_feature_available", libclutter.}
 proc getFeatureAll*(): FeatureFlags  {.importc:"clutter_feature_get_all", libclutter.}
-proc initFeature*(error: ptr ptr GError): Gboolean  {.importc:"clutter_feature_init", libclutter.}
+proc initFeature*(error: ptr ptr GError): bool  {.importc:"clutter_feature_init", libclutter.}
 proc getFixedLayoutType*(): GType  {.importc:"clutter_fixed_layout_get_type", libclutter.}
 proc newFixedLayout*(): LayoutManager  {.importc:"clutter_fixed_layout_new", libclutter.}
 proc getFlattenEffectType*(): GType  {.importc:"clutter_flatten_effect_get_type", libclutter.}
 proc newFlattenEffect*(): Effect  {.importc:"clutter_flatten_effect_new", libclutter.}
 proc getColumnSpacing*(layout: FlowLayout): cfloat  {.importc:"clutter_flow_layout_get_column_spacing", libclutter.}
 proc getColumnWidth*(layout: FlowLayout; min_width: ptr cfloat; max_width: ptr cfloat)  {.importc:"clutter_flow_layout_get_column_width", libclutter.}
-proc getHomogeneous*(layout: FlowLayout): Gboolean  {.importc:"clutter_flow_layout_get_homogeneous", libclutter.}
+proc getHomogeneous*(layout: FlowLayout): bool  {.importc:"clutter_flow_layout_get_homogeneous", libclutter.}
 proc getOrientation*(layout: FlowLayout): FlowOrientation  {.importc:"clutter_flow_layout_get_orientation", libclutter.}
 proc getRowHeight*(layout: FlowLayout; min_height: ptr cfloat; max_height: ptr cfloat)  {.importc:"clutter_flow_layout_get_row_height", libclutter.}
 proc getRowSpacing*(layout: FlowLayout): cfloat  {.importc:"clutter_flow_layout_get_row_spacing", libclutter.}
-proc getSnapToGrid*(layout: FlowLayout): Gboolean  {.importc:"clutter_flow_layout_get_snap_to_grid", libclutter.}
+proc getSnapToGrid*(layout: FlowLayout): bool  {.importc:"clutter_flow_layout_get_snap_to_grid", libclutter.}
 proc getFlowLayoutType*(): GType  {.importc:"clutter_flow_layout_get_type", libclutter.}
 proc newFlowLayout*(orientation: FlowOrientation): LayoutManager  {.importc:"clutter_flow_layout_new", libclutter.}
 proc setColumnSpacing*(layout: FlowLayout; spacing: cfloat)  {.importc:"clutter_flow_layout_set_column_spacing", libclutter.}
 proc setColumnWidth*(layout: FlowLayout; min_width: cfloat; max_width: cfloat)  {.importc:"clutter_flow_layout_set_column_width", libclutter.}
-proc setHomogeneous*(layout: FlowLayout; homogeneous: Gboolean)  {.importc:"clutter_flow_layout_set_homogeneous", libclutter.}
+proc setHomogeneous*(layout: FlowLayout; homogeneous: bool)  {.importc:"clutter_flow_layout_set_homogeneous", libclutter.}
 proc setOrientation*(layout: FlowLayout; orientation: FlowOrientation)  {.importc:"clutter_flow_layout_set_orientation", libclutter.}
 proc setRowHeight*(layout: FlowLayout; min_height: cfloat; max_height: cfloat)  {.importc:"clutter_flow_layout_set_row_height", libclutter.}
 proc setRowSpacing*(layout: FlowLayout; spacing: cfloat)  {.importc:"clutter_flow_layout_set_row_spacing", libclutter.}
-proc setSnapToGrid*(layout: FlowLayout; snap_to_grid: Gboolean)  {.importc:"clutter_flow_layout_set_snap_to_grid", libclutter.}
+proc setSnapToGrid*(layout: FlowLayout; snap_to_grid: bool)  {.importc:"clutter_flow_layout_set_snap_to_grid", libclutter.}
 proc getFogType*(): GType  {.importc:"clutter_fog_get_type", libclutter.}
 proc getGeometryType*(): GType  {.importc:"clutter_geometry_get_type", libclutter.}
-proc intersects*(geometry0: Geometry; geometry1: Geometry): Gboolean  {.importc:"clutter_geometry_intersects", libclutter.}
+proc intersects*(geometry0: Geometry; geometry1: Geometry): bool  {.importc:"clutter_geometry_intersects", libclutter.}
 proc union*(geometry_a: Geometry; geometry_b: Geometry; result: Geometry)  {.importc:"clutter_geometry_union", libclutter.}
 proc cancel*(action: GestureAction)  {.importc:"clutter_gesture_action_cancel", libclutter.}
 proc getDevice*(action: GestureAction; point: cuint): InputDevice  {.importc:"clutter_gesture_action_get_device", libclutter.}
@@ -4419,7 +4419,7 @@ proc newGestureAction*(): Action  {.importc:"clutter_gesture_action_new", libclu
 proc setNTouchPoints*(action: GestureAction; nb_points: cint)  {.importc:"clutter_gesture_action_set_n_touch_points", libclutter.}
 proc setThresholdTriggerDistance*(action: GestureAction; x: cfloat; y: cfloat)  {.importc:"clutter_gesture_action_set_threshold_trigger_distance", libclutter.}
 proc setThresholdTriggerEdge*(action: GestureAction; edge: GestureTriggerEdge)  {.importc:"clutter_gesture_action_set_threshold_trigger_edge", libclutter.}
-proc getAccessibilityEnabled*(): Gboolean  {.importc:"clutter_get_accessibility_enabled", libclutter.}
+proc getAccessibilityEnabled*(): bool  {.importc:"clutter_get_accessibility_enabled", libclutter.}
 proc getCurrentEvent*(): Event  {.importc:"clutter_get_current_event", libclutter.}
 proc getCurrentEventTime*(): cuint  {.importc:"clutter_get_current_event_time", libclutter.}
 proc getDefaultBackend*(): Backend  {.importc:"clutter_get_default_backend", libclutter.}
@@ -4433,30 +4433,30 @@ proc getOptionGroup*(): ptr GOptionGroup  {.importc:"clutter_get_option_group", 
 proc getOptionGroupWithoutInit*(): ptr GOptionGroup  {.importc:"clutter_get_option_group_without_init", libclutter.}
 proc getPointerGrab*(): Actor  {.importc:"clutter_get_pointer_grab", libclutter.}
 proc getScriptId*(gobject: ptr GObject): cstring  {.importc:"clutter_get_script_id", libclutter.}
-proc getSyncToVblank*(): Gboolean  {.importc:"clutter_get_sync_to_vblank", libclutter.}
+proc getSyncToVblank*(): bool  {.importc:"clutter_get_sync_to_vblank", libclutter.}
 proc gettext*(str: cstring): cstring  {.importc:"clutter_gettext", libclutter.}
 proc grabKeyboard*(actor: Actor)  {.importc:"clutter_grab_keyboard", libclutter.}
 proc grabPointer*(actor: Actor)  {.importc:"clutter_grab_pointer", libclutter.}
 proc attach*(layout: GridLayout; child: Actor; left: cint; top: cint; width: cint; height: cint)  {.importc:"clutter_grid_layout_attach", libclutter.}
 proc attachNextTo*(layout: GridLayout; child: Actor; sibling: Actor; side: GridPosition; width: cint; height: cint)  {.importc:"clutter_grid_layout_attach_next_to", libclutter.}
 proc getChildAt*(layout: GridLayout; left: cint; top: cint): Actor  {.importc:"clutter_grid_layout_get_child_at", libclutter.}
-proc getColumnHomogeneous*(layout: GridLayout): Gboolean  {.importc:"clutter_grid_layout_get_column_homogeneous", libclutter.}
+proc getColumnHomogeneous*(layout: GridLayout): bool  {.importc:"clutter_grid_layout_get_column_homogeneous", libclutter.}
 proc getColumnSpacing*(layout: GridLayout): cuint  {.importc:"clutter_grid_layout_get_column_spacing", libclutter.}
 proc getOrientation*(layout: GridLayout): Orientation  {.importc:"clutter_grid_layout_get_orientation", libclutter.}
-proc getRowHomogeneous*(layout: GridLayout): Gboolean  {.importc:"clutter_grid_layout_get_row_homogeneous", libclutter.}
+proc getRowHomogeneous*(layout: GridLayout): bool  {.importc:"clutter_grid_layout_get_row_homogeneous", libclutter.}
 proc getRowSpacing*(layout: GridLayout): cuint  {.importc:"clutter_grid_layout_get_row_spacing", libclutter.}
 proc getGridLayoutType*(): GType  {.importc:"clutter_grid_layout_get_type", libclutter.}
 proc insertColumn*(layout: GridLayout; position: cint)  {.importc:"clutter_grid_layout_insert_column", libclutter.}
 proc insertNextTo*(layout: GridLayout; sibling: Actor; side: GridPosition)  {.importc:"clutter_grid_layout_insert_next_to", libclutter.}
 proc insertRow*(layout: GridLayout; position: cint)  {.importc:"clutter_grid_layout_insert_row", libclutter.}
 proc newGridLayout*(): LayoutManager  {.importc:"clutter_grid_layout_new", libclutter.}
-proc setColumnHomogeneous*(layout: GridLayout; homogeneous: Gboolean)  {.importc:"clutter_grid_layout_set_column_homogeneous", libclutter.}
+proc setColumnHomogeneous*(layout: GridLayout; homogeneous: bool)  {.importc:"clutter_grid_layout_set_column_homogeneous", libclutter.}
 proc setColumnSpacing*(layout: GridLayout; spacing: cuint)  {.importc:"clutter_grid_layout_set_column_spacing", libclutter.}
 proc setOrientation*(layout: GridLayout; orientation: Orientation)  {.importc:"clutter_grid_layout_set_orientation", libclutter.}
-proc setRowHomogeneous*(layout: GridLayout; homogeneous: Gboolean)  {.importc:"clutter_grid_layout_set_row_homogeneous", libclutter.}
+proc setRowHomogeneous*(layout: GridLayout; homogeneous: bool)  {.importc:"clutter_grid_layout_set_row_homogeneous", libclutter.}
 proc setRowSpacing*(layout: GridLayout; spacing: cuint)  {.importc:"clutter_grid_layout_set_row_spacing", libclutter.}
 proc getGroupType*(): GType  {.importc:"clutter_group_get_type", libclutter.}
-proc hasProgressFunction*(gtype: GType): Gboolean  {.importc:"clutter_has_progress_function", libclutter.}
+proc hasProgressFunction*(gtype: GType): bool  {.importc:"clutter_has_progress_function", libclutter.}
 proc add*(id_pool: IDPool; `ptr`: Gpointer): cuint  {.importc:"clutter_id_pool_add", libclutter.}
 proc free*(id_pool: IDPool)  {.importc:"clutter_id_pool_free", libclutter.}
 proc lookup*(id_pool: IDPool; id: cuint): Gpointer  {.importc:"clutter_id_pool_lookup", libclutter.}
@@ -4466,9 +4466,9 @@ proc clutter_id_to_color*(id: cuint; col: Color)  {.importc:"clutter_id_to_color
 proc clutter_image_error_quark*(): GQuark  {.importc:"clutter_image_error_quark", libclutter.}
 proc getImageType*(): GType  {.importc:"clutter_image_get_type", libclutter.}
 proc newClutterImage*(): Content  {.importc:"clutter_image_new", libclutter.}
-proc setArea*(image: Image; data: ptr cuchar; pixel_format: CoglPixelFormat; rect: cairo.RectangleInt; row_stride: cuint; error: ptr ptr GError): Gboolean  {.importc:"clutter_image_set_area", libclutter.}
-proc setBytes*(image: Image; data: ptr GBytes; pixel_format: CoglPixelFormat; width: cuint; height: cuint; row_stride: cuint; error: ptr ptr GError): Gboolean  {.importc:"clutter_image_set_bytes", libclutter.}
-proc setData*(image: Image; data: ptr cuchar; pixel_format: CoglPixelFormat; width: cuint; height: cuint; row_stride: cuint; error: ptr ptr GError): Gboolean  {.importc:"clutter_image_set_data", libclutter.}
+proc setArea*(image: Image; data: ptr cuchar; pixel_format: CoglPixelFormat; rect: cairo.RectangleInt; row_stride: cuint; error: ptr ptr GError): bool  {.importc:"clutter_image_set_area", libclutter.}
+proc setBytes*(image: Image; data: ptr GBytes; pixel_format: CoglPixelFormat; width: cuint; height: cuint; row_stride: cuint; error: ptr ptr GError): bool  {.importc:"clutter_image_set_bytes", libclutter.}
+proc setData*(image: Image; data: ptr cuchar; pixel_format: CoglPixelFormat; width: cuint; height: cuint; row_stride: cuint; error: ptr ptr GError): bool  {.importc:"clutter_image_set_data", libclutter.}
 proc initClutter*(argc: ptr cint; argv: ptr cstringArray): InitError  {.importc:"clutter_init", libclutter.}
 proc initClutterErrorQuark*(): GQuark  {.importc:"clutter_init_error_quark", libclutter.}
 proc initClutter*(argc: ptr cint; argv: ptr cstringArray; parameter_string: cstring; entries: ptr GOptionEntry; translation_domain: cstring; error: ptr ptr GError): InitError  {.importc:"clutter_init_with_args", libclutter.}
@@ -4490,28 +4490,28 @@ proc addScrollInfo*(device: InputDevice; index: cuint; direction: ScrollDirectio
 proc addSlave*(master: InputDevice; slave: InputDevice)  {.importc:"clutter_input_device_add_slave", libclutter.}
 proc getAssociatedDevice*(device: InputDevice): InputDevice  {.importc:"clutter_input_device_get_associated_device", libclutter.}
 proc getAxis*(device: InputDevice; index: cuint): InputAxis  {.importc:"clutter_input_device_get_axis", libclutter.}
-proc getAxisValue*(device: InputDevice; axes: ptr cdouble; axis: InputAxis; value: ptr cdouble): Gboolean  {.importc:"clutter_input_device_get_axis_value", libclutter.}
-proc getCoords*(device: InputDevice; sequence: EventSequence; point: Point): Gboolean  {.importc:"clutter_input_device_get_coords", libclutter.}
+proc getAxisValue*(device: InputDevice; axes: ptr cdouble; axis: InputAxis; value: ptr cdouble): bool  {.importc:"clutter_input_device_get_axis_value", libclutter.}
+proc getCoords*(device: InputDevice; sequence: EventSequence; point: Point): bool  {.importc:"clutter_input_device_get_coords", libclutter.}
 proc getDeviceId*(device: InputDevice): cint  {.importc:"clutter_input_device_get_device_id", libclutter.}
 proc getDeviceMode*(device: InputDevice): InputMode  {.importc:"clutter_input_device_get_device_mode", libclutter.}
 proc getDeviceName*(device: InputDevice): cstring  {.importc:"clutter_input_device_get_device_name", libclutter.}
 proc getDeviceType*(device: InputDevice): InputDeviceType  {.importc:"clutter_input_device_get_device_type", libclutter.}
-proc getEnabled*(device: InputDevice): Gboolean  {.importc:"clutter_input_device_get_enabled", libclutter.}
+proc getEnabled*(device: InputDevice): bool  {.importc:"clutter_input_device_get_enabled", libclutter.}
 proc getGrabbedActor*(device: InputDevice): Actor  {.importc:"clutter_input_device_get_grabbed_actor", libclutter.}
-proc getHasCursor*(device: InputDevice): Gboolean  {.importc:"clutter_input_device_get_has_cursor", libclutter.}
-proc getKey*(device: InputDevice; index: cuint; keyval: ptr cuint; modifiers: ptr ModifierType): Gboolean  {.importc:"clutter_input_device_get_key", libclutter.}
+proc getHasCursor*(device: InputDevice): bool  {.importc:"clutter_input_device_get_has_cursor", libclutter.}
+proc getKey*(device: InputDevice; index: cuint; keyval: ptr cuint; modifiers: ptr ModifierType): bool  {.importc:"clutter_input_device_get_key", libclutter.}
 proc getModifierState*(device: InputDevice): ModifierType  {.importc:"clutter_input_device_get_modifier_state", libclutter.}
 proc getNAxes*(device: InputDevice): cuint  {.importc:"clutter_input_device_get_n_axes", libclutter.}
 proc getNKeys*(device: InputDevice): cuint  {.importc:"clutter_input_device_get_n_keys", libclutter.}
 proc getPointerActor*(device: InputDevice): Actor  {.importc:"clutter_input_device_get_pointer_actor", libclutter.}
 proc getPointerStage*(device: InputDevice): Stage  {.importc:"clutter_input_device_get_pointer_stage", libclutter.}
-proc getScrollDelta*(device: InputDevice; index: cuint; value: cdouble; direction_p: ptr ScrollDirection; delta_p: ptr cdouble): Gboolean  {.importc:"clutter_input_device_get_scroll_delta", libclutter.}
+proc getScrollDelta*(device: InputDevice; index: cuint; value: cdouble; direction_p: ptr ScrollDirection; delta_p: ptr cdouble): bool  {.importc:"clutter_input_device_get_scroll_delta", libclutter.}
 proc getSlaveDevices*(device: InputDevice): ptr GList  {.importc:"clutter_input_device_get_slave_devices", libclutter.}
 proc getStage*(device: InputDevice): Stage  {.importc:"clutter_input_device_get_stage", libclutter.}
 proc getInputDeviceType*(): GType  {.importc:"clutter_input_device_get_type", libclutter.}
 proc grab*(device: InputDevice; actor: Actor)  {.importc:"clutter_input_device_grab", libclutter.}
-proc hasHequence*(device: InputDevice; sequence: EventSequence): Gboolean  {.importc:"clutter_input_device_has_sequence", libclutter.}
-proc keycodeToEvdev*(device: InputDevice; hardware_keycode: cuint; evdev_keycode: ptr cuint): Gboolean  {.importc:"clutter_input_device_keycode_to_evdev", libclutter.}
+proc hasHequence*(device: InputDevice; sequence: EventSequence): bool  {.importc:"clutter_input_device_has_sequence", libclutter.}
+proc keycodeToEvdev*(device: InputDevice; hardware_keycode: cuint; evdev_keycode: ptr cuint): bool  {.importc:"clutter_input_device_keycode_to_evdev", libclutter.}
 proc removeEventSequence*(device: InputDevice; event: Event)  {.importc:"clutter_input_device_remove_event_sequence", libclutter.}
 proc removeSlave*(master: InputDevice; slave: InputDevice)  {.importc:"clutter_input_device_remove_slave", libclutter.}
 proc resetAxes*(device: InputDevice)  {.importc:"clutter_input_device_reset_axes", libclutter.}
@@ -4519,28 +4519,28 @@ proc resetScrollInfo*(device: InputDevice)  {.importc:"clutter_input_device_rese
 proc sequenceGetGrabbedActor*(device: InputDevice; sequence: EventSequence): Actor  {.importc:"clutter_input_device_sequence_get_grabbed_actor", libclutter.}
 proc sequenceGrab*(device: InputDevice; sequence: EventSequence; actor: Actor)  {.importc:"clutter_input_device_sequence_grab", libclutter.}
 proc sequenceUngrab*(device: InputDevice; sequence: EventSequence)  {.importc:"clutter_input_device_sequence_ungrab", libclutter.}
-proc setActor*(device: InputDevice; sequence: EventSequence; actor: Actor; emit_crossing: Gboolean)  {.importc:"clutter_input_device_set_actor", libclutter.}
+proc setActor*(device: InputDevice; sequence: EventSequence; actor: Actor; emit_crossing: bool)  {.importc:"clutter_input_device_set_actor", libclutter.}
 proc setAssociatedDevice*(device: InputDevice; associated: InputDevice)  {.importc:"clutter_input_device_set_associated_device", libclutter.}
 proc setCoords*(device: InputDevice; sequence: EventSequence; x: cfloat; y: cfloat; stage: Stage)  {.importc:"clutter_input_device_set_coords", libclutter.}
-proc setEnabled*(device: InputDevice; enabled: Gboolean)  {.importc:"clutter_input_device_set_enabled", libclutter.}
+proc setEnabled*(device: InputDevice; enabled: bool)  {.importc:"clutter_input_device_set_enabled", libclutter.}
 proc setKey*(device: InputDevice; index: cuint; keyval: cuint; modifiers: ModifierType)  {.importc:"clutter_input_device_set_key", libclutter.}
 proc setNKeys*(device: InputDevice; n_keys: cuint)  {.importc:"clutter_input_device_set_n_keys", libclutter.}
 proc setStage*(device: InputDevice; stage: Stage)  {.importc:"clutter_input_device_set_stage", libclutter.}
 proc setState*(device: InputDevice; state: ModifierType)  {.importc:"clutter_input_device_set_state", libclutter.}
 proc setTime*(device: InputDevice; time: cuint)  {.importc:"clutter_input_device_set_time", libclutter.}
-proc translateAxis*(device: InputDevice; index: cuint; value: cdouble; axis_value: ptr cdouble): Gboolean  {.importc:"clutter_input_device_translate_axis", libclutter.}
+proc translateAxis*(device: InputDevice; index: cuint; value: cdouble; axis_value: ptr cdouble): bool  {.importc:"clutter_input_device_translate_axis", libclutter.}
 proc ungrab*(device: InputDevice)  {.importc:"clutter_input_device_ungrab", libclutter.}
-proc update*(device: InputDevice; sequence: EventSequence; emit_crossing: Gboolean): Actor  {.importc:"clutter_input_device_update", libclutter.}
-proc update*(device: InputDevice; event: Event; update_stage: Gboolean)  {.importc:"clutter_input_device_update_from_event", libclutter.}
+proc update*(device: InputDevice; sequence: EventSequence; emit_crossing: bool): Actor  {.importc:"clutter_input_device_update", libclutter.}
+proc update*(device: InputDevice; event: Event; update_stage: bool)  {.importc:"clutter_input_device_update_from_event", libclutter.}
 proc clone*(interval: Interval): Interval  {.importc:"clutter_interval_clone", libclutter.}
 proc compute*(interval: Interval; factor: cdouble): ptr GValue  {.importc:"clutter_interval_compute", libclutter.}
-proc computeValue*(interval: Interval; factor: cdouble; value: ptr GValue): Gboolean  {.importc:"clutter_interval_compute_value", libclutter.}
+proc computeValue*(interval: Interval; factor: cdouble; value: ptr GValue): bool  {.importc:"clutter_interval_compute_value", libclutter.}
 proc getFinalValue*(interval: Interval; value: ptr GValue)  {.importc:"clutter_interval_get_final_value", libclutter.}
 proc getinitialValue*(interval: Interval; value: ptr GValue)  {.importc:"clutter_interval_get_initial_value", libclutter.}
 proc getInterval*(interval: Interval)  {.varargs, importc:"clutter_interval_get_interval", libclutter.} 
 proc getIntervalType*(): GType  {.importc:"clutter_interval_get_type", libclutter.}
 proc getIntervalValueType*(interval: Interval): GType  {.importc:"clutter_interval_get_value_type", libclutter.}
-proc isValid*(interval: Interval): Gboolean  {.importc:"clutter_interval_is_valid", libclutter.}
+proc isValid*(interval: Interval): bool  {.importc:"clutter_interval_is_valid", libclutter.}
 proc newInterval*(gtype: GType): Interval  {.varargs, importc:"clutter_interval_new", libclutter.} 
 proc newInterval*(gtype: GType; initial: ptr GValue; final: ptr GValue): Interval  {.importc:"clutter_interval_new_with_values", libclutter.}
 proc peekFinalValue*(interval: Interval): ptr GValue  {.importc:"clutter_interval_peek_final_value", libclutter.}
@@ -4551,7 +4551,7 @@ proc setFinalValue*(interval: Interval; value: ptr GValue)  {.importc:"clutter_i
 proc setInitial*(interval: Interval)  {.varargs, importc:"clutter_interval_set_initial", libclutter.} 
 proc setInitialValue*(interval: Interval; value: ptr GValue)  {.importc:"clutter_interval_set_initial_value", libclutter.}
 proc setInterval*(interval: Interval)  {.varargs, importc:"clutter_interval_set_interval", libclutter.} 
-proc validate*(interval: Interval; pspec: ptr GParamSpec): Gboolean  {.importc:"clutter_interval_validate", libclutter.}
+proc validate*(interval: Interval; pspec: ptr GParamSpec): bool  {.importc:"clutter_interval_validate", libclutter.}
 proc clear*(transition: KeyframeTransition)  {.importc:"clutter_keyframe_transition_clear", libclutter.}
 proc getKeyframe*(transition: KeyframeTransition; index: cuint; key: ptr cdouble; mode: ptr AnimationMode; value: ptr GValue)  {.importc:"clutter_keyframe_transition_get_key_frame", libclutter.}
 proc getNKeyframes*(transition: KeyframeTransition): cuint  {.importc:"clutter_keyframe_transition_get_n_key_frames", libclutter.}
@@ -4564,7 +4564,7 @@ proc setModes*(transition: KeyframeTransition; n_modes: cuint; modes: ptr Animat
 proc setValues*(transition: KeyframeTransition; n_values: cuint; values: ptr GValue)  {.importc:"clutter_keyframe_transition_set_values", libclutter.}
 proc keysymToUnicode*(keyval: cuint): cuint  {.importc:"clutter_keysym_to_unicode", libclutter.}
 proc copy*(knot: Knot): Knot  {.importc:"clutter_knot_copy", libclutter.}
-proc equal*(knot_a: Knot; knot_b: Knot): Gboolean  {.importc:"clutter_knot_equal", libclutter.}
+proc equal*(knot_a: Knot; knot_b: Knot): bool  {.importc:"clutter_knot_equal", libclutter.}
 proc free*(knot: Knot)  {.importc:"clutter_knot_free", libclutter.}
 proc getKnotType*(): GType  {.importc:"clutter_knot_get_type", libclutter.}
 proc getLayerNodeType*(): GType  {.importc:"clutter_layer_node_get_type", libclutter.}
@@ -4604,7 +4604,7 @@ proc ensureNextIteration*(master_clock: MasterClock)  {.importc:"clutter_master_
 proc getMasterClockDefault*(): MasterClock  {.importc:"clutter_master_clock_get_default", libclutter.}
 proc getMasterClockType*(): GType  {.importc:"clutter_master_clock_get_type", libclutter.}
 proc removeTimeline*(master_clock: MasterClock; timeline: Timeline)  {.importc:"clutter_master_clock_remove_timeline", libclutter.}
-proc setPaused*(master_clock: MasterClock; paused: Gboolean)  {.importc:"clutter_master_clock_set_paused", libclutter.}
+proc setPaused*(master_clock: MasterClock; paused: bool)  {.importc:"clutter_master_clock_set_paused", libclutter.}
 proc startRunning*(master_clock: MasterClock)  {.importc:"clutter_master_clock_start_running", libclutter.}
 proc allocMatrix*(): ptr Matrix  {.importc:"clutter_matrix_alloc", libclutter.}
 proc getMatrixType*(): GType  {.importc:"clutter_matrix_get_type", libclutter.}
@@ -4614,16 +4614,16 @@ proc getModel*(iter: ModelIter): Model  {.importc:"clutter_model_iter_get_model"
 proc getRow*(iter: ModelIter): cuint  {.importc:"clutter_model_iter_get_row", libclutter.}
 proc getModelIterType*(): GType  {.importc:"clutter_model_iter_get_type", libclutter.}
 proc getValue*(iter: ModelIter; column: cuint; value: ptr GValue)  {.importc:"clutter_model_iter_get_value", libclutter.}
-proc isFirst*(iter: ModelIter): Gboolean  {.importc:"clutter_model_iter_is_first", libclutter.}
-proc isLast*(iter: ModelIter): Gboolean  {.importc:"clutter_model_iter_is_last", libclutter.}
+proc isFirst*(iter: ModelIter): bool  {.importc:"clutter_model_iter_is_first", libclutter.}
+proc isLast*(iter: ModelIter): bool  {.importc:"clutter_model_iter_is_last", libclutter.}
 proc next*(iter: ModelIter): ModelIter  {.importc:"clutter_model_iter_next", libclutter.}
 proc prev*(iter: ModelIter): ModelIter  {.importc:"clutter_model_iter_prev", libclutter.}
 proc set*(iter: ModelIter)  {.varargs, importc:"clutter_model_iter_set",  libclutter.}
 proc setValue*(iter: ModelIter; column: cuint; value: ptr GValue)  {.importc:"clutter_model_iter_set_value", libclutter.}
 proc createTexture*(effect: OffscreenEffect; width: cfloat; height: cfloat): CoglHandle  {.importc:"clutter_offscreen_effect_create_texture", libclutter.}
 proc getTarget*(effect: OffscreenEffect): CoglMaterial  {.importc:"clutter_offscreen_effect_get_target", libclutter.}
-proc getTargetRect*(effect: OffscreenEffect; rect: Rect): Gboolean  {.importc:"clutter_offscreen_effect_get_target_rect", libclutter.}
-proc getTargetSize*(effect: OffscreenEffect; width: ptr cfloat; height: ptr cfloat): Gboolean  {.importc:"clutter_offscreen_effect_get_target_size", libclutter.}
+proc getTargetRect*(effect: OffscreenEffect; rect: Rect): bool  {.importc:"clutter_offscreen_effect_get_target_rect", libclutter.}
+proc getTargetSize*(effect: OffscreenEffect; width: ptr cfloat; height: ptr cfloat): bool  {.importc:"clutter_offscreen_effect_get_target_size", libclutter.}
 proc getTexture*(effect: OffscreenEffect): CoglHandle  {.importc:"clutter_offscreen_effect_get_texture", libclutter.}
 proc getOffscreenEffectType*(): GType  {.importc:"clutter_offscreen_effect_get_type", libclutter.}
 proc paintTarget*(effect: OffscreenEffect)  {.importc:"clutter_offscreen_effect_paint_target", libclutter.}
@@ -4661,7 +4661,7 @@ proc getPaintVolumeType*(): GType  {.importc:"clutter_paint_volume_get_type", li
 proc clutter_paint_volume_get_width*(pv: PaintVolume): cfloat  {.importc:"clutter_paint_volume_get_width", libclutter.}
 proc newPaintVolume*(actor: Actor): PaintVolume  {.importc:"clutter_paint_volume_new", libclutter.}
 proc setDepth*(pv: PaintVolume; depth: cfloat)  {.importc:"clutter_paint_volume_set_depth", libclutter.}
-proc setFromAllocation*(pv: PaintVolume; actor: Actor): Gboolean  {.importc:"clutter_paint_volume_set_from_allocation", libclutter.}
+proc setFromAllocation*(pv: PaintVolume; actor: Actor): bool  {.importc:"clutter_paint_volume_set_from_allocation", libclutter.}
 proc setHeight*(pv: PaintVolume; height: cfloat)  {.importc:"clutter_paint_volume_set_height", libclutter.}
 proc setOrigin*(pv: PaintVolume; origin: Vertex)  {.importc:"clutter_paint_volume_set_origin", libclutter.}
 proc setWidth*(pv: PaintVolume; width: cfloat)  {.importc:"clutter_paint_volume_set_width", libclutter.}
@@ -4669,7 +4669,7 @@ proc union*(pv: PaintVolume; another_pv: PaintVolume)  {.importc:"clutter_paint_
 proc unionBox*(pv: PaintVolume; box: ActorBox)  {.importc:"clutter_paint_volume_union_box", libclutter.}
 proc getAccelerationFactor*(self: PanAction): cdouble  {.importc:"clutter_pan_action_get_acceleration_factor", libclutter.}
 proc getDeceleration*(self: PanAction): cdouble  {.importc:"clutter_pan_action_get_deceleration", libclutter.}
-proc getInterpolate*(self: PanAction): Gboolean  {.importc:"clutter_pan_action_get_interpolate", libclutter.}
+proc getInterpolate*(self: PanAction): bool  {.importc:"clutter_pan_action_get_interpolate", libclutter.}
 proc getInterpolatedCoords*(self: PanAction; interpolated_x: ptr cfloat; interpolated_y: ptr cfloat)  {.importc:"clutter_pan_action_get_interpolated_coords", libclutter.}
 proc getInterpolatedDelta*(self: PanAction; delta_x: ptr cfloat; delta_y: ptr cfloat): cfloat  {.importc:"clutter_pan_action_get_interpolated_delta", libclutter.}
 proc getMotionCoords*(self: PanAction; point: cuint; motion_x: ptr cfloat; motion_y: ptr cfloat)  {.importc:"clutter_pan_action_get_motion_coords", libclutter.}
@@ -4679,7 +4679,7 @@ proc getPanActionType*(): GType  {.importc:"clutter_pan_action_get_type", libclu
 proc newPanAction*(): Action  {.importc:"clutter_pan_action_new", libclutter.}
 proc setAccelerationFactor*(self: PanAction; factor: cdouble)  {.importc:"clutter_pan_action_set_acceleration_factor", libclutter.}
 proc setDeceleration*(self: PanAction; rate: cdouble)  {.importc:"clutter_pan_action_set_deceleration", libclutter.}
-proc setInterpolate*(self: PanAction; should_interpolate: Gboolean)  {.importc:"clutter_pan_action_set_interpolate", libclutter.}
+proc setInterpolate*(self: PanAction; should_interpolate: bool)  {.importc:"clutter_pan_action_set_interpolate", libclutter.}
 proc setPanAxis*(self: PanAction; axis: PanAxis)  {.importc:"clutter_pan_action_set_pan_axis", libclutter.}
 proc getParamColorType*(): GType  {.importc:"clutter_param_color_get_type", libclutter.}
 proc clutter_param_spec_color*(name: cstring; nick: cstring; blurb: cstring; default_value: Color; flags: GParamFlags): ptr GParamSpec  {.importc:"clutter_param_spec_color", libclutter.}
@@ -4692,7 +4692,7 @@ proc addNode*(path: Path; node: PathNode)  {.importc:"clutter_path_add_node", li
 proc addRelCurveTo*(path: Path; x_1: cint; y_1: cint; x_2: cint; y_2: cint; x_3: cint; y_3: cint)  {.importc:"clutter_path_add_rel_curve_to", libclutter.}
 proc addRelLineTo*(path: Path; x: cint; y: cint)  {.importc:"clutter_path_add_rel_line_to", libclutter.}
 proc addRelMoveTo*(path: Path; x: cint; y: cint)  {.importc:"clutter_path_add_rel_move_to", libclutter.}
-proc addString*(path: Path; str: cstring): Gboolean  {.importc:"clutter_path_add_string", libclutter.}
+proc addString*(path: Path; str: cstring): bool  {.importc:"clutter_path_add_string", libclutter.}
 proc clear*(path: Path)  {.importc:"clutter_path_clear", libclutter.}
 proc getOffset*(constraint: PathConstraint): cfloat  {.importc:"clutter_path_constraint_get_offset", libclutter.}
 proc getPath*(constraint: PathConstraint): Path  {.importc:"clutter_path_constraint_get_path", libclutter.}
@@ -4712,12 +4712,12 @@ proc insertNode*(path: Path; index: cint; node: PathNode)  {.importc:"clutter_pa
 proc newPath*(): Path  {.importc:"clutter_path_new", libclutter.}
 proc newPath*(desc: cstring): Path  {.importc:"clutter_path_new_with_description", libclutter.}
 proc nodeCopy*(node: PathNode): PathNode  {.importc:"clutter_path_node_copy", libclutter.}
-proc nodeEqual*(node_a: PathNode; node_b: PathNode): Gboolean  {.importc:"clutter_path_node_equal", libclutter.}
+proc nodeEqual*(node_a: PathNode; node_b: PathNode): bool  {.importc:"clutter_path_node_equal", libclutter.}
 proc nodeFree*(node: PathNode)  {.importc:"clutter_path_node_free", libclutter.}
 proc getPathNodeType*(): GType  {.importc:"clutter_path_node_get_type", libclutter.}
 proc removeNode*(path: Path; index: cuint)  {.importc:"clutter_path_remove_node", libclutter.}
 proc replaceNode*(path: Path; index: cuint; node: PathNode)  {.importc:"clutter_path_replace_node", libclutter.}
-proc setDescription*(path: Path; str: cstring): Gboolean  {.importc:"clutter_path_set_description", libclutter.}
+proc setDescription*(path: Path; str: cstring): bool  {.importc:"clutter_path_set_description", libclutter.}
 proc toCairoPath*(path: Path; cr: cairo.Context)  {.importc:"clutter_path_to_cairo_path", libclutter.}
 proc getPerspectiveType*(): GType  {.importc:"clutter_perspective_get_type", libclutter.}
 proc getPipelineType*(): GType  {.importc:"clutter_pipeline_node_get_type", libclutter.}
@@ -4725,7 +4725,7 @@ proc pixelToId*(pixel: array[4, Guchar]): cuint  {.importc:"clutter_pixel_to_id"
 proc newPoint*(): Point  {.importc:"clutter_point_alloc", libclutter.}
 proc copy*(point: Point): Point  {.importc:"clutter_point_copy", libclutter.}
 proc distance*(a: Point; b: Point; x_distance: ptr cfloat; y_distance: ptr cfloat): cfloat  {.importc:"clutter_point_distance", libclutter.}
-proc equals*(a: Point; b: Point): Gboolean  {.importc:"clutter_point_equals", libclutter.}
+proc equals*(a: Point; b: Point): bool  {.importc:"clutter_point_equals", libclutter.}
 proc free*(point: Point)  {.importc:"clutter_point_free", libclutter.}
 proc getPointType*(): GType  {.importc:"clutter_point_get_type", libclutter.}
 proc init*(point: Point; x: cfloat; y: cfloat): Point  {.importc:"clutter_point_init", libclutter.}
@@ -4736,10 +4736,10 @@ proc newPropertyTransition*(property_name: cstring): Transition  {.importc:"clut
 proc setPropertyName*(transition: PropertyTransition; property_name: cstring)  {.importc:"clutter_property_transition_set_property_name", libclutter.}
 proc newRect*(): Rect  {.importc:"clutter_rect_alloc", libclutter.}
 proc clampToPixel*(rect: Rect)  {.importc:"clutter_rect_clamp_to_pixel", libclutter.}
-proc containsPoint*(rect: Rect; point: Point): Gboolean  {.importc:"clutter_rect_contains_point", libclutter.}
-proc containsRect*(a: Rect; b: Rect): Gboolean  {.importc:"clutter_rect_contains_rect", libclutter.}
+proc containsPoint*(rect: Rect; point: Point): bool  {.importc:"clutter_rect_contains_point", libclutter.}
+proc containsRect*(a: Rect; b: Rect): bool  {.importc:"clutter_rect_contains_rect", libclutter.}
 proc copy*(rect: Rect): Rect  {.importc:"clutter_rect_copy", libclutter.}
-proc equals*(a: Rect; b: Rect): Gboolean  {.importc:"clutter_rect_equals", libclutter.}
+proc equals*(a: Rect; b: Rect): bool  {.importc:"clutter_rect_equals", libclutter.}
 proc free*(rect: Rect)  {.importc:"clutter_rect_free", libclutter.}
 proc getCenter*(rect: Rect; center: Point)  {.importc:"clutter_rect_get_center", libclutter.}
 proc getHeight*(rect: Rect): cfloat  {.importc:"clutter_rect_get_height", libclutter.}
@@ -4749,14 +4749,14 @@ proc getX*(rect: Rect): cfloat  {.importc:"clutter_rect_get_x", libclutter.}
 proc getY*(rect: Rect): cfloat  {.importc:"clutter_rect_get_y", libclutter.}
 proc init*(rect: Rect; x: cfloat; y: cfloat; width: cfloat; height: cfloat): Rect  {.importc:"clutter_rect_init", libclutter.}
 proc inset*(rect: Rect; d_x: cfloat; d_y: cfloat)  {.importc:"clutter_rect_inset", libclutter.}
-proc intersection*(a: Rect; b: Rect; res: Rect): Gboolean  {.importc:"clutter_rect_intersection", libclutter.}
+proc intersection*(a: Rect; b: Rect; res: Rect): bool  {.importc:"clutter_rect_intersection", libclutter.}
 proc normalize*(rect: Rect): Rect  {.importc:"clutter_rect_normalize", libclutter.}
 proc offset*(rect: Rect; d_x: cfloat; d_y: cfloat)  {.importc:"clutter_rect_offset", libclutter.}
 proc union*(a: Rect; b: Rect; res: Rect)  {.importc:"clutter_rect_union", libclutter.}
 proc newZeroRect*(): Rect  {.importc:"clutter_rect_zero", libclutter.}
 proc getRotateActionType*(): GType  {.importc:"clutter_rotate_action_get_type", libclutter.}
 proc newRotateAction*(): Action  {.importc:"clutter_rotate_action_new", libclutter.}
-proc clutter_run_progress_function*(gtype: GType; initial: ptr GValue; final: ptr GValue; progress: cdouble; retval: ptr GValue): Gboolean  {.importc:"clutter_run_progress_function", libclutter.}
+proc clutter_run_progress_function*(gtype: GType; initial: ptr GValue; final: ptr GValue; progress: cdouble; retval: ptr GValue): bool  {.importc:"clutter_run_progress_function", libclutter.}
 proc clutter_run_repaint_functions*(flags: RepaintFlags)  {.importc:"clutter_run_repaint_functions", libclutter.}
 proc addSearchPaths*(script: Script; paths: ptr cstring; n_paths: Gsize)  {.importc:"clutter_script_add_search_paths", libclutter.}
 proc addStates*(script: Script; name: cstring; state: State)  {.importc:"clutter_script_add_states", libclutter.}
@@ -4780,7 +4780,7 @@ proc setTranslationDomain*(script: Script; domain: cstring)  {.importc:"clutter_
 proc unmergeObjects*(script: Script; merge_id: cuint)  {.importc:"clutter_script_unmerge_objects", libclutter.}
 proc getId*(scriptable: Scriptable): cstring  {.importc:"clutter_scriptable_get_id", libclutter.}
 proc getScriptableType*(): GType  {.importc:"clutter_scriptable_get_type", libclutter.}
-proc parseCustomNode*(scriptable: Scriptable; script: Script; value: ptr GValue; name: cstring; node: JsonNode): Gboolean  {.importc:"clutter_scriptable_parse_custom_node", libclutter.}
+proc parseCustomNode*(scriptable: Scriptable; script: Script; value: ptr GValue; name: cstring; node: JsonNode): bool  {.importc:"clutter_scriptable_parse_custom_node", libclutter.}
 proc setCustomProperty*(scriptable: Scriptable; script: Script; name: cstring; value: ptr GValue)  {.importc:"clutter_scriptable_set_custom_property", libclutter.}
 proc setId*(scriptable: Scriptable; id: cstring)  {.importc:"clutter_scriptable_set_id", libclutter.}
 proc getScrollMode*(actor: ptr ScrollActor): ScrollMode  {.importc:"clutter_scroll_actor_get_scroll_mode", libclutter.}
@@ -4789,7 +4789,7 @@ proc newScrollActor*(): Actor  {.importc:"clutter_scroll_actor_new", libclutter.
 proc scrollToPoint*(actor: ptr ScrollActor; point: Point)  {.importc:"clutter_scroll_actor_scroll_to_point", libclutter.}
 proc scrollToRect*(actor: ptr ScrollActor; rect: Rect)  {.importc:"clutter_scroll_actor_scroll_to_rect", libclutter.}
 proc setScrollMode*(actor: ptr ScrollActor; mode: ScrollMode)  {.importc:"clutter_scroll_actor_set_scroll_mode", libclutter.}
-proc setSyncToVblank*(sync_to_vblank: Gboolean)  {.importc:"clutter_set_sync_to_vblank", libclutter.}
+proc setSyncToVblank*(sync_to_vblank: bool)  {.importc:"clutter_set_sync_to_vblank", libclutter.}
 proc setWindowingBackend*(backend_type: cstring)  {.importc:"clutter_set_windowing_backend", libclutter.}
 proc getDefaultSettings*(): Settings  {.importc:"clutter_settings_get_default", libclutter.}
 proc getSettingsType*(): GType  {.importc:"clutter_settings_get_type", libclutter.}
@@ -4798,7 +4798,7 @@ proc getProgram*(effect: ShaderEffect): CoglHandle  {.importc:"clutter_shader_ef
 proc getShader*(effect: ShaderEffect): CoglHandle  {.importc:"clutter_shader_effect_get_shader", libclutter.}
 proc getType*(): GType  {.importc:"clutter_shader_effect_get_type", libclutter.}
 proc newShaderEffect*(shader_type: ShaderType): Effect  {.importc:"clutter_shader_effect_new", libclutter.}
-proc setShaderSource*(effect: ShaderEffect; source: cstring): Gboolean  {.importc:"clutter_shader_effect_set_shader_source", libclutter.}
+proc setShaderSource*(effect: ShaderEffect; source: cstring): bool  {.importc:"clutter_shader_effect_set_shader_source", libclutter.}
 proc setUniform*(effect: ShaderEffect; name: cstring; gtype: GType; n_values: Gsize)  {.varargs, importc:"", libclutter.}  
 proc setUniformValue*(effect: ShaderEffect; name: cstring; value: ptr GValue)  {.importc:"clutter_shader_effect_set_uniform_value", libclutter.}
 proc getShaderFloatType*(): GType  {.importc:"clutter_shader_float_get_type", libclutter.}
@@ -4806,7 +4806,7 @@ proc getShaderIntType*(): GType  {.importc:"clutter_shader_int_get_type", libclu
 proc getShaderMatrixtype*(): GType  {.importc:"clutter_shader_matrix_get_type", libclutter.}
 proc newSize*(): ptr Size  {.importc:"clutter_size_alloc", libclutter.}
 proc copy*(size: ptr Size): ptr Size  {.importc:"clutter_size_copy", libclutter.}
-proc equals*(a: ptr Size; b: ptr Size): Gboolean  {.importc:"clutter_size_equals", libclutter.}
+proc equals*(a: ptr Size; b: ptr Size): bool  {.importc:"clutter_size_equals", libclutter.}
 proc free*(size: ptr Size)  {.importc:"clutter_size_free", libclutter.}
 proc getSizeType*(): GType  {.importc:"clutter_size_get_type", libclutter.}
 proc init*(size: ptr Size; width: cfloat; height: cfloat): ptr Size  {.importc:"clutter_size_init", libclutter.}
@@ -4821,21 +4821,21 @@ proc setSource*(constraint: SnapConstraint; source: Actor)  {.importc:"clutter_s
 proc ensureCurrent*(stage: Stage)  {.importc:"clutter_stage_ensure_current", libclutter.}
 proc ensureRedraw*(stage: Stage)  {.importc:"clutter_stage_ensure_redraw", libclutter.}
 proc ensureViewport*(stage: Stage)  {.importc:"clutter_stage_ensure_viewport", libclutter.}
-proc event*(stage: Stage; event: Event): Gboolean  {.importc:"clutter_stage_event", libclutter.}
-proc getAcceptFocus*(stage: Stage): Gboolean  {.importc:"clutter_stage_get_accept_focus", libclutter.}
+proc event*(stage: Stage; event: Event): bool  {.importc:"clutter_stage_event", libclutter.}
+proc getAcceptFocus*(stage: Stage): bool  {.importc:"clutter_stage_get_accept_focus", libclutter.}
 proc getActorAtPos*(stage: Stage; pick_mode: PickMode; x: cint; y: cint): Actor  {.importc:"clutter_stage_get_actor_at_pos", libclutter.}
-proc getFullscreen*(stage: Stage): Gboolean  {.importc:"clutter_stage_get_fullscreen", libclutter.}
+proc getFullscreen*(stage: Stage): bool  {.importc:"clutter_stage_get_fullscreen", libclutter.}
 proc getKeyFocus*(stage: Stage): Actor  {.importc:"clutter_stage_get_key_focus", libclutter.}
 proc getMinimumSize*(stage: Stage; width: ptr cuint; height: ptr cuint)  {.importc:"clutter_stage_get_minimum_size", libclutter.}
-proc getMotionEventsEnabled*(stage: Stage): Gboolean  {.importc:"clutter_stage_get_motion_events_enabled", libclutter.}
-proc getNoClearHint*(stage: Stage): Gboolean  {.importc:"clutter_stage_get_no_clear_hint", libclutter.}
+proc getMotionEventsEnabled*(stage: Stage): bool  {.importc:"clutter_stage_get_motion_events_enabled", libclutter.}
+proc getNoClearHint*(stage: Stage): bool  {.importc:"clutter_stage_get_no_clear_hint", libclutter.}
 proc getPerspective*(stage: Stage; perspective: Perspective)  {.importc:"clutter_stage_get_perspective", libclutter.}
 proc getRedrawClipBounds*(stage: Stage; clip: cairo.RectangleInt)  {.importc:"clutter_stage_get_redraw_clip_bounds", libclutter.}
-proc getThrottleMotionEvents*(stage: Stage): Gboolean  {.importc:"clutter_stage_get_throttle_motion_events", libclutter.}
+proc getThrottleMotionEvents*(stage: Stage): bool  {.importc:"clutter_stage_get_throttle_motion_events", libclutter.}
 proc getTitle*(stage: Stage): cstring  {.importc:"clutter_stage_get_title", libclutter.}
 proc getStageType*(): GType  {.importc:"clutter_stage_get_type", libclutter.}
-proc getUseAlpha*(stage: Stage): Gboolean  {.importc:"clutter_stage_get_use_alpha", libclutter.}
-proc getUserResizable*(stage: Stage): Gboolean  {.importc:"clutter_stage_get_user_resizable", libclutter.}
+proc getUseAlpha*(stage: Stage): bool  {.importc:"clutter_stage_get_use_alpha", libclutter.}
+proc getUserResizable*(stage: Stage): bool  {.importc:"clutter_stage_get_user_resizable", libclutter.}
 proc hideCursor*(stage: Stage)  {.importc:"clutter_stage_hide_cursor", libclutter.}
 proc getDefaultStageManager*(): StageManager  {.importc:"clutter_stage_manager_get_default", libclutter.}
 proc getDefaultStage*(stage_manager: StageManager): Stage  {.importc:"clutter_stage_manager_get_default_stage", libclutter.}
@@ -4844,44 +4844,44 @@ proc listStages*(stage_manager: StageManager): ptr GSList  {.importc:"clutter_st
 proc peekStages*(stage_manager: StageManager): ptr GSList  {.importc:"clutter_stage_manager_peek_stages", libclutter.}
 proc newStage*(): Actor  {.importc:"clutter_stage_new", libclutter.}
 proc readPixels*(stage: Stage; x: cint; y: cint; width: cint; height: cint): ptr Guchar  {.importc:"clutter_stage_read_pixels", libclutter.}
-proc setAcceptFocus*(stage: Stage; accept_focus: Gboolean)  {.importc:"clutter_stage_set_accept_focus", libclutter.}
-proc setFullscreen*(stage: Stage; fullscreen: Gboolean)  {.importc:"clutter_stage_set_fullscreen", libclutter.}
+proc setAcceptFocus*(stage: Stage; accept_focus: bool)  {.importc:"clutter_stage_set_accept_focus", libclutter.}
+proc setFullscreen*(stage: Stage; fullscreen: bool)  {.importc:"clutter_stage_set_fullscreen", libclutter.}
 proc setKeyFocus*(stage: Stage; actor: Actor)  {.importc:"clutter_stage_set_key_focus", libclutter.}
 proc setMinimumSize*(stage: Stage; width: cuint; height: cuint)  {.importc:"clutter_stage_set_minimum_size", libclutter.}
-proc setMotionEventsEnabled*(stage: Stage; enabled: Gboolean)  {.importc:"clutter_stage_set_motion_events_enabled", libclutter.}
-proc setNoClearHint*(stage: Stage; no_clear: Gboolean)  {.importc:"clutter_stage_set_no_clear_hint", libclutter.}
+proc setMotionEventsEnabled*(stage: Stage; enabled: bool)  {.importc:"clutter_stage_set_motion_events_enabled", libclutter.}
+proc setNoClearHint*(stage: Stage; no_clear: bool)  {.importc:"clutter_stage_set_no_clear_hint", libclutter.}
 proc setPerspective*(stage: Stage; perspective: Perspective)  {.importc:"clutter_stage_set_perspective", libclutter.}
-proc setThrottleMotionEvents*(stage: Stage; throttle: Gboolean)  {.importc:"clutter_stage_set_throttle_motion_events", libclutter.}
+proc setThrottleMotionEvents*(stage: Stage; throttle: bool)  {.importc:"clutter_stage_set_throttle_motion_events", libclutter.}
 proc setTitle*(stage: Stage; title: cstring)  {.importc:"clutter_stage_set_title", libclutter.}
-proc setUseAlpha*(stage: Stage; use_alpha: Gboolean)  {.importc:"clutter_stage_set_use_alpha", libclutter.}
-proc setUserResizable*(stage: Stage; resizable: Gboolean)  {.importc:"clutter_stage_set_user_resizable", libclutter.}
+proc setUseAlpha*(stage: Stage; use_alpha: bool)  {.importc:"clutter_stage_set_use_alpha", libclutter.}
+proc setUserResizable*(stage: Stage; resizable: bool)  {.importc:"clutter_stage_set_user_resizable", libclutter.}
 proc showCursor*(stage: Stage)  {.importc:"clutter_stage_show_cursor", libclutter.}
 proc addRedrawClip*(window: StageWindow; stage_clip: cairo.RectangleInt)  {.importc:"clutter_stage_window_add_redraw_clip", libclutter.}
-proc canClipRedraws*(window: StageWindow): Gboolean  {.importc:"clutter_stage_window_can_clip_redraws", libclutter.}
+proc canClipRedraws*(window: StageWindow): bool  {.importc:"clutter_stage_window_can_clip_redraws", libclutter.}
 proc clearUpdateTime*(window: StageWindow)  {.importc:"clutter_stage_window_clear_update_time", libclutter.}
 proc dirtyBackBuffer*(window: StageWindow)  {.importc:"clutter_stage_window_dirty_back_buffer", libclutter.}
 proc getActiveFramebuffer*(window: StageWindow): CoglFramebuffer  {.importc:"clutter_stage_window_get_active_framebuffer", libclutter.}
 proc getDirtyPixel*(window: StageWindow; x: ptr cint; y: ptr cint)  {.importc:"clutter_stage_window_get_dirty_pixel", libclutter.}
 proc getGeometry*(window: StageWindow; geometry: cairo.RectangleInt)  {.importc:"clutter_stage_window_get_geometry", libclutter.}
-proc getRedrawClipBounds*(window: StageWindow; clip: cairo.RectangleInt): Gboolean  {.importc:"clutter_stage_window_get_redraw_clip_bounds", libclutter.}
+proc getRedrawClipBounds*(window: StageWindow; clip: cairo.RectangleInt): bool  {.importc:"clutter_stage_window_get_redraw_clip_bounds", libclutter.}
 proc getScaleFactor*(window: StageWindow): cint  {.importc:"clutter_stage_window_get_scale_factor", libclutter.}
 proc clutter_stage_window_get_type*(): GType  {.importc:"clutter_stage_window_get_type", libclutter.}
 proc getUpdateTime*(window: StageWindow): int64  {.importc:"clutter_stage_window_get_update_time", libclutter.}
 proc getWrapper*(window: StageWindow): Actor  {.importc:"clutter_stage_window_get_wrapper", libclutter.}
-proc hasRedrawClips*(window: StageWindow): Gboolean  {.importc:"clutter_stage_window_has_redraw_clips", libclutter.}
+proc hasRedrawClips*(window: StageWindow): bool  {.importc:"clutter_stage_window_has_redraw_clips", libclutter.}
 proc hide*(window: StageWindow)  {.importc:"clutter_stage_window_hide", libclutter.}
-proc ignoringRedrawClips*(window: StageWindow): Gboolean  {.importc:"clutter_stage_window_ignoring_redraw_clips", libclutter.}
-proc realize*(window: StageWindow): Gboolean  {.importc:"clutter_stage_window_realize", libclutter.}
+proc ignoringRedrawClips*(window: StageWindow): bool  {.importc:"clutter_stage_window_ignoring_redraw_clips", libclutter.}
+proc realize*(window: StageWindow): bool  {.importc:"clutter_stage_window_realize", libclutter.}
 proc redraw*(window: StageWindow)  {.importc:"clutter_stage_window_redraw", libclutter.}
 proc resize*(window: StageWindow; width: cint; height: cint)  {.importc:"clutter_stage_window_resize", libclutter.}
 proc scheduleUpdate*(window: StageWindow; sync_delay: cint)  {.importc:"clutter_stage_window_schedule_update", libclutter.}
-proc setAcceptFocus*(window: StageWindow; accept_focus: Gboolean)  {.importc:"clutter_stage_window_set_accept_focus", libclutter.}
-proc setCursorVisible*(window: StageWindow; is_visible: Gboolean)  {.importc:"clutter_stage_window_set_cursor_visible", libclutter.}
-proc setFullscreen*(window: StageWindow; is_fullscreen: Gboolean)  {.importc:"clutter_stage_window_set_fullscreen", libclutter.}
+proc setAcceptFocus*(window: StageWindow; accept_focus: bool)  {.importc:"clutter_stage_window_set_accept_focus", libclutter.}
+proc setCursorVisible*(window: StageWindow; is_visible: bool)  {.importc:"clutter_stage_window_set_cursor_visible", libclutter.}
+proc setFullscreen*(window: StageWindow; is_fullscreen: bool)  {.importc:"clutter_stage_window_set_fullscreen", libclutter.}
 proc setScaleFactor*(window: StageWindow; factor: cint)  {.importc:"clutter_stage_window_set_scale_factor", libclutter.}
 proc setTitle*(window: StageWindow; title: cstring)  {.importc:"clutter_stage_window_set_title", libclutter.}
-proc setUserResizable*(window: StageWindow; is_resizable: Gboolean)  {.importc:"clutter_stage_window_set_user_resizable", libclutter.}
-proc show*(window: StageWindow; do_raise: Gboolean)  {.importc:"clutter_stage_window_show", libclutter.}
+proc setUserResizable*(window: StageWindow; is_resizable: bool)  {.importc:"clutter_stage_window_set_user_resizable", libclutter.}
+proc show*(window: StageWindow; do_raise: bool)  {.importc:"clutter_stage_window_show", libclutter.}
 proc unrealize*(window: StageWindow)  {.importc:"clutter_stage_window_unrealize", libclutter.}
 proc getSwipeActionType*(): GType  {.importc:"clutter_swipe_action_get_type", libclutter.}
 proc newSwipeAction*(): Action  {.importc:"clutter_swipe_action_new", libclutter.}
@@ -4890,12 +4890,12 @@ proc newTapAction*(): Action  {.importc:"clutter_tap_action_new", libclutter.}
 proc add*(test_path: cstring; test_func: GTestFunc)  {.importc:"clutter_test_add", libclutter.}
 proc add*(test_path: cstring; test_func: GTestDataFunc; test_data: Gpointer)  {.importc:"clutter_test_add_data", libclutter.}
 proc add*(test_path: cstring; test_func: GTestDataFunc; test_data: Gpointer; test_notify: GDestroyNotify)  {.importc:"clutter_test_add_data_full", libclutter.}
-proc checkActorAtPoint*(stage: Actor; point: Point; actor: Actor; result: ptr Actor): Gboolean  {.importc:"clutter_test_check_actor_at_point", libclutter.}
-proc checkColorAtPoint*(stage: Actor; point: Point; color: Color; result: Color): Gboolean  {.importc:"clutter_test_check_color_at_point", libclutter.}
+proc checkActorAtPoint*(stage: Actor; point: Point; actor: Actor; result: ptr Actor): bool  {.importc:"clutter_test_check_actor_at_point", libclutter.}
+proc checkColorAtPoint*(stage: Actor; point: Point; color: Color; result: Color): bool  {.importc:"clutter_test_check_color_at_point", libclutter.}
 proc getStage*(): Actor  {.importc:"clutter_test_get_stage", libclutter.}
 proc initTest*(argc: ptr cint; argv: ptr cstringArray)  {.importc:"clutter_test_init", libclutter.}
 proc runTest*(): cint  {.importc:"clutter_test_run", libclutter.}
-proc activate*(self: Text): Gboolean  {.importc:"clutter_text_activate", libclutter.}
+proc activate*(self: Text): bool  {.importc:"clutter_text_activate", libclutter.}
 proc deleteText*(buffer: TextBuffer; position: cuint; n_chars: cint): cuint  {.importc:"clutter_text_buffer_delete_text", libclutter.}
 proc emitDeletedText*(buffer: TextBuffer; position: cuint; n_chars: cuint)  {.importc:"clutter_text_buffer_emit_deleted_text", libclutter.}
 proc emitInsertedText*(buffer: TextBuffer; position: cuint; chars: cstring; n_chars: cuint)  {.importc:"clutter_text_buffer_emit_inserted_text", libclutter.}
@@ -4911,9 +4911,9 @@ proc setMaxLength*(buffer: TextBuffer; max_length: cint)  {.importc:"clutter_tex
 proc setText*(buffer: TextBuffer; chars: cstring; n_chars: cint)  {.importc:"clutter_text_buffer_set_text", libclutter.}
 proc coordsToPosition*(self: Text; x: cfloat; y: cfloat): cint  {.importc:"clutter_text_coords_to_position", libclutter.}
 proc deleteChars*(self: Text; n_chars: cuint)  {.importc:"clutter_text_delete_chars", libclutter.}
-proc deleteSelection*(self: Text): Gboolean  {.importc:"clutter_text_delete_selection", libclutter.}
+proc deleteSelection*(self: Text): bool  {.importc:"clutter_text_delete_selection", libclutter.}
 proc deleteText*(self: Text; start_pos: Gssize; end_pos: Gssize)  {.importc:"clutter_text_delete_text", libclutter.}
-proc getActivatable*(self: Text): Gboolean  {.importc:"clutter_text_get_activatable", libclutter.}
+proc getActivatable*(self: Text): bool  {.importc:"clutter_text_get_activatable", libclutter.}
 proc getAttributes*(self: Text): pango.AttrList  {.importc:"clutter_text_get_attributes", libclutter.}
 proc getBuffer*(self: Text): TextBuffer  {.importc:"clutter_text_get_buffer", libclutter.}
 proc getChars*(self: Text; start_pos: Gssize; end_pos: Gssize): cstring  {.importc:"clutter_text_get_chars", libclutter.}
@@ -4922,28 +4922,28 @@ proc getCursorColor*(self: Text; color: Color)  {.importc:"clutter_text_get_curs
 proc getCursorPosition*(self: Text): cint  {.importc:"clutter_text_get_cursor_position", libclutter.}
 proc getCursorRect*(self: Text; rect: Rect)  {.importc:"clutter_text_get_cursor_rect", libclutter.}
 proc getCursorSize*(self: Text): cuint  {.importc:"clutter_text_get_cursor_size", libclutter.}
-proc getCursorVisible*(self: Text): Gboolean  {.importc:"clutter_text_get_cursor_visible", libclutter.}
-proc getEditable*(self: Text): Gboolean  {.importc:"clutter_text_get_editable", libclutter.}
+proc getCursorVisible*(self: Text): bool  {.importc:"clutter_text_get_cursor_visible", libclutter.}
+proc getEditable*(self: Text): bool  {.importc:"clutter_text_get_editable", libclutter.}
 proc getEllipsize*(self: Text): pango.EllipsizeMode  {.importc:"clutter_text_get_ellipsize", libclutter.}
 proc getFontDescription*(self: Text): pango.FontDescription  {.importc:"clutter_text_get_font_description", libclutter.}
 proc getFontName*(self: Text): cstring  {.importc:"clutter_text_get_font_name", libclutter.}
-proc getJustify*(self: Text): Gboolean  {.importc:"clutter_text_get_justify", libclutter.}
+proc getJustify*(self: Text): bool  {.importc:"clutter_text_get_justify", libclutter.}
 proc getLayout*(self: Text): pango.Layout  {.importc:"clutter_text_get_layout", libclutter.}
 proc getLayoutOffsets*(self: Text; x: ptr cint; y: ptr cint)  {.importc:"clutter_text_get_layout_offsets", libclutter.}
 proc getLineAlignment*(self: Text): pango.Alignment  {.importc:"clutter_text_get_line_alignment", libclutter.}
-proc getLineWrap*(self: Text): Gboolean  {.importc:"clutter_text_get_line_wrap", libclutter.}
+proc getLineWrap*(self: Text): bool  {.importc:"clutter_text_get_line_wrap", libclutter.}
 proc getLineWrapMode*(self: Text): pango.WrapMode  {.importc:"clutter_text_get_line_wrap_mode", libclutter.}
 proc getMaxLength*(self: Text): cint  {.importc:"clutter_text_get_max_length", libclutter.}
 proc getPasswordChar*(self: Text): Gunichar  {.importc:"clutter_text_get_password_char", libclutter.}
-proc getSelectable*(self: Text): Gboolean  {.importc:"clutter_text_get_selectable", libclutter.}
+proc getSelectable*(self: Text): bool  {.importc:"clutter_text_get_selectable", libclutter.}
 proc getSelectedText_Clor*(self: Text; color: Color)  {.importc:"clutter_text_get_selected_text_color", libclutter.}
 proc getSelection*(self: Text): cstring  {.importc:"clutter_text_get_selection", libclutter.}
 proc getSelectionBound*(self: Text): cint  {.importc:"clutter_text_get_selection_bound", libclutter.}
 proc getSelectionColor*(self: Text; color: Color)  {.importc:"clutter_text_get_selection_color", libclutter.}
-proc getSingleLineMode*(self: Text): Gboolean  {.importc:"clutter_text_get_single_line_mode", libclutter.}
+proc getSingleLineMode*(self: Text): bool  {.importc:"clutter_text_get_single_line_mode", libclutter.}
 proc get_text*(self: Text): cstring  {.importc:"clutter_text_get_text", libclutter.}
 proc getTextType*(): GType  {.importc:"clutter_text_get_type", libclutter.}
-proc getUseMarkup*(self: Text): Gboolean  {.importc:"clutter_text_get_use_markup", libclutter.}
+proc getUseMarkup*(self: Text): bool  {.importc:"clutter_text_get_use_markup", libclutter.}
 proc insertText*(self: Text; text: cstring; position: Gssize)  {.importc:"clutter_text_insert_text", libclutter.}
 proc insertText*(self: Text; wc: Gunichar)  {.importc:"clutter_text_insert_unichar", libclutter.}
 proc newText*(): Actor  {.importc:"clutter_text_new", libclutter.}
@@ -4952,35 +4952,35 @@ proc newText*(buffer: TextBuffer): Actor  {.importc:"clutter_text_new_with_buffe
 proc newText*(font_name: cstring; text: cstring): Actor  {.importc:"clutter_text_new_with_text", libclutter.}
 proc getTextNodeType*(): GType  {.importc:"clutter_text_node_get_type", libclutter.}
 proc newTextNode*(layout: pango.Layout; color: Color): PaintNode  {.importc:"clutter_text_node_new", libclutter.}
-proc positionToCoords*(self: Text; position: cint; x: ptr cfloat; y: ptr cfloat; line_height: ptr cfloat): Gboolean  {.importc:"clutter_text_position_to_coords", libclutter.}
-proc setActivatable*(self: Text; activatable: Gboolean)  {.importc:"clutter_text_set_activatable", libclutter.}
+proc positionToCoords*(self: Text; position: cint; x: ptr cfloat; y: ptr cfloat; line_height: ptr cfloat): bool  {.importc:"clutter_text_position_to_coords", libclutter.}
+proc setActivatable*(self: Text; activatable: bool)  {.importc:"clutter_text_set_activatable", libclutter.}
 proc setAttributes*(self: Text; attrs: pango.AttrList)  {.importc:"clutter_text_set_attributes", libclutter.}
 proc setBuffer*(self: Text; buffer: TextBuffer)  {.importc:"clutter_text_set_buffer", libclutter.}
 proc setColor*(self: Text; color: Color)  {.importc:"clutter_text_set_color", libclutter.}
 proc setCursorColor*(self: Text; color: Color)  {.importc:"clutter_text_set_cursor_color", libclutter.}
 proc setCursorPosition*(self: Text; position: cint)  {.importc:"clutter_text_set_cursor_position", libclutter.}
 proc setCursorSize*(self: Text; size: cint)  {.importc:"clutter_text_set_cursor_size", libclutter.}
-proc setCursorVisible*(self: Text; cursor_visible: Gboolean)  {.importc:"clutter_text_set_cursor_visible", libclutter.}
-proc setEditable*(self: Text; editable: Gboolean)  {.importc:"clutter_text_set_editable", libclutter.}
+proc setCursorVisible*(self: Text; cursor_visible: bool)  {.importc:"clutter_text_set_cursor_visible", libclutter.}
+proc setEditable*(self: Text; editable: bool)  {.importc:"clutter_text_set_editable", libclutter.}
 proc setEllipsize*(self: Text; mode: pango.EllipsizeMode)  {.importc:"clutter_text_set_ellipsize", libclutter.}
 proc setFontDescription*(self: Text; font_desc: pango.FontDescription)  {.importc:"clutter_text_set_font_description", libclutter.}
 proc setFontName*(self: Text; font_name: cstring)  {.importc:"clutter_text_set_font_name", libclutter.}
-proc setJustify*(self: Text; justify: Gboolean)  {.importc:"clutter_text_set_justify", libclutter.}
+proc setJustify*(self: Text; justify: bool)  {.importc:"clutter_text_set_justify", libclutter.}
 proc setLineAlignment*(self: Text; alignment: pango.Alignment)  {.importc:"clutter_text_set_line_alignment", libclutter.}
-proc setLineWrap*(self: Text; line_wrap: Gboolean)  {.importc:"clutter_text_set_line_wrap", libclutter.}
+proc setLineWrap*(self: Text; line_wrap: bool)  {.importc:"clutter_text_set_line_wrap", libclutter.}
 proc setLineWrapMode*(self: Text; wrap_mode: pango.WrapMode)  {.importc:"clutter_text_set_line_wrap_mode", libclutter.}
 proc setMarkup*(self: Text; markup: cstring)  {.importc:"clutter_text_set_markup", libclutter.}
 proc setMaxLength*(self: Text; max: cint)  {.importc:"clutter_text_set_max_length", libclutter.}
 proc setPasswordChar*(self: Text; wc: Gunichar)  {.importc:"clutter_text_set_password_char", libclutter.}
 proc setPreeditString*(self: Text; preedit_str: cstring; preedit_attrs: pango.AttrList; cursor_pos: cuint)  {.importc:"clutter_text_set_preedit_string", libclutter.}
-proc setSelectable*(self: Text; selectable: Gboolean)  {.importc:"clutter_text_set_selectable", libclutter.}
+proc setSelectable*(self: Text; selectable: bool)  {.importc:"clutter_text_set_selectable", libclutter.}
 proc setSelectedTextColor*(self: Text; color: Color)  {.importc:"clutter_text_set_selected_text_color", libclutter.}
 proc setSelection*(self: Text; start_pos: Gssize; end_pos: Gssize)  {.importc:"clutter_text_set_selection", libclutter.}
 proc setSelectionBound*(self: Text; selection_bound: cint)  {.importc:"clutter_text_set_selection_bound", libclutter.}
 proc setSelectionColor*(self: Text; color: Color)  {.importc:"clutter_text_set_selection_color", libclutter.}
-proc setSingleLineMode*(self: Text; single_line: Gboolean)  {.importc:"clutter_text_set_single_line_mode", libclutter.}
+proc setSingleLineMode*(self: Text; single_line: bool)  {.importc:"clutter_text_set_single_line_mode", libclutter.}
 proc setText*(self: Text; text: cstring)  {.importc:"clutter_text_set_text", libclutter.}
-proc setUseMarkup*(self: Text; setting: Gboolean)  {.importc:"clutter_text_set_use_markup", libclutter.}
+proc setUseMarkup*(self: Text; setting: bool)  {.importc:"clutter_text_set_use_markup", libclutter.}
 proc errorTextureQuark*(): GQuark  {.importc:"clutter_texture_error_quark", libclutter.}
 proc getTextureType*(): GType  {.importc:"clutter_texture_get_type", libclutter.}
 proc getTextureNodeType*(): GType  {.importc:"clutter_texture_node_get_type", libclutter.}
@@ -4992,7 +4992,7 @@ proc addThreadsRepaintFunc*(`func`: GSourceFunc; data: Gpointer; notify: GDestro
 proc addThreadsRepaintFunc*(flags: RepaintFlags; `func`: GSourceFunc; data: Gpointer; notify: GDestroyNotify): cuint  {.importc:"clutter_threads_add_repaint_func_full", libclutter.}
 proc addThreadsTimeout*(interval: cuint; `func`: GSourceFunc; data: Gpointer): cuint  {.importc:"clutter_threads_add_timeout", libclutter.}
 proc addThreadsTimeout*(priority: cint; interval: cuint; `func`: GSourceFunc; data: Gpointer; notify: GDestroyNotify): cuint  {.importc:"clutter_threads_add_timeout_full", libclutter.}
-proc dispatchThreads*(data: Gpointer): Gboolean  {.importc:"clutter_threads_dispatch", libclutter.}
+proc dispatchThreads*(data: Gpointer): bool  {.importc:"clutter_threads_dispatch", libclutter.}
 proc dispatchThreadsFree*(data: Gpointer)  {.importc:"clutter_threads_dispatch_free", libclutter.}
 proc releaseThreadsLock*()  {.importc:"clutter_threads_release_lock", libclutter.}
 proc removeThreadsRepaintFunc*(handle_id: cuint)  {.importc:"clutter_threads_remove_repaint_func", libclutter.}
@@ -5003,8 +5003,8 @@ proc advance*(timeline: Timeline; tick_time: int64)  {.importc:"clutter_timeline
 proc advance*(timeline: Timeline; msecs: cuint)  {.importc:"clutter_timeline_advance", libclutter.}
 proc advance_to_marker*(timeline: Timeline; marker_name: cstring)  {.importc:"clutter_timeline_advance_to_marker", libclutter.}
 proc doTick*(timeline: Timeline; tick_time: int64)  {.importc:"clutter_timeline_do_tick", libclutter.}
-proc getAutoReverse*(timeline: Timeline): Gboolean  {.importc:"clutter_timeline_get_auto_reverse", libclutter.}
-proc getCubicBezierProgress*(timeline: Timeline; c_1: Point; c_2: Point): Gboolean  {.importc:"clutter_timeline_get_cubic_bezier_progress", libclutter.}
+proc getAutoReverse*(timeline: Timeline): bool  {.importc:"clutter_timeline_get_auto_reverse", libclutter.}
+proc getCubicBezierProgress*(timeline: Timeline; c_1: Point; c_2: Point): bool  {.importc:"clutter_timeline_get_cubic_bezier_progress", libclutter.}
 proc getCurrentRepeat*(timeline: Timeline): cint  {.importc:"clutter_timeline_get_current_repeat", libclutter.}
 proc getDelay*(timeline: Timeline): cuint  {.importc:"clutter_timeline_get_delay", libclutter.}
 proc getDelta*(timeline: Timeline): int64  {.importc:"clutter_timeline_get_delta", libclutter.}
@@ -5016,16 +5016,16 @@ proc getElapsedTime*(timeline: Timeline): cuint  {.importc:"clutter_timeline_get
 proc getProgress*(timeline: Timeline): cdouble  {.importc:"clutter_timeline_get_progress", libclutter.}
 proc getProgressMode*(timeline: Timeline): AnimationMode  {.importc:"clutter_timeline_get_progress_mode", libclutter.}
 proc getRepeatCount*(timeline: Timeline): cint  {.importc:"clutter_timeline_get_repeat_count", libclutter.}
-proc getStepProgress*(timeline: Timeline; n_steps: ptr cint; step_mode: ptr StepMode): Gboolean  {.importc:"clutter_timeline_get_step_progress", libclutter.}
+proc getStepProgress*(timeline: Timeline; n_steps: ptr cint; step_mode: ptr StepMode): bool  {.importc:"clutter_timeline_get_step_progress", libclutter.}
 proc getTimelineType*(): GType  {.importc:"clutter_timeline_get_type", libclutter.}
-proc hasMarker*(timeline: Timeline; marker_name: cstring): Gboolean  {.importc:"clutter_timeline_has_marker", libclutter.}
-proc isPlaying*(timeline: Timeline): Gboolean  {.importc:"clutter_timeline_is_playing", libclutter.}
+proc hasMarker*(timeline: Timeline; marker_name: cstring): bool  {.importc:"clutter_timeline_has_marker", libclutter.}
+proc isPlaying*(timeline: Timeline): bool  {.importc:"clutter_timeline_is_playing", libclutter.}
 proc listMarkers*(timeline: Timeline; msecs: cint; n_markers: ptr Gsize): ptr cstring  {.importc:"clutter_timeline_list_markers", libclutter.}
 proc newTimeline*(msecs: cuint): Timeline  {.importc:"clutter_timeline_new", libclutter.}
 proc pause*(timeline: Timeline)  {.importc:"clutter_timeline_pause", libclutter.}
 proc removeMarker*(timeline: Timeline; marker_name: cstring)  {.importc:"clutter_timeline_remove_marker", libclutter.}
 proc rewind*(timeline: Timeline)  {.importc:"clutter_timeline_rewind", libclutter.}
-proc setAutoReverse*(timeline: Timeline; reverse: Gboolean)  {.importc:"clutter_timeline_set_auto_reverse", libclutter.}
+proc setAutoReverse*(timeline: Timeline; reverse: bool)  {.importc:"clutter_timeline_set_auto_reverse", libclutter.}
 proc setCubicBezierProgress*(timeline: Timeline; c_1: Point; c_2: Point)  {.importc:"clutter_timeline_set_cubic_bezier_progress", libclutter.}
 proc setDelay*(timeline: Timeline; msecs: cuint)  {.importc:"clutter_timeline_set_delay", libclutter.}
 proc setDirection*(timeline: Timeline; direction: TimelineDirection)  {.importc:"clutter_timeline_set_direction", libclutter.}
@@ -5039,7 +5039,7 @@ proc start*(timeline: Timeline)  {.importc:"clutter_timeline_start", libclutter.
 proc stop*(timeline: Timeline)  {.importc:"clutter_timeline_stop", libclutter.}
 proc getAnimatable*(transition: Transition): Animatable  {.importc:"clutter_transition_get_animatable", libclutter.}
 proc getInterval*(transition: Transition): Interval  {.importc:"clutter_transition_get_interval", libclutter.}
-proc getRemoveOnComplete*(transition: Transition): Gboolean  {.importc:"clutter_transition_get_remove_on_complete", libclutter.}
+proc getRemoveOnComplete*(transition: Transition): bool  {.importc:"clutter_transition_get_remove_on_complete", libclutter.}
 proc getTransitionType*(): GType  {.importc:"clutter_transition_get_type", libclutter.}
 proc addTransition*(group: TransitionGroup; transition: Transition)  {.importc:"clutter_transition_group_add_transition", libclutter.}
 proc getTransitionGroupType*(): GType  {.importc:"clutter_transition_group_get_type", libclutter.}
@@ -5050,14 +5050,14 @@ proc setAnimatable*(transition: Transition; animatable: Animatable)  {.importc:"
 proc setFrom*(transition: Transition; value_type: GType)  {.varargs, importc:"clutter_transition_set_from", libclutter.}  
 proc setFromValue*(transition: Transition; value: ptr GValue)  {.importc:"clutter_transition_set_from_value", libclutter.}
 proc setInterval*(transition: Transition; interval: Interval)  {.importc:"clutter_transition_set_interval", libclutter.}
-proc setRemoveOnComplete*(transition: Transition; remove_complete: Gboolean)  {.importc:"clutter_transition_set_remove_on_complete", libclutter.}
+proc setRemoveOnComplete*(transition: Transition; remove_complete: bool)  {.importc:"clutter_transition_set_remove_on_complete", libclutter.}
 proc setTo*(transition: Transition; value_type: GType)  {.varargs, importc:"clutter_transition_set_to", libclutter.}  
 proc setToValue*(transition: Transition; value: ptr GValue)  {.importc:"clutter_transition_set_to_value", libclutter.}
 proc ungrabKeyboard*()  {.importc:"clutter_ungrab_keyboard", libclutter.}
 proc ungrabPointer*()  {.importc:"clutter_ungrab_pointer", libclutter.}
 proc unicodeToKeysym*(wc: cuint): cuint  {.importc:"clutter_unicode_to_keysym", libclutter.}
 proc fullyTransformVertices*(modelview: CoglMatrix; projection: CoglMatrix; viewport: ptr cfloat; vertices_in: Vertex; vertices_out: Vertex; n_vertices: cint)  {.importc:"clutter_util_fully_transform_vertices", libclutter.}
-proc decompose*(src: ptr Matrix; scale_p: Vertex; shear_p: array[3, cfloat]; rotate_p: Vertex; translate_p: Vertex; perspective_p: ptr Vertex4): Gboolean  {.importc:"clutter_util_matrix_decompose", libclutter.}
+proc decompose*(src: ptr Matrix; scale_p: Vertex; shear_p: array[3, cfloat]; rotate_p: Vertex; translate_p: Vertex; perspective_p: ptr Vertex4): bool  {.importc:"clutter_util_matrix_decompose", libclutter.}
 proc determinant*(matrix: ptr Matrix): cfloat  {.importc:"clutter_util_matrix_determinant", libclutter.}
 proc skewXY*(matrix: ptr Matrix; factor: cfloat)  {.importc:"clutter_util_matrix_skew_xy", libclutter.}
 proc skewXZ*(matrix: ptr Matrix; factor: cfloat)  {.importc:"clutter_util_matrix_skew_xz", libclutter.}
@@ -5078,7 +5078,7 @@ proc setShaderMatrix*(value: ptr GValue; size: cint; matrix: ptr cfloat)  {.impo
 proc takePaintNode*(value: ptr GValue; node: Gpointer)  {.importc:"clutter_value_take_paint_node", libclutter.}
 proc newVertex*(): Vertex  {.importc:"clutter_vertex_alloc", libclutter.}
 proc copy*(vertex: Vertex): Vertex  {.importc:"clutter_vertex_copy", libclutter.}
-proc equal*(vertex_a: Vertex; vertex_b: Vertex): Gboolean  {.importc:"clutter_vertex_equal", libclutter.}
+proc equal*(vertex_a: Vertex; vertex_b: Vertex): bool  {.importc:"clutter_vertex_equal", libclutter.}
 proc free*(vertex: Vertex)  {.importc:"clutter_vertex_free", libclutter.}
 proc getVertexType*(): GType  {.importc:"clutter_vertex_get_type", libclutter.}
 proc init*(vertex: Vertex; x: cfloat; y: cfloat; z: cfloat): Vertex  {.importc:"clutter_vertex_init", libclutter.}
