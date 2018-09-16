@@ -1,3 +1,5 @@
+# Translation into Nim of C example by ebassi clutter/examples/drop_action.c
+
 import nimclutter
 import strutils
 import oldgtk3/[gobject, glib]
